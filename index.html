@@ -12,6 +12,7 @@
 <meta property="og:type" content="website"/>
 <title>MFL – Mamta Forwarding Logistics | Fast & Reliable India Transport</title>
 
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230B3D91'/><text y='.9em' font-size='65' x='10'>🚚</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet"/>
@@ -171,12 +172,16 @@ h2.sec-title.white { color:#fff }
 .hero-photo {
   position:absolute; inset:0; z-index:0;
   background:url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=85') center 60%/cover no-repeat;
-  opacity:.22; animation:hzoom 20s ease-in-out infinite alternate;
+  opacity:1; animation:hzoom 20s ease-in-out infinite alternate;
 }
 @keyframes hzoom { from { transform:scale(1.05) } to { transform:scale(1.0) } }
 .hero-grad {
   position:absolute; inset:0; z-index:1;
-  background:linear-gradient(120deg, rgba(7,17,31,.98) 0%, rgba(11,45,110,.82) 50%, rgba(7,17,31,.90) 100%);
+  background:rgba(0,0,0,0.62);
+}
+.hero-grad-2 {
+  position:absolute; inset:0; z-index:2;
+  background:linear-gradient(120deg, rgba(11,61,145,.72) 0%, rgba(0,0,0,0) 55%, rgba(11,61,145,.45) 100%);
 }
 .hero-dots {
   position:absolute; inset:0; z-index:2; opacity:1;
@@ -759,8 +764,17 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
 /* ═══════════════════════
    CALL FAB
 ═══════════════════════ */
-.fab-wrap { display:none; position:fixed; bottom:22px; right:18px; z-index:2000; flex-direction:column; align-items:flex-end; gap:10px }
-@media(max-width:768px) { .fab-wrap { display:flex } }
+.fab-wrap {
+  display:flex; position:fixed; bottom:24px; right:20px; z-index:2000;
+  flex-direction:column; align-items:flex-end; gap:8px;
+}
+.fab-label {
+  position:absolute; right:calc(100% + 10px); top:50%; transform:translateY(-50%);
+  background:rgba(0,0,0,.75); color:#fff; font-size:.65rem; font-weight:700;
+  white-space:nowrap; padding:4px 10px; border-radius:20px;
+  opacity:0; pointer-events:none; transition:opacity .2s; letter-spacing:.04em;
+}
+.fab:hover .fab-label { opacity:1 }
 .fab {
   width:54px; height:54px; border-radius:50%;
   display:flex; align-items:center; justify-content:center;
@@ -772,6 +786,35 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
 .fab.wa { background:linear-gradient(135deg,#25d366,#1aad52); animation:fpulse2 2.5s ease-in-out infinite }
 @keyframes fpulse { 0%,100%{box-shadow:0 6px 20px rgba(11,61,145,.45)} 50%{box-shadow:0 6px 30px rgba(11,61,145,.7),0 0 0 8px rgba(11,61,145,.12)} }
 @keyframes fpulse2 { 0%,100%{box-shadow:0 6px 20px rgba(37,211,102,.45)} 50%{box-shadow:0 6px 30px rgba(37,211,102,.7),0 0 0 8px rgba(37,211,102,.12)} }
+
+/* ── GLOBAL DEPTH BOOST ── */
+.ofc, .rt-card, .tst, .occ, .qcs-office, .cf {
+  box-shadow: 0 8px 28px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+.ofc:hover, .rt-card:hover, .tst:hover {
+  box-shadow: 0 20px 52px rgba(0,0,0,0.18), 0 6px 16px rgba(0,0,0,0.1) !important;
+}
+.sc { box-shadow: 0 4px 18px rgba(0,0,0,0.18) !important }
+.sc:hover { box-shadow: 0 18px 48px rgba(0,0,0,0.32) !important }
+.lcard { box-shadow: 0 2px 10px rgba(0,0,0,0.06) !important }
+.lcard:hover { box-shadow: 0 6px 22px rgba(11,61,145,.14) !important }
+.btn-A, .btn-P, .btn-wa, .btn-ghost { box-shadow: 0 6px 24px rgba(0,0,0,.18) !important }
+.btn-A:hover { box-shadow: 0 12px 32px rgba(255,107,0,.55) !important }
+.btn-P:hover { box-shadow: 0 12px 32px rgba(11,61,145,.55) !important }
+.ofc-btn.call:hover, .qcs-btn.c:hover { box-shadow: 0 6px 18px rgba(11,61,145,.4) !important }
+.ofc-btn.wa:hover, .qcs-btn.w:hover { box-shadow: 0 6px 18px rgba(37,211,102,.4) !important }
+
+
+.hero-trusted {
+  display:flex; align-items:center; gap:10px;
+  color:rgba(255,255,255,.75); font-size:.82rem; font-weight:500;
+  margin-bottom:16px; padding:10px 16px;
+  background:rgba(255,255,255,.07); border-left:3px solid var(--A);
+  border-radius:0 6px 6px 0; max-width:440px;
+  animation:fup .7s ease .7s both;
+}
+.hero-trusted strong { color:#fff; font-weight:800 }
+
 </style>
 </head>
 <body>
@@ -810,6 +853,7 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
 <section id="hero">
   <div class="hero-photo"></div>
   <div class="hero-grad"></div>
+  <div class="hero-grad-2"></div>
   <div class="hero-dots"></div>
   <div class="hero-topbar"></div>
   <div class="container">
@@ -826,8 +870,12 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
         <a href="tel:+918707812390" class="btn-P"><i class="fas fa-phone"></i> Call Now</a>
         <a href="https://wa.me/918707812390" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       </div>
+      <div class="hero-trusted">
+        <i class="fas fa-shield-halved" style="color:var(--A)"></i>
+        <span>Trusted by <strong>100+ businesses</strong> across India 🇮🇳 — On-Time Guarantee</span>
+      </div>
       <div class="hero-pills">
-        <div class="hp"><i class="fas fa-check-circle"></i> 100+ Daily Deliveries</div>
+        <div class="hp"><i class="fas fa-check-circle"></i> 500+ Deliveries Done</div>
         <div class="hp"><i class="fas fa-check-circle"></i> 24/7 Support</div>
         <div class="hp"><i class="fas fa-check-circle"></i> Pan India Service</div>
         <div class="hp"><i class="fas fa-check-circle"></i> 25+ Years of Trust</div>
@@ -862,9 +910,9 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
 <!-- ══ TRUST STRIP ══ -->
 <section id="trust">
   <div class="trust-bar">
-    <div class="tb"><div class="tb-ico"><i class="fas fa-truck-fast"></i></div><div><div class="tb-num">100+</div><div class="tb-lbl">Daily Deliveries</div></div></div>
+    <div class="tb"><div class="tb-ico"><i class="fas fa-truck-fast"></i></div><div><div class="tb-num" data-target="500">500+</div><div class="tb-lbl">Deliveries Completed</div></div></div>
     <div class="tb"><div class="tb-ico"><i class="fas fa-headset"></i></div><div><div class="tb-num">24/7</div><div class="tb-lbl">Support Available</div></div></div>
-    <div class="tb"><div class="tb-ico"><i class="fas fa-map-location-dot"></i></div><div><div class="tb-num">Pan</div><div class="tb-lbl">India Service</div></div></div>
+    <div class="tb"><div class="tb-ico"><i class="fas fa-map-location-dot"></i></div><div><div class="tb-num">✔</div><div class="tb-lbl">On-Time Guarantee</div></div></div>
     <div class="tb"><div class="tb-ico"><i class="fas fa-medal"></i></div><div><div class="tb-num">25+</div><div class="tb-lbl">Years of Trust</div></div></div>
   </div>
 </section>
@@ -1087,6 +1135,7 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
   <div class="container">
     <div class="contact-cta-banner rv">
       <div>
+        <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,107,0,.2);border:1px solid rgba(255,107,0,.4);color:#ffb366;font-size:.62rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border-radius:50px;margin-bottom:10px"><i class="fas fa-bolt"></i> Responds in Minutes</div>
         <div class="ccb-title">📞 Ready to Ship? Get an Instant Quote!</div>
         <div class="ccb-sub">Call us or WhatsApp either office directly — our team responds in minutes.</div>
       </div>
@@ -1234,15 +1283,36 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
 
 <!-- ══ FAB BUTTONS ══ -->
 <div class="fab-wrap">
-  <a class="fab wa" href="https://wa.me/919302115585?text=Hello%20MFL%20Indore%2C%20I%20need%20a%20logistics%20quote." target="_blank" title="WhatsApp Indore Office"><i class="fab fa-whatsapp"></i></a>
-  <a class="fab call" href="tel:+919302115585" title="Call Indore: +91 93021 15585" style="width:auto;border-radius:30px;padding:0 16px;font-size:.68rem;gap:7px;"><i class="fas fa-phone"></i><span style="font-size:.65rem;font-weight:800;letter-spacing:.04em">Indore</span></a>
-  <a class="fab call" href="tel:+918707812390" title="Call Kanpur: +91 87078 12390" style="width:auto;border-radius:30px;padding:0 16px;font-size:.68rem;gap:7px;background:linear-gradient(135deg,#1450b8,var(--P))"><i class="fas fa-phone"></i><span style="font-size:.65rem;font-weight:800;letter-spacing:.04em">Kanpur</span></a>
+  <!-- WhatsApp Indore -->
+  <a class="fab wa" href="https://wa.me/919302115585?text=Hello%20MFL%20Indore%2C%20I%20need%20a%20logistics%20quote." target="_blank" aria-label="WhatsApp Indore" style="position:relative">
+    <div class="fab-label">WhatsApp · Indore</div>
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <!-- WhatsApp Kanpur -->
+  <a class="fab wa" href="https://wa.me/918707812390?text=Hello%20MFL%20Kanpur%2C%20I%20need%20a%20logistics%20quote." target="_blank" aria-label="WhatsApp Kanpur" style="position:relative;background:linear-gradient(135deg,#1aad52,#128c3e);animation:fpulse2 2.5s ease-in-out 1s infinite">
+    <div class="fab-label">WhatsApp · Kanpur</div>
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <!-- Call Indore -->
+  <a class="fab call" href="tel:+919302115585" aria-label="Call Indore" style="position:relative">
+    <div class="fab-label">📞 Call Indore: 93021 15585</div>
+    <i class="fas fa-phone"></i>
+  </a>
+  <!-- Call Kanpur -->
+  <a class="fab call" href="tel:+918707812390" aria-label="Call Kanpur" style="position:relative;background:linear-gradient(135deg,#1450b8,#0B3D91);animation:fpulse 2.5s ease-in-out 1s infinite">
+    <div class="fab-label">📞 Call Kanpur: 87078 12390</div>
+    <i class="fas fa-phone"></i>
+  </a>
 </div>
 
 <script>
 // Navbar
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 55), {passive:true});
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('solid', scrollY > 55);
+}, {passive:true});
+// Always solid after 1px scroll for crisp nav
+if (scrollY > 0) nav.classList.add('solid');
 
 // Hamburger
 const hbg = document.getElementById('hbg'), mob = document.getElementById('mob');
@@ -1270,6 +1340,33 @@ document.getElementById('fsub').addEventListener('click', function() {
     ['fn','ph','co','rt','msg'].forEach(id => document.getElementById(id).value = '');
   }, 1300);
 });
+
+// Count-up animation for trust stats
+function animateCount(el, target, suffix='') {
+  let start = 0;
+  const duration = 1800;
+  const step = (timestamp) => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target) + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+const countObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      if (target) animateCount(el, target, '+');
+      countObs.unobserve(el);
+    }
+  });
+}, {threshold:0.5});
+document.querySelectorAll('[data-target]').forEach(el => countObs.observe(el));
+
 </script>
 </body>
 </html>
