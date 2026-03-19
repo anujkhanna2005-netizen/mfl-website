@@ -24,10 +24,10 @@
    Primary: #0B3D91  Accent: #FF6B00
 ═══════════════════════════════ */
 :root {
-  --P:    #0B3D91;
+  --P:    #0B3D91;  /* LOGISTICS BLUE */
   --PD:   #082c6e;
   --PL:   #1a54c4;
-  --A:    #FF6B00;
+  --A:    #FF6B00;  /* ENERGY ORANGE */
   --AD:   #d95a00;
   --AL:   #ff8c33;
   --DARK: #07111f;
@@ -259,7 +259,7 @@ h2.sec-title.white { color:#fff }
 ═══════════════════════ */
 #trust { padding:0; background:var(--WHITE); border-bottom:2px solid var(--BDR) }
 .trust-bar {
-  display:grid; grid-template-columns:repeat(4,1fr);
+  display:grid; grid-template-columns:repeat(6,1fr);
   max-width:1180px; margin:0 auto;
 }
 .tb {
@@ -278,7 +278,8 @@ h2.sec-title.white { color:#fff }
 .tb-ico i { color:#fff; font-size:1.15rem }
 .tb-num { font-size:1.7rem; font-weight:900; color:var(--P); line-height:1; letter-spacing:-.03em }
 .tb-lbl { font-size:.68rem; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--TL); margin-top:2px }
-@media(max-width:700px){ .trust-bar{grid-template-columns:1fr 1fr} .tb{border-right:none;border-bottom:1px solid var(--BDR)} }
+@media(max-width:900px){ .trust-bar{grid-template-columns:repeat(3,1fr)} }
+@media(max-width:580px){ .trust-bar{grid-template-columns:1fr 1fr} .tb{border-right:none;border-bottom:1px solid var(--BDR)} }
 
 /* ═══════════════════════
    PHOTO STRIP
@@ -815,6 +816,74 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
 }
 .hero-trusted strong { color:#fff; font-weight:800 }
 
+
+/* ── STICKY QUOTE BAR ── */
+.sticky-bar {
+  position:fixed; bottom:0; left:0; right:0; z-index:900;
+  background:var(--P); border-top:3px solid var(--A);
+  padding:12px 24px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px; flex-wrap:wrap;
+  box-shadow:0 -4px 30px rgba(0,0,0,.25);
+  transform:translateY(100%); transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+.sticky-bar.show { transform:translateY(0) }
+.sticky-bar-text { color:rgba(255,255,255,.9); font-size:.88rem; font-weight:600 }
+.sticky-bar-text strong { color:var(--A) }
+.sticky-bar-btns { display:flex; gap:10px; flex-shrink:0 }
+.sticky-bar-btn {
+  display:inline-flex; align-items:center; gap:7px;
+  padding:10px 22px; border-radius:6px; border:none; cursor:pointer;
+  font-family:'Poppins',sans-serif; font-size:.82rem; font-weight:800;
+  letter-spacing:.03em; text-decoration:none; transition:all .2s;
+}
+.sticky-bar-btn.q { background:var(--A); color:#fff; box-shadow:0 4px 14px rgba(255,107,0,.4) }
+.sticky-bar-btn.q:hover { background:var(--AD); transform:scale(1.04); color:#fff }
+.sticky-bar-btn.c { background:rgba(255,255,255,.15); color:#fff; border:1px solid rgba(255,255,255,.3) }
+.sticky-bar-btn.c:hover { background:rgba(255,255,255,.25); color:#fff }
+@media(max-width:580px) {
+  .sticky-bar { flex-direction:column; text-align:center; gap:10px }
+  .sticky-bar-btns { justify-content:center }
+}
+/* push footer above sticky bar */
+body.bar-visible footer { padding-bottom:72px }
+
+
+/* ── BUTTON MICRO-ANIMATIONS ── */
+.btn-A, .btn-P, .btn-wa, .ofc-btn, .qcs-btn, .sticky-bar-btn.q {
+  position:relative; overflow:hidden;
+}
+.btn-A::after, .btn-P::after, .btn-wa::after {
+  content:''; position:absolute; inset:0;
+  background:rgba(255,255,255,0);
+  transition:background .2s;
+}
+.btn-A:hover::after, .btn-P:hover::after, .btn-wa:hover::after {
+  background:rgba(255,255,255,.08);
+}
+/* Icon bounce on hover */
+.btn-A:hover i, .btn-P:hover i, .btn-wa:hover i,
+.ofc-btn:hover i, .sticky-bar-btn:hover i {
+  animation:iconBounce .4s ease;
+}
+@keyframes iconBounce {
+  0%,100%{transform:scale(1)} 40%{transform:scale(1.3)} 70%{transform:scale(.9)}
+}
+/* Card tilt effect */
+.ofc, .rt-card, .tst {
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.ofc:hover { transform:translateY(-6px) rotate(-0.3deg) }
+.rt-card:hover { transform:translateY(-8px) rotate(0.3deg) }
+.tst:hover { transform:translateY(-5px) }
+
+
+/* ── SECTION ACCENT LINES ── */
+#about::before { content:''; display:block; height:4px; background:linear-gradient(90deg,var(--A),var(--P)); border-radius:0 0 4px 4px; margin-bottom:0 }
+#offices::before { content:''; display:block; height:4px; background:linear-gradient(90deg,var(--P),var(--A)); margin-bottom:0 }
+#testimonials::before { content:''; display:block; height:4px; background:linear-gradient(90deg,var(--A),var(--P),var(--A)); margin-bottom:0 }
+#contact::before { content:''; display:block; height:4px; background:linear-gradient(90deg,var(--P),var(--A)); margin-bottom:0 }
+
 </style>
 </head>
 <body>
@@ -876,6 +945,8 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
       </div>
       <div class="hero-pills">
         <div class="hp"><i class="fas fa-check-circle"></i> 500+ Deliveries Done</div>
+        <div class="hp"><i class="fas fa-check-circle"></i> 100+ Happy Clients</div>
+        <div class="hp"><i class="fas fa-check-circle"></i> Pan India Service</div>
         <div class="hp"><i class="fas fa-check-circle"></i> 24/7 Support</div>
         <div class="hp"><i class="fas fa-check-circle"></i> Pan India Service</div>
         <div class="hp"><i class="fas fa-check-circle"></i> 25+ Years of Trust</div>
@@ -910,10 +981,12 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
 <!-- ══ TRUST STRIP ══ -->
 <section id="trust">
   <div class="trust-bar">
-    <div class="tb"><div class="tb-ico"><i class="fas fa-truck-fast"></i></div><div><div class="tb-num" data-target="500">500+</div><div class="tb-lbl">Deliveries Completed</div></div></div>
-    <div class="tb"><div class="tb-ico"><i class="fas fa-headset"></i></div><div><div class="tb-num">24/7</div><div class="tb-lbl">Support Available</div></div></div>
-    <div class="tb"><div class="tb-ico"><i class="fas fa-map-location-dot"></i></div><div><div class="tb-num">✔</div><div class="tb-lbl">On-Time Guarantee</div></div></div>
-    <div class="tb"><div class="tb-ico"><i class="fas fa-medal"></i></div><div><div class="tb-num">25+</div><div class="tb-lbl">Years of Trust</div></div></div>
+    <div class="tb"><div class="tb-ico"><i class="fas fa-truck-fast"></i></div><div><div class="tb-num" data-target="500">0+</div><div class="tb-lbl">✔ Deliveries Completed</div></div></div>
+    <div class="tb"><div class="tb-ico"><i class="fas fa-users"></i></div><div><div class="tb-num" data-target="100">0+</div><div class="tb-lbl">✔ Happy Clients</div></div></div>
+    <div class="tb"><div class="tb-ico"><i class="fas fa-map-location-dot"></i></div><div><div class="tb-num">Pan</div><div class="tb-lbl">✔ India Service</div></div></div>
+    <div class="tb"><div class="tb-ico"><i class="fas fa-headset"></i></div><div><div class="tb-num">24/7</div><div class="tb-lbl">✔ Support</div></div></div>
+    <div class="tb"><div class="tb-ico"><i class="fas fa-shield-halved"></i></div><div><div class="tb-num">100%</div><div class="tb-lbl">✔ On-Time Guarantee</div></div></div>
+    <div class="tb"><div class="tb-ico"><i class="fas fa-medal"></i></div><div><div class="tb-num">25+</div><div class="tb-lbl">✔ Years of Trust</div></div></div>
   </div>
 </section>
 
@@ -1093,11 +1166,11 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
       <p class="sec-sub white rv d2" style="margin:0 auto">We deliver more than goods — we deliver peace of mind.</p>
     </div>
     <div class="why-grid">
-      <div class="wc rv"><div class="wc-ico"><i class="fas fa-clock"></i></div><div class="wc-t">✔ Reliable &amp; Timely</div><p class="wc-d">We honour every deadline — punctual across every route, every time.</p></div>
-      <div class="wc rv d1"><div class="wc-ico"><i class="fas fa-route"></i></div><div class="wc-t">✔ Expert Network</div><p class="wc-d">Decades of logistics know-how and deep Indian freight corridor expertise.</p></div>
-      <div class="wc rv d2"><div class="wc-ico"><i class="fas fa-truck-monster"></i></div><div class="wc-t">✔ Strong Fleet</div><p class="wc-d">A modern, well-maintained fleet built for safe, efficient cargo movement.</p></div>
-      <div class="wc rv d3"><div class="wc-ico"><i class="fas fa-headset"></i></div><div class="wc-t">✔ 24/7 Support</div><p class="wc-d">Your business is our priority — always reachable, always responsive.</p></div>
-      <div class="wc rv d4"><div class="wc-ico"><i class="fas fa-shield-halved"></i></div><div class="wc-t">✔ Safe Handling</div><p class="wc-d">Every consignment treated with maximum care — loaded, secured, delivered.</p></div>
+      <div class="wc rv"><div class="wc-ico"><i class="fas fa-clock"></i></div><div class="wc-t">⏱️ Reliable &amp; Timely</div><p class="wc-d">We honour every deadline — punctual across every route, every time.</p></div>
+      <div class="wc rv d1"><div class="wc-ico"><i class="fas fa-route"></i></div><div class="wc-t">🗺️ Expert Network</div><p class="wc-d">Decades of logistics know-how and deep Indian freight corridor expertise.</p></div>
+      <div class="wc rv d2"><div class="wc-ico"><i class="fas fa-truck-monster"></i></div><div class="wc-t">🚛 Strong Fleet</div><p class="wc-d">A modern, well-maintained fleet built for safe, efficient cargo movement.</p></div>
+      <div class="wc rv d3"><div class="wc-ico"><i class="fas fa-headset"></i></div><div class="wc-t">📞 24/7 Support</div><p class="wc-d">Your business is our priority — always reachable, always responsive.</p></div>
+      <div class="wc rv d4"><div class="wc-ico"><i class="fas fa-shield-halved"></i></div><div class="wc-t">🛡️ Safe Handling</div><p class="wc-d">Every consignment treated with maximum care — loaded, secured, delivered.</p></div>
     </div>
   </div>
 </section>
@@ -1281,6 +1354,16 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
   </div>
 </footer>
 
+
+<!-- ── STICKY QUOTE BAR ── -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-bar-text">🚚 <strong>MFL Logistics</strong> — Fast &amp; Reliable Transport Across India | <strong>Always Best Services, Safe On Time</strong></div>
+  <div class="sticky-bar-btns">
+    <a href="tel:+918707812390" class="sticky-bar-btn c"><i class="fas fa-phone"></i> Call Now</a>
+    <a href="#contact" class="sticky-bar-btn q"><i class="fas fa-file-invoice"></i> Get a Quote</a>
+  </div>
+</div>
+
 <!-- ══ FAB BUTTONS ══ -->
 <div class="fab-wrap">
   <!-- WhatsApp Indore -->
@@ -1366,6 +1449,25 @@ const countObs = new IntersectionObserver(entries => {
   });
 }, {threshold:0.5});
 document.querySelectorAll('[data-target]').forEach(el => countObs.observe(el));
+
+
+// Sticky quote bar — show after scrolling past hero
+const stickyBar = document.getElementById('stickyBar');
+const heroSection = document.getElementById('hero');
+const contactSection = document.getElementById('contact');
+window.addEventListener('scroll', () => {
+  const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+  const contactBottom = contactSection.offsetTop + contactSection.offsetHeight;
+  const show = scrollY > heroBottom && scrollY < contactBottom;
+  stickyBar.classList.toggle('show', show);
+  document.body.classList.toggle('bar-visible', show);
+}, {passive:true});
+
+
+// Staggered fade-in for service cards
+document.querySelectorAll('.sc, .rt-card, .tst, .wc').forEach((el, i) => {
+  el.style.transitionDelay = (i * 0.07) + 's';
+});
 
 </script>
 </body>
