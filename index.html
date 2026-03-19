@@ -646,6 +646,109 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
 .ft-cr span, .ft-cr a { font-size:.78rem; color:rgba(255,255,255,.46); line-height:1.7; text-decoration:none; transition:color .2s }
 .ft-cr a:hover { color:var(--AL) }
 .ft-cr strong { color:rgba(255,255,255,.65) }
+/* ── OFFICE ACTION BUTTONS ── */
+.ofc-actions {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:10px; padding:18px 20px 20px;
+  border-top:1px solid var(--BDR);
+  background:var(--BG);
+}
+.ofc-btn {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  padding:12px 10px; border-radius:8px; border:none; cursor:pointer;
+  font-family:'Poppins',sans-serif; font-size:.8rem; font-weight:700;
+  text-decoration:none; transition:all .25s; letter-spacing:.02em;
+}
+.ofc-btn.call {
+  background:linear-gradient(135deg,var(--P),var(--PL));
+  color:#fff; box-shadow:0 4px 14px rgba(11,61,145,.3);
+}
+.ofc-btn.call:hover { background:var(--PD); transform:translateY(-2px) scale(1.03); box-shadow:0 8px 20px rgba(11,61,145,.4); color:#fff }
+.ofc-btn.wa {
+  background:linear-gradient(135deg,#25d366,#1aad52);
+  color:#fff; box-shadow:0 4px 14px rgba(37,211,102,.3);
+}
+.ofc-btn.wa:hover { background:#1abe4a; transform:translateY(-2px) scale(1.03); box-shadow:0 8px 20px rgba(37,211,102,.4); color:#fff }
+.ofc-btn i { font-size:.9rem }
+
+/* office card for Indore red top: call btn different shade */
+.ofc:nth-child(2) .ofc-btn.call {
+  background:linear-gradient(135deg,#c01800,#e02000);
+  box-shadow:0 4px 14px rgba(192,24,0,.3);
+}
+.ofc:nth-child(2) .ofc-btn.call:hover { background:#a81200; box-shadow:0 8px 20px rgba(192,24,0,.4) }
+
+/* ── OFFICE CONTACT CARDS (contact section) ── */
+.office-contact-cards { display:flex; flex-direction:column; gap:16px; margin-bottom:20px }
+.occ {
+  background:var(--WHITE); border:1.5px solid var(--BDR);
+  border-radius:12px; overflow:hidden; box-shadow:var(--SH);
+  transition:all .25s;
+}
+.occ:hover { box-shadow:var(--SHL); border-color:rgba(11,61,145,.2) }
+.occ-header {
+  padding:14px 18px; display:flex; align-items:center; gap:12px;
+}
+.occ.kanpur .occ-header { background:linear-gradient(135deg,var(--P),var(--PL)) }
+.occ.indore .occ-header { background:linear-gradient(135deg,#8c1200,#c41800) }
+.occ-dot {
+  width:38px; height:38px; border-radius:50%; flex-shrink:0;
+  background:rgba(255,255,255,.2); display:flex; align-items:center; justify-content:center;
+}
+.occ-dot i { color:#fff; font-size:.85rem }
+.occ-hname { font-size:.85rem; font-weight:800; color:#fff; line-height:1 }
+.occ-htype { font-size:.58rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.65); margin-top:2px }
+.occ-num { font-size:.78rem; font-weight:700; color:rgba(255,255,255,.85); margin-left:auto; white-space:nowrap }
+.occ-actions {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:0; border-top:1px solid var(--BDR);
+}
+.occ-btn {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  padding:13px 10px; font-family:'Poppins',sans-serif;
+  font-size:.78rem; font-weight:800; letter-spacing:.03em;
+  text-decoration:none; transition:all .2s; border:none; cursor:pointer;
+}
+.occ-btn.c { color:var(--P); background:var(--WHITE) }
+.occ-btn.c:hover { background:var(--P); color:#fff }
+.occ.indore .occ-btn.c { color:#c01800 }
+.occ.indore .occ-btn.c:hover { background:#c01800; color:#fff }
+.occ-btn.w { color:#16a34a; background:var(--WHITE); border-left:1px solid var(--BDR) }
+.occ-btn.w:hover { background:#25d366; color:#fff }
+.occ-btn i { font-size:.9rem }
+.occ-sep { width:1px; background:var(--BDR) }
+
+/* ── QUICK CONTACT STRIP (above section) ── */
+.quick-contact-strip {
+  background:var(--BG); border:1.5px solid var(--BDR);
+  border-radius:14px; padding:24px 28px; margin-bottom:40px;
+  display:grid; grid-template-columns:1fr 1fr; gap:16px;
+}
+.qcs-office {
+  background:var(--WHITE); border:1px solid var(--BDR);
+  border-radius:10px; overflow:hidden; box-shadow:var(--SH);
+}
+.qcs-top {
+  padding:12px 16px; display:flex; align-items:center; justify-content:space-between;
+}
+.qcs-office.kanpur .qcs-top { background:linear-gradient(135deg,var(--P),var(--PL)) }
+.qcs-office.indore .qcs-top { background:linear-gradient(135deg,#8c1200,#c41800) }
+.qcs-name { font-size:.82rem; font-weight:800; color:#fff }
+.qcs-type { font-size:.6rem; font-weight:600; text-transform:uppercase; letter-spacing:.1em; color:rgba(255,255,255,.65) }
+.qcs-btns { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--BDR) }
+.qcs-btn {
+  display:flex; align-items:center; justify-content:center; gap:7px;
+  padding:11px 8px; font-family:'Poppins',sans-serif; font-size:.72rem; font-weight:800;
+  text-decoration:none; transition:all .2s; border:none; cursor:pointer; letter-spacing:.02em;
+}
+.qcs-btn.c { color:var(--P); background:var(--WHITE) }
+.qcs-btn.c:hover { background:var(--P); color:#fff }
+.qcs-office.indore .qcs-btn.c { color:#c01800 }
+.qcs-office.indore .qcs-btn.c:hover { background:#c01800; color:#fff }
+.qcs-btn.w { color:#16a34a; background:var(--WHITE); border-left:1px solid var(--BDR) }
+.qcs-btn.w:hover { background:#25d366; color:#fff }
+@media(max-width:560px) { .quick-contact-strip{grid-template-columns:1fr} .occ-num{display:none} }
+
 .ft-btm { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; padding:18px 0 }
 .ft-copy { font-size:.72rem; color:rgba(255,255,255,.26) }
 .ft-copy strong { color:rgba(255,255,255,.52) }
@@ -911,6 +1014,10 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
           <div class="ofc-row"><div class="ofc-ico"><i class="fas fa-phone"></i></div><div><div class="ofc-l">Contact</div><div class="ofc-v"><a href="tel:+918707812390">+91 87078 12390</a></div></div></div>
           <div class="ofc-row"><div class="ofc-ico"><i class="fas fa-route"></i></div><div><div class="ofc-l">Coverage</div><div class="ofc-v">North India Freight Corridors</div></div></div>
         </div>
+        <div class="ofc-actions">
+          <a href="tel:+918707812390" class="ofc-btn call"><i class="fas fa-phone"></i> Call Now</a>
+          <a href="https://wa.me/918707812390" class="ofc-btn wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
       </div>
       <div class="ofc rv d2">
         <div class="ofc-top r"><div class="ofc-badge">Head Office</div><div class="ofc-city">Indore</div><div class="ofc-state">Madhya Pradesh</div></div>
@@ -919,6 +1026,10 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
           <div class="ofc-row"><div class="ofc-ico"><i class="fas fa-map-marker-alt"></i></div><div><div class="ofc-l">Address</div><div class="ofc-v">207, Loha Mandi,<br/>Indore, Madhya Pradesh</div></div></div>
           <div class="ofc-row"><div class="ofc-ico"><i class="fas fa-phone"></i></div><div><div class="ofc-l">Contact</div><div class="ofc-v"><a href="tel:+919302115585">+91 93021 15585</a></div></div></div>
           <div class="ofc-row"><div class="ofc-ico"><i class="fas fa-route"></i></div><div><div class="ofc-l">Coverage</div><div class="ofc-v">Central India Logistics Hub</div></div></div>
+        </div>
+        <div class="ofc-actions">
+          <a href="tel:+919302115585" class="ofc-btn call"><i class="fas fa-phone"></i> Call Now</a>
+          <a href="https://wa.me/919302115585" class="ofc-btn wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
       </div>
     </div>
@@ -977,31 +1088,70 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
     <div class="contact-cta-banner rv">
       <div>
         <div class="ccb-title">📞 Ready to Ship? Get an Instant Quote!</div>
-        <div class="ccb-sub">Call us now or send a WhatsApp message — our team responds in minutes.</div>
+        <div class="ccb-sub">Call us or WhatsApp either office directly — our team responds in minutes.</div>
       </div>
       <div class="ccb-btns">
-        <a href="tel:+918707812390" class="btn-A"><i class="fas fa-phone"></i> Call Now</a>
-        <a href="https://wa.me/918707812390" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="tel:+918707812390" class="btn-A"><i class="fas fa-phone"></i> Kanpur: 87078 12390</a>
+        <a href="tel:+919302115585" class="btn-P"><i class="fas fa-phone"></i> Indore: 93021 15585</a>
+      </div>
+    </div>
+
+    <!-- QUICK OFFICE CONTACT STRIP -->
+    <div class="quick-contact-strip rv">
+      <!-- Kanpur -->
+      <div class="qcs-office kanpur">
+        <div class="qcs-top">
+          <div><div class="qcs-name">Kanpur — Mr. Anoop Khanna</div><div class="qcs-type">Branch Office · Uttar Pradesh</div></div>
+        </div>
+        <div class="qcs-btns">
+          <a href="tel:+918707812390" class="qcs-btn c"><i class="fas fa-phone"></i> Call +91 87078 12390</a>
+          <a href="https://wa.me/918707812390?text=Hello%20MFL%20Kanpur%2C%20I%20need%20a%20logistics%20quote." class="qcs-btn w" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+      </div>
+      <!-- Indore -->
+      <div class="qcs-office indore">
+        <div class="qcs-top">
+          <div><div class="qcs-name">Indore — Mr. Ashish Khanna</div><div class="qcs-type">Head Office · Madhya Pradesh</div></div>
+        </div>
+        <div class="qcs-btns">
+          <a href="tel:+919302115585" class="qcs-btn c"><i class="fas fa-phone"></i> Call +91 93021 15585</a>
+          <a href="https://wa.me/919302115585?text=Hello%20MFL%20Indore%2C%20I%20need%20a%20logistics%20quote." class="qcs-btn w" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
       </div>
     </div>
 
     <div class="contact-grid">
       <div class="contact-side rv">
-        <div class="cs-title">Get in Touch Today</div>
-        <p class="cs-sub">Contact either office directly. We're here Mon–Sat, 9 AM to 7 PM.</p>
+        <div class="cs-title">Contact Either Office</div>
+        <p class="cs-sub">One-tap call or WhatsApp each office directly — we respond in minutes.</p>
 
-        <a href="tel:+918707812390" class="cm">
-          <div class="cm-ico p"><i class="fas fa-phone"></i></div>
-          <div><div class="cm-l">Kanpur Branch — Anoop Khanna</div><div class="cm-v">+91 87078 12390</div></div>
-        </a>
-        <a href="tel:+919302115585" class="cm">
-          <div class="cm-ico a"><i class="fas fa-phone"></i></div>
-          <div><div class="cm-l">Indore Head Office — Ashish Khanna</div><div class="cm-v">+91 93021 15585</div></div>
-        </a>
-        <a href="https://wa.me/918707812390" class="cm" target="_blank">
-          <div class="cm-ico g"><i class="fab fa-whatsapp"></i></div>
-          <div><div class="cm-l">WhatsApp — Quick Response</div><div class="cm-v">+91 87078 12390</div></div>
-        </a>
+        <div class="office-contact-cards">
+          <!-- Kanpur -->
+          <div class="occ kanpur">
+            <div class="occ-header">
+              <div class="occ-dot"><i class="fas fa-user-tie"></i></div>
+              <div><div class="occ-hname">Mr. Anoop Khanna</div><div class="occ-htype">Branch Office · Kanpur, UP</div></div>
+              <div class="occ-num">87078 12390</div>
+            </div>
+            <div class="occ-actions">
+              <a href="tel:+918707812390" class="occ-btn c"><i class="fas fa-phone"></i> Call Kanpur</a>
+              <a href="https://wa.me/918707812390?text=Hello%20MFL%20Kanpur%2C%20I%20need%20a%20logistics%20quote." class="occ-btn w" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+          </div>
+          <!-- Indore -->
+          <div class="occ indore">
+            <div class="occ-header">
+              <div class="occ-dot"><i class="fas fa-user-tie"></i></div>
+              <div><div class="occ-hname">Mr. Ashish Khanna</div><div class="occ-htype">Head Office · Indore, MP</div></div>
+              <div class="occ-num">93021 15585</div>
+            </div>
+            <div class="occ-actions">
+              <a href="tel:+919302115585" class="occ-btn c"><i class="fas fa-phone"></i> Call Indore</a>
+              <a href="https://wa.me/919302115585?text=Hello%20MFL%20Indore%2C%20I%20need%20a%20logistics%20quote." class="occ-btn w" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
         <div class="cm">
           <div class="cm-ico p"><i class="fas fa-map-marker-alt"></i></div>
           <div><div class="cm-l">Head Office</div><div class="cm-v" style="font-size:.82rem">207, Loha Mandi, Indore, MP</div></div>
@@ -1009,6 +1159,10 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
         <div class="cm">
           <div class="cm-ico a"><i class="fas fa-map-marker-alt"></i></div>
           <div><div class="cm-l">Branch Office</div><div class="cm-v" style="font-size:.82rem">133/138, Transport Nagar, Kanpur, UP</div></div>
+        </div>
+        <div class="cm">
+          <div class="cm-ico p"><i class="fas fa-clock"></i></div>
+          <div><div class="cm-l">Working Hours</div><div class="cm-v" style="font-size:.86rem">Mon – Sat, 9:00 AM – 7:00 PM</div></div>
         </div>
       </div>
 
@@ -1080,8 +1234,9 @@ footer { background:var(--DARK); border-top:4px solid var(--A); padding:60px 0 0
 
 <!-- ══ FAB BUTTONS ══ -->
 <div class="fab-wrap">
-  <a class="fab wa" href="https://wa.me/918707812390" target="_blank" title="WhatsApp Us"><i class="fab fa-whatsapp"></i></a>
-  <a class="fab call" href="tel:+918707812390" title="Call Now"><i class="fas fa-phone"></i></a>
+  <a class="fab wa" href="https://wa.me/919302115585?text=Hello%20MFL%20Indore%2C%20I%20need%20a%20logistics%20quote." target="_blank" title="WhatsApp Indore Office"><i class="fab fa-whatsapp"></i></a>
+  <a class="fab call" href="tel:+919302115585" title="Call Indore: +91 93021 15585" style="width:auto;border-radius:30px;padding:0 16px;font-size:.68rem;gap:7px;"><i class="fas fa-phone"></i><span style="font-size:.65rem;font-weight:800;letter-spacing:.04em">Indore</span></a>
+  <a class="fab call" href="tel:+918707812390" title="Call Kanpur: +91 87078 12390" style="width:auto;border-radius:30px;padding:0 16px;font-size:.68rem;gap:7px;background:linear-gradient(135deg,#1450b8,var(--P))"><i class="fas fa-phone"></i><span style="font-size:.65rem;font-weight:800;letter-spacing:.04em">Kanpur</span></a>
 </div>
 
 <script>
