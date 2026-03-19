@@ -322,6 +322,30 @@ body{font-family:'DM Sans',sans-serif;color:var(--txt);background:var(--white);o
 .svc-arrow{display:inline-flex;align-items:center;gap:7px;margin-top:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);transition:all .2s}
 .svc-card:hover .svc-arrow{color:var(--amber);gap:11px}
 
+/* ─── SPECIAL ROUTE BANNER ─── */
+.route-banner{
+  background:linear-gradient(135deg,var(--navy) 0%,#180800 40%,var(--navy) 100%);
+  border:1px solid rgba(240,168,32,.3);
+  border-radius:12px;padding:28px 36px;margin-bottom:40px;
+  position:relative;overflow:hidden;
+}
+.route-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(192,32,26,.15) 0%,rgba(240,168,32,.06) 50%,rgba(26,91,208,.1) 100%)}
+.route-banner::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--crimson),var(--amber),var(--crimson))}
+.rb-orb{position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(192,32,26,.22),transparent 70%);right:-50px;top:-60px;pointer-events:none}
+.rb-inner{position:relative;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.rb-badge{display:inline-flex;align-items:center;gap:7px;flex-shrink:0;background:linear-gradient(135deg,var(--crimson),var(--red));color:#fff;font-size:.68rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:7px 16px;border-radius:20px;box-shadow:0 4px 16px rgba(192,32,26,.4)}
+.rb-route{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.rb-city{font-family:'Bebas Neue',cursive;font-size:2rem;color:#fff;letter-spacing:.04em;line-height:1}
+.rb-arrows{display:flex;flex-direction:column;align-items:center;gap:2px}
+.rb-arr{display:flex;align-items:center;gap:5px;color:var(--amber);font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.rb-arr i{font-size:.9rem}
+.rb-info{flex:1;min-width:200px}
+.rb-info-t{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:5px}
+.rb-info-d{font-size:.84rem;color:rgba(255,255,255,.58);line-height:1.7}
+.rb-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.rb-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(240,168,32,.1);border:1px solid rgba(240,168,32,.3);color:var(--amber);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px}
+.rb-pill i{font-size:.65rem}
+
 /* ─── OFFICES ─── */
 #offices{padding:110px 0;background:var(--white)}
 .off-h{margin-bottom:56px}
@@ -357,6 +381,61 @@ body{font-family:'DM Sans',sans-serif;color:var(--txt);background:var(--white);o
 .off-val{font-size:.98rem;font-weight:600;color:var(--navy)}
 .off-val a{color:var(--blue);text-decoration:none}
 .off-val a:hover{color:var(--crimson)}
+
+/* ─── SPECIAL SERVICES ─── */
+#special-services{padding:100px 0;background:linear-gradient(160deg,#060e1d 0%,#0e2248 55%,#060e1d 100%);position:relative;overflow:hidden}
+#special-services::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:55px 55px}
+#special-services .sec-h{color:#fff}
+.ss-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
+.ss-card{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;padding:32px;position:relative;overflow:hidden;
+  transition:all .35s;
+}
+.ss-card:hover{transform:translateY(-8px);border-color:rgba(240,168,32,.35);box-shadow:0 28px 60px rgba(0,0,0,.45)}
+.ss-featured{
+  background:linear-gradient(145deg,rgba(192,32,26,.18),rgba(240,168,32,.08),rgba(26,91,208,.12));
+  border-color:rgba(240,168,32,.3);
+  box-shadow:0 0 0 1px rgba(240,168,32,.15),0 16px 48px rgba(192,32,26,.2);
+}
+.ss-featured:hover{box-shadow:0 0 0 1px rgba(240,168,32,.4),0 28px 64px rgba(192,32,26,.35)}
+.ss-card-glow{position:absolute;top:-80px;right:-80px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(192,32,26,.25),transparent 65%);pointer-events:none}
+.ss-top-bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--crimson),var(--amber));border-radius:12px 12px 0 0}
+.ss-card:not(.ss-featured) .ss-top-bar{background:linear-gradient(90deg,var(--blue),var(--sky))}
+.ss-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,var(--crimson),var(--red));
+  color:#fff;font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  padding:5px 14px;border-radius:20px;margin-bottom:22px;
+  box-shadow:0 4px 14px rgba(192,32,26,.4);
+}
+.ss-badge-blue{background:linear-gradient(135deg,var(--blue),var(--mid)) !important;box-shadow:0 4px 14px rgba(16,64,160,.4) !important}
+.ss-route-row{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.ss-city-block{flex:1;min-width:0}
+.ss-city{font-family:'Bebas Neue',cursive;font-size:1.7rem;color:#fff;letter-spacing:.04em;line-height:1}
+.ss-state{font-size:.65rem;font-weight:600;color:var(--amber);letter-spacing:.1em;text-transform:uppercase;margin-top:3px;line-height:1.3}
+.ss-mid{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;padding:0 6px}
+.ss-arrow-up,.ss-arrow-down{
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(240,168,32,.15);border:1px solid rgba(240,168,32,.3);
+  color:var(--amber);font-size:.75rem;transition:all .3s;
+}
+.ss-card:hover .ss-arrow-up,.ss-card:hover .ss-arrow-down{background:rgba(240,168,32,.25)}
+.ss-arrow-label{font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);white-space:nowrap}
+.ss-desc{font-size:.85rem;color:rgba(255,255,255,.58);line-height:1.8;margin-bottom:18px}
+.ss-pills{display:flex;gap:8px;flex-wrap:wrap}
+.ss-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.7);font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 11px;border-radius:20px;transition:all .2s;
+}
+.ss-card:hover .ss-pill{background:rgba(240,168,32,.1);border-color:rgba(240,168,32,.25);color:var(--amber)}
+.ss-pill i{font-size:.6rem}
+
+@media(max-width:960px){.ss-grid{grid-template-columns:1fr}}
+@media(max-width:620px){.ss-city{font-size:1.35rem}}
 
 /* ─── WHY ─── */
 #why{padding:110px 0;background:var(--pale);position:relative;overflow:hidden}
@@ -512,6 +591,7 @@ footer{background:var(--navy);padding:60px 0 0;border-top:3px solid var(--crimso
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#special-services">Special Routes</a></li>
       <li><a href="#offices">Offices</a></li>
       <li><a href="#why">Why Us</a></li>
       <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
@@ -524,6 +604,7 @@ footer{background:var(--navy);padding:60px 0 0;border-top:3px solid var(--crimso
   <ul>
     <li><a href="#about" class="ml">About Us</a></li>
     <li><a href="#services" class="ml">Services</a></li>
+    <li><a href="#special-services" class="ml">Special Routes</a></li>
     <li><a href="#offices" class="ml">Offices</a></li>
     <li><a href="#why" class="ml">Why Choose Us</a></li>
     <li><a href="#contact" class="ml nav-cta">Get a Quote</a></li>
@@ -689,28 +770,124 @@ footer{background:var(--navy);padding:60px 0 0;border-top:3px solid var(--crimso
     <div class="off-grid">
       <div class="off-card reveal">
         <div class="off-top">
-          <div class="off-state">Uttar Pradesh</div>
+          <div class="off-state">Branch Office · Uttar Pradesh</div>
           <div class="off-city">Kanpur</div>
         </div>
         <div class="off-body">
           <div class="off-row"><div class="off-ico"><i class="fas fa-user-tie"></i></div><div><div class="off-lbl">Office Head</div><div class="off-val">Mr. Anoop Khanna</div></div></div>
-          <div class="off-row"><div class="off-ico"><i class="fas fa-map-marker-alt"></i></div><div><div class="off-lbl">Location</div><div class="off-val">Kanpur, Uttar Pradesh</div></div></div>
-          <div class="off-row"><div class="off-ico"><i class="fas fa-phone"></i></div><div><div class="off-lbl">Contact Number</div><div class="off-val"><a href="tel:+917275155500">+91 72751 55500</a></div></div></div>
+          <div class="off-row"><div class="off-ico"><i class="fas fa-map-marker-alt"></i></div><div><div class="off-lbl">Address</div><div class="off-val">133/138, Transport Nagar,<br/>Kanpur, Uttar Pradesh</div></div></div>
+          <div class="off-row"><div class="off-ico"><i class="fas fa-phone"></i></div><div><div class="off-lbl">Contact Number</div><div class="off-val"><a href="tel:+918707812390">+91 87078 12390</a></div></div></div>
           <div class="off-row"><div class="off-ico"><i class="fas fa-route"></i></div><div><div class="off-lbl">Specialisation</div><div class="off-val">North India Freight Corridors</div></div></div>
         </div>
       </div>
       <div class="off-card reveal d2">
         <div class="off-top red-top">
-          <div class="off-state">Madhya Pradesh</div>
+          <div class="off-state">Head Office · Madhya Pradesh</div>
           <div class="off-city">Indore</div>
         </div>
         <div class="off-body">
           <div class="off-row"><div class="off-ico"><i class="fas fa-user-tie"></i></div><div><div class="off-lbl">Office Head</div><div class="off-val">Mr. Ashish Khanna</div></div></div>
-          <div class="off-row"><div class="off-ico"><i class="fas fa-map-marker-alt"></i></div><div><div class="off-lbl">Location</div><div class="off-val">Indore, Madhya Pradesh</div></div></div>
+          <div class="off-row"><div class="off-ico"><i class="fas fa-map-marker-alt"></i></div><div><div class="off-lbl">Address</div><div class="off-val">207, Loha Mandi,<br/>Indore, Madhya Pradesh</div></div></div>
           <div class="off-row"><div class="off-ico"><i class="fas fa-phone"></i></div><div><div class="off-lbl">Contact Number</div><div class="off-val"><a href="tel:+919302115585">+91 93021 15585</a></div></div></div>
           <div class="off-row"><div class="off-ico"><i class="fas fa-route"></i></div><div><div class="off-lbl">Specialisation</div><div class="off-val">Central India Logistics Hub</div></div></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIAL SERVICES -->
+<section id="special-services">
+  <div class="container">
+    <span class="tag reveal"><i class="fas fa-star"></i> Exclusive Offerings</span>
+    <h2 class="sec-h reveal d1">Our <em>Special Services</em></h2>
+    <p class="sec-sub reveal d2" style="margin-bottom:52px">Dedicated freight corridors with priority dispatch, direct trucks, and door-to-door coordination on India's busiest routes.</p>
+
+    <div class="ss-grid">
+
+      <!-- Card 1: Indore ↔ Kanpur -->
+      <div class="ss-card ss-featured reveal">
+        <div class="ss-card-glow"></div>
+        <div class="ss-top-bar"></div>
+        <div class="ss-badge"><i class="fas fa-star"></i> Flagship Route</div>
+        <div class="ss-route-row">
+          <div class="ss-city-block">
+            <div class="ss-city">Indore</div>
+            <div class="ss-state">Madhya Pradesh</div>
+          </div>
+          <div class="ss-mid">
+            <div class="ss-arrow-up"><i class="fas fa-arrow-right"></i></div>
+            <div class="ss-arrow-label">Both Ways</div>
+            <div class="ss-arrow-down"><i class="fas fa-arrow-left"></i></div>
+          </div>
+          <div class="ss-city-block">
+            <div class="ss-city">Kanpur</div>
+            <div class="ss-state">Uttar Pradesh</div>
+          </div>
+        </div>
+        <p class="ss-desc">Our most active and dedicated freight corridor — connecting our Head Office (Indore) and Branch Office (Kanpur). Exclusive priority trucks, faster transit times, and seamless end-to-end coordination.</p>
+        <div class="ss-pills">
+          <span class="ss-pill"><i class="fas fa-bolt"></i> Priority Dispatch</span>
+          <span class="ss-pill"><i class="fas fa-truck-fast"></i> Direct Trucks</span>
+          <span class="ss-pill"><i class="fas fa-clock"></i> Faster Transit</span>
+          <span class="ss-pill"><i class="fas fa-door-open"></i> Door-to-Door</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Kanpur → Maharashtra -->
+      <div class="ss-card reveal d2">
+        <div class="ss-top-bar"></div>
+        <div class="ss-badge ss-badge-blue"><i class="fas fa-route"></i> Special Route</div>
+        <div class="ss-route-row">
+          <div class="ss-city-block">
+            <div class="ss-city">Kanpur</div>
+            <div class="ss-state">Uttar Pradesh</div>
+          </div>
+          <div class="ss-mid">
+            <div class="ss-arrow-up"><i class="fas fa-arrow-right"></i></div>
+            <div class="ss-arrow-label">One Way</div>
+            <div class="ss-arrow-down" style="opacity:.3"><i class="fas fa-arrow-left"></i></div>
+          </div>
+          <div class="ss-city-block">
+            <div class="ss-city">Maharashtra</div>
+            <div class="ss-state">Mumbai · Pune · Nagpur</div>
+          </div>
+        </div>
+        <p class="ss-desc">Dedicated truck service from Kanpur to all major Maharashtra destinations including Mumbai, Pune, and Nagpur — reliable, timely, and fully tracked.</p>
+        <div class="ss-pills">
+          <span class="ss-pill"><i class="fas fa-truck-moving"></i> Full Load / Part Load</span>
+          <span class="ss-pill"><i class="fas fa-shield-halved"></i> Safe Handling</span>
+          <span class="ss-pill"><i class="fas fa-door-open"></i> Door-to-Door</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Kanpur → Gujarat -->
+      <div class="ss-card reveal d3">
+        <div class="ss-top-bar"></div>
+        <div class="ss-badge ss-badge-blue"><i class="fas fa-route"></i> Special Route</div>
+        <div class="ss-route-row">
+          <div class="ss-city-block">
+            <div class="ss-city">Kanpur</div>
+            <div class="ss-state">Uttar Pradesh</div>
+          </div>
+          <div class="ss-mid">
+            <div class="ss-arrow-up"><i class="fas fa-arrow-right"></i></div>
+            <div class="ss-arrow-label">One Way</div>
+            <div class="ss-arrow-down" style="opacity:.3"><i class="fas fa-arrow-left"></i></div>
+          </div>
+          <div class="ss-city-block">
+            <div class="ss-city">Gujarat</div>
+            <div class="ss-state">Ahmedabad · Surat · Vadodara</div>
+          </div>
+        </div>
+        <p class="ss-desc">Scheduled freight movement from Kanpur to Gujarat's commercial hubs — Ahmedabad, Surat, and Vadodara — with competitive transit times and end-to-end service.</p>
+        <div class="ss-pills">
+          <span class="ss-pill"><i class="fas fa-truck-moving"></i> Full Load / Part Load</span>
+          <span class="ss-pill"><i class="fas fa-shield-halved"></i> Safe Handling</span>
+          <span class="ss-pill"><i class="fas fa-door-open"></i> Door-to-Door</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -744,10 +921,11 @@ footer{background:var(--navy);padding:60px 0 0;border-top:3px solid var(--crimso
           <div class="con-info-h">Ready to Ship?</div>
           <p class="con-info-s">Contact any of our offices directly for a quote or logistics inquiry. Our team is ready to assist your business with seamless freight solutions.</p>
         </div>
-        <div class="cmethod"><div class="cmi"><i class="fas fa-phone"></i></div><div><div class="cm-lbl">Kanpur Office — Anoop Khanna</div><div class="cm-val"><a href="tel:+917275155500">+91 72751 55500</a></div></div></div>
-        <div class="cmethod"><div class="cmi red"><i class="fas fa-phone"></i></div><div><div class="cm-lbl">Indore Office — Ashish Khanna</div><div class="cm-val"><a href="tel:+919302115585">+91 93021 15585</a></div></div></div>
-        <div class="cmethod"><div class="cmi"><i class="fas fa-map-marker-alt"></i></div><div><div class="cm-lbl">Our Offices</div><div class="cm-val">Kanpur, UP &amp; Indore, MP</div></div></div>
-        <div class="cmethod"><div class="cmi red"><i class="fas fa-clock"></i></div><div><div class="cm-lbl">Working Hours</div><div class="cm-val">Mon – Sat, 9:00 AM – 7:00 PM</div></div></div>
+        <div class="cmethod"><div class="cmi"><i class="fas fa-phone"></i></div><div><div class="cm-lbl">Kanpur Branch — Anoop Khanna</div><div class="cm-val"><a href="tel:+918707812390">+91 87078 12390</a></div></div></div>
+        <div class="cmethod"><div class="cmi red"><i class="fas fa-phone"></i></div><div><div class="cm-lbl">Indore Head Office — Ashish Khanna</div><div class="cm-val"><a href="tel:+919302115585">+91 93021 15585</a></div></div></div>
+        <div class="cmethod"><div class="cmi"><i class="fas fa-map-marker-alt"></i></div><div><div class="cm-lbl">Head Office — Indore</div><div class="cm-val">207, Loha Mandi, Indore, MP</div></div></div>
+        <div class="cmethod"><div class="cmi red"><i class="fas fa-map-marker-alt"></i></div><div><div class="cm-lbl">Branch Office — Kanpur</div><div class="cm-val">133/138, Transport Nagar, Kanpur, UP</div></div></div>
+        <div class="cmethod"><div class="cmi"><i class="fas fa-clock"></i></div><div><div class="cm-lbl">Working Hours</div><div class="cm-val">Mon – Sat, 9:00 AM – 7:00 PM</div></div></div>
       </div>
       <div class="cform reveal d2">
         <div class="cform-t">Send Us a Message</div>
@@ -788,6 +966,7 @@ footer{background:var(--navy);padding:60px 0 0;border-top:3px solid var(--crimso
           <li><a href="#hero"><i class="fas fa-chevron-right"></i> Home</a></li>
           <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
           <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+          <li><a href="#special-services"><i class="fas fa-chevron-right"></i> Special Routes</a></li>
           <li><a href="#offices"><i class="fas fa-chevron-right"></i> Our Offices</a></li>
           <li><a href="#why"><i class="fas fa-chevron-right"></i> Why Choose Us</a></li>
           <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
@@ -795,9 +974,10 @@ footer{background:var(--navy);padding:60px 0 0;border-top:3px solid var(--crimso
       </div>
       <div>
         <div class="ft-col-t">Contact Us</div>
-        <div class="fci"><i class="fas fa-phone"></i><span><strong style="color:rgba(255,255,255,.7)">Kanpur (UP):</strong><br/><a href="tel:+917275155500">+91 72751 55500</a></span></div>
-        <div class="fci"><i class="fas fa-phone"></i><span><strong style="color:rgba(255,255,255,.7)">Indore (MP):</strong><br/><a href="tel:+919302115585">+91 93021 15585</a></span></div>
-        <div class="fci"><i class="fas fa-map-marker-alt"></i><span>Kanpur, Uttar Pradesh &amp;<br/>Indore, Madhya Pradesh, India</span></div>
+        <div class="fci"><i class="fas fa-phone"></i><span><strong style="color:rgba(255,255,255,.7)">Kanpur Branch (UP):</strong><br/><a href="tel:+918707812390">+91 87078 12390</a></span></div>
+        <div class="fci"><i class="fas fa-phone"></i><span><strong style="color:rgba(255,255,255,.7)">Indore Head Office (MP):</strong><br/><a href="tel:+919302115585">+91 93021 15585</a></span></div>
+        <div class="fci"><i class="fas fa-map-marker-alt"></i><span><strong style="color:rgba(255,255,255,.7)">Head Office:</strong><br/>207, Loha Mandi, Indore, MP</span></div>
+        <div class="fci"><i class="fas fa-map-marker-alt"></i><span><strong style="color:rgba(255,255,255,.7)">Branch Office:</strong><br/>133/138, Transport Nagar, Kanpur, UP</span></div>
         <div class="fci"><i class="fas fa-clock"></i><span>Mon – Sat: 9:00 AM – 7:00 PM</span></div>
       </div>
     </div>
