@@ -209,8 +209,8 @@ h1, h2, h3, h4, h5, h6 {
 /* ===== Hero Section ===== */
 .hero {
     position: relative; min-height: 100vh;
-    padding-top: 80px; padding-bottom: 120px;
-    display: flex; flex-direction: column; justify-content: center;
+    padding-top: 100px;
+    display: flex; flex-direction: column;
     background: url('images/hero-bg.png') center/cover no-repeat;
     color: #fff;
 }
@@ -233,6 +233,8 @@ h1, h2, h3, h4, h5, h6 {
     position: relative; z-index: 10; width: 100%;
     display: grid; grid-template-columns: 1fr 450px; gap: 64px; align-items: center;
     transform-style: preserve-3d;
+    margin: auto 0; /* Auto margin pushes it to the center */
+    padding-bottom: 140px; /* Uncollapsible physical barrier against the stats bar */
 }
 .hero-tech-badge {
     display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
