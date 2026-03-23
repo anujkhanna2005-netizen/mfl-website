@@ -146,6 +146,43 @@ function initHeroEstimator() {
     const estPrice = document.getElementById('estPrice');
     const estTime = document.getElementById('estTime');
 
+    const btn = form.querySelector('button[type="submit"]');
+    
+    // Custom error div
+    const errorDiv = document.createElement('div');
+    errorDiv.style.color = '#ff3366';
+    errorDiv.style.fontSize = '13px';
+    errorDiv.style.marginTop = '12px';
+    errorDiv.style.textAlign = 'center';
+    errorDiv.style.display = 'none';
+    form.appendChild(errorDiv);
+
+    btn.addEventListener('click', (e) => {
+        // Prevent native silent HTML5 validation popups that users miss
+        if (!form.checkValidity()) {
+            e.preventDefault();
+            let missing = [];
+            if (!document.getElementById('estPickup').value.trim()) missing.push("Pickup City");
+            if (!document.getElementById('estDrop').value.trim()) missing.push("Drop City");
+            if (!document.getElementById('estWeight').value.trim()) missing.push("Weight");
+            if (!document.getElementById('estType').value) missing.push("Vehicle Type");
+            
+            errorDiv.innerText = "Please provide: " + missing.join(", ");
+            errorDiv.style.display = 'block';
+            
+            // Highlight missing borders as visual cue
+            document.querySelectorAll('#heroQuoteForm input, #heroQuoteForm select').forEach(el => {
+                if (!el.value.trim()) el.style.borderBottomColor = '#ff3366';
+                else el.style.borderBottomColor = 'rgba(255,255,255,0.1)';
+            });
+        } else {
+            errorDiv.style.display = 'none';
+            document.querySelectorAll('#heroQuoteForm input, #heroQuoteForm select').forEach(el => {
+                el.style.borderBottomColor = 'rgba(255,255,255,0.1)';
+            });
+        }
+    });
+
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         
@@ -165,8 +202,16 @@ function initHeroEstimator() {
             loader.classList.add('hidden');
             finalData.classList.remove('hidden');
             
-            // Procedurally generate a realistic sounding quote base
-            const baseRate = Math.floor(Math.random() * 8000) + 12000; 
+            // Deterministic hash based on selected route
+            const routeStr = (pickup.trim() + drop.trim()).toLowerCase();
+            let hash = 0;
+            for (let i = 0; i < routeStr.length; i++) {
+                hash = ((hash << 5) - hash) + routeStr.charCodeAt(i);
+                hash |= 0; // Convert to 32bit int
+            }
+            
+            // Generate a realistic base rate using the hash for consistency
+            const baseRate = 12000 + (Math.abs(hash) % 10000); 
             const finalP = (baseRate * weight).toLocaleString('en-IN');
             
             estPrice.innerText = `₹${finalP}`;

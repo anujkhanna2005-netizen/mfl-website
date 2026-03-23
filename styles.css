@@ -122,6 +122,11 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-neon);
 }
 
+/* Fix Vanilla Tilt Glare preventing clicks */
+.js-tilt-glare, .js-tilt-glare-inner {
+    pointer-events: none !important;
+}
+
 /* ===== Label Text ===== */
 .label-text {
     display: block; font-size: 11px; font-weight: 800; text-transform: uppercase;
@@ -241,7 +246,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-estimator { padding: 32px; background: rgba(255,255,255,0.03); border-color: var(--border); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
 .hero-estimator h3 { color: #fff; font-size: 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
 .input-modern { position: relative; width: 100%; }
-.input-modern i { position: absolute; left: 16px; top: 16px; color: var(--slate-light); font-size: 14px; }
+.input-modern i { position: absolute; left: 16px; top: 16px; color: var(--slate-light); font-size: 14px; pointer-events: none; }
 .input-modern input, .input-modern select {
     width: 100%; padding: 14px 16px 14px 44px; background: rgba(0,0,0,0.4);
     border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: #fff;
@@ -465,7 +470,8 @@ h1, h2, h3, h4, h5, h6 {
     .services-grid, .industry-grid, .offices-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; gap: 32px; }
     .network-grid { grid-template-columns: 1fr; gap: 32px; }
-    #heroQuoteForm .form-row { flex-direction: column; }
+    #heroQuoteForm .form-row { flex-direction: column; gap: 16px; }
+    #heroQuoteForm .form-row > * { flex: none; width: 100%; }
     .floating-quote span { display: none; }
 
     /* Footer → single column */
