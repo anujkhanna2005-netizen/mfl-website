@@ -59,7 +59,7 @@
 .divider-diagonal-bottom { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%); margin-bottom: -4vw; padding-bottom: calc(80px + 4vw); z-index: 1; position: relative; }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; overflow-x: hidden; }
 
 body {
     font-family: var(--font-body);
@@ -68,6 +68,7 @@ body {
     line-height: 1.7;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 a { text-decoration: none; color: inherit; transition: var(--transition); }
@@ -81,6 +82,11 @@ img { max-width: 100%; height: auto; display: block; }
 .text-dark { color: var(--midnight); }
 .hidden { display: none !important; }
 .text-center { text-align: center; }
+
+input, textarea, select { color: var(--midnight); }
+input::placeholder, textarea::placeholder { color: var(--slate-light); opacity: 0.8; }
+.section-dark input, .section-dark textarea, .hero-estimator input, .tracking-container input { color: #fff !important; }
+.section-dark input::placeholder, .hero-estimator input::placeholder { color: rgba(255,255,255,0.5) !important; }
 
 h1, h2, h3, h4, h5, h6 { 
     font-family: var(--font-heading); 
@@ -434,14 +440,94 @@ h1, h2, h3, h4, h5, h6 {
     .nav-links.active { right: 0; }
     .nav-links a { padding: 16px; width: 100%; font-size: 15px; color: var(--midnight); }
     .nav-cta { margin-left: 0 !important; margin-top: 16px; text-align: center; }
-    .hero h1 { font-size: 36px; }
+
+    /* Reduce section padding to tighten the page */
+    .section { padding: 64px 0; }
+    .section-header { margin-bottom: 40px; }
+    .section-header h2 { font-size: 28px; }
+    .section-desc { font-size: 15px; }
+
+    /* Hero fixes */
+    .hero h1 { font-size: 32px; }
+    .hero-subtitle { font-size: 15px; color: rgba(255,255,255,0.85) !important; font-weight: 500; }
+    .hero-grid { padding-top: 24px; padding-bottom: 80px; }
     .hero-stats-inner { flex-wrap: wrap; gap: 24px 0; }
     .hero-stat { flex: 0 0 50%; }
+    .hero-stat strong { font-size: 28px; }
+    .hero-stat span { font-size: 10px; }
     .hero-stat:nth-child(2)::after { display: none; }
+
+    /* Hero estimator panel */
+    .hero-estimator { padding: 20px; }
+    .hero-estimator h3 { font-size: 17px; }
+
+    /* Grids → single column */
     .services-grid, .industry-grid, .offices-grid { grid-template-columns: 1fr; }
-    .contact-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .network-grid { grid-template-columns: 1fr; gap: 32px; }
     #heroQuoteForm .form-row { flex-direction: column; }
     .floating-quote span { display: none; }
+
+    /* Footer → single column */
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer { padding: 48px 0 0; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+
+    /* About badge overflow fix */
+    .about-badge { position: relative !important; bottom: auto !important; right: auto !important; display: inline-block; margin-top: 16px; }
+
+    /* Network visual height */
+    .network-visual { height: 300px; }
+
+    /* Contact info panel */
+    .contact-info { padding: 32px 20px; }
+    .contact-value { font-size: 16px; }
+
+    /* Tracking section */
+    .tracking-container { padding: 32px 20px; }
+
+    /* Service cards */
+    .service-card { padding: 32px 24px; }
+    .service-card h3 { font-size: 19px; }
+
+    /* Industry boxes */
+    .industry-box { padding: 28px 20px; }
+    .industry-box i { font-size: 32px; margin-bottom: 16px; }
+
+    /* Office cards */
+    .office-card { padding: 32px 24px; }
+    .office-card h3 { font-size: 28px; }
+
+    /* Scroll to top — clear bottom CTA bar */
+    .scroll-top-btn { bottom: 80px; right: 16px; width: 42px; height: 42px; font-size: 16px; }
+
+    /* Marquee */
+    .marquee-items { gap: 32px; padding-right: 32px; font-size: 13px; }
+
+    /* SEO corridors links */
+    .seo-keywords a { font-size: 12px !important; }
+}
+
+/* Extra-small screens (iPhone SE, small androids) */
+@media (max-width: 480px) {
+    .hero h1 { font-size: 26px; }
+    .hero-grid { gap: 32px; }
+
+    /* Stack hero CTA buttons vertically */
+    .hero-cta { align-items: stretch !important; }
+    .hero-cta > a { font-size: 18px !important; padding: 14px 24px !important; }
+    .hero-cta > div { flex-direction: column; gap: 12px !important; }
+    .hero-cta > div .btn { width: 100%; text-align: center; justify-content: center; }
+
+    /* Footer CTA belt */
+    .footer h2, [style*="font-size: 32px"] { font-size: 22px !important; }
+
+    /* Contact form row stack */
+    .contact-form .form-row { flex-direction: column !important; }
+
+    /* Stats bar */
+    .hero-stat strong { font-size: 24px; }
+    .hero-stats-bar { position: relative; }
 }
 
 /* Scroll to Top */
@@ -586,6 +672,5 @@ h1, h2, h3, h4, h5, h6 {
     #desktopFloats { display: none; }
     .wa-widget { display: none; /* Hide advanced widget on mobile, rely on sticky bar */ }
     .mobile-bottom-cta { display: flex; }
-    .scroll-top-btn { bottom: 80px; }
     .cities-grid { grid-template-columns: repeat(2, 1fr); }
 }
