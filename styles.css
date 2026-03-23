@@ -209,6 +209,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ===== Hero Section ===== */
 .hero {
     position: relative; min-height: 100vh;
+    padding-top: 80px; padding-bottom: 120px;
     display: flex; flex-direction: column; justify-content: center;
     background: url('images/hero-bg.png') center/cover no-repeat;
     color: #fff;
@@ -231,7 +232,6 @@ h1, h2, h3, h4, h5, h6 {
 .hero-grid {
     position: relative; z-index: 10; width: 100%;
     display: grid; grid-template-columns: 1fr 450px; gap: 64px; align-items: center;
-    padding-top: 40px; padding-bottom: 120px;
     transform-style: preserve-3d;
 }
 .hero-tech-badge {
