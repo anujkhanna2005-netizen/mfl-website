@@ -229,9 +229,10 @@ h1, h2, h3, h4, h5, h6 {
 .truck-icon { position: absolute; bottom: 3px; left: -50px; font-size: 20px; color: var(--neon); opacity: 0.5; animation: driveTruck 25s linear infinite; filter: drop-shadow(0 0 8px var(--neon)); }
 @keyframes driveTruck { 0% { transform: translateX(-50px); } 100% { transform: translateX(calc(100vw + 50px)); } }
 .hero-grid {
-    position: relative; z-index: 2; width: 100%;
+    position: relative; z-index: 10; width: 100%;
     display: grid; grid-template-columns: 1fr 450px; gap: 64px; align-items: center;
     padding-top: 40px; padding-bottom: 120px;
+    transform-style: preserve-3d;
 }
 .hero-tech-badge {
     display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
@@ -244,17 +245,20 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Form Estimator */
 .hero-estimator { padding: 32px; background: rgba(255,255,255,0.03); border-color: var(--border); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-.hero-estimator h3 { color: #fff; font-size: 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
-.input-modern { position: relative; width: 100%; }
+.hero-estimator h3 { color: #fff; font-size: 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; transform: translateZ(20px); }
+.input-modern { position: relative; width: 100%; z-index: 50; transform: translateZ(30px); }
 .input-modern i { position: absolute; left: 16px; top: 16px; color: var(--slate-light); font-size: 14px; pointer-events: none; }
 .input-modern input, .input-modern select {
     width: 100%; padding: 14px 16px 14px 44px; background: rgba(0,0,0,0.4);
     border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: #fff;
     font-family: var(--font-body); font-size: 14px; transition: var(--transition);
     appearance: none;
+    position: relative;
+    z-index: 51;
 }
 .input-modern input:focus, .input-modern select:focus { border-color: var(--neon); outline: none; box-shadow: 0 0 0 3px rgba(0,229,255,0.1); }
-#heroQuoteForm .form-row { display: flex; gap: 16px; margin-bottom: 16px; }
+#heroQuoteForm { position: relative; z-index: 60; transform-style: preserve-3d; }
+#heroQuoteForm .form-row { display: flex; gap: 16px; margin-bottom: 16px; position: relative; z-index: 61; transform-style: preserve-3d; }
 #heroQuoteForm .form-row > * { flex: 1; }
 .estimate-result { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
 .estimate-loader { color: var(--neon); font-family: var(--font-heading); font-weight: 600; font-size: 14px; }
