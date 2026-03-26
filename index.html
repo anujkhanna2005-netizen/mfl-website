@@ -177,28 +177,21 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero section-vibrant">
         <div class="hero-bg-anim"></div>
         <div class="container hero-grid">
-            <div class="hero-content">
-                <div class="hero-tech-badge"><i class="fas fa-truck-fast"></i> Premium Transport Fleet</div>
-                <p class="hero-label" style="font-size: 14px; color: var(--gold); font-weight: 800; letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase;">MFL • Mamta Forwarding Logistics</p>
-                <h1>Reliable Freight<br><span class="text-neon">For Modern Supply Chains.</span></h1>
-                <p class="hero-subtitle">GPS-monitored door-to-door freight. Kanpur to anywhere.</p>
-                <div class="hero-cta" style="display: flex; flex-direction: column; gap: 16px; align-items: flex-start;">
-                    <a href="tel:+918707812390" class="btn btn-accent" style="font-size: 24px; padding: 18px 40px; box-shadow: 0 0 30px rgba(0, 229, 255, 0.4);"><i class="fas fa-phone-volume"></i> +91 87078 12390</a>
-                    <div style="display: flex; gap: 16px;">
-                        <a href="#contact" class="btn btn-outline-light">Get Instant Quote <i class="fas fa-bolt"></i></a>
-                        <a href="#tracking" class="btn btn-outline-light">Track Cargo <i class="fas fa-search"></i></a>
-                    </div>
+            <div class="hero-content" data-animate>
+                <div class="hero-tech-badge"><i class="fas fa-shield-check"></i> Certified National Carrier</div>
+                <h1>Efficient Freight.<br><span class="text-neon">Simplified Logistics.</span></h1>
+                <p class="hero-subtitle">High-performance inter-state transport with real-time GPS tracking. Your cargo, our priority.</p>
+                <div class="hero-cta" style="display: flex; gap: 16px; align-items: center; margin-bottom: 32px;">
+                    <a href="tel:+918707812390" class="btn btn-accent"><i class="fas fa-phone"></i> +91 87078 12390</a>
+                    <a href="#contact" class="btn btn-outline-light">Contact Support</a>
                 </div>
-                <p style="margin-top: 24px; font-size: 13px; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 8px;">
-                    <i class="fas fa-shield-check" style="color: var(--neon);"></i> Trusted by 150+ businesses &middot; No hidden charges &middot; GST invoices provided
-                </p>
             </div>
-            
-            <div class="hero-estimator glass-panel tilt-card">
-                <h3><i class="fas fa-calculator text-neon"></i> Freight Estimate</h3>
+
+            <div class="hero-estimator glass-card" data-animate>
+                <h3 class="text-white"><i class="fas fa-calculator text-neon"></i> Instant Freight Estimate</h3>
                 <form id="heroQuoteForm">
                     <div class="form-row">
                         <div class="input-modern">
@@ -206,84 +199,75 @@
                             <input type="text" id="estPickup" placeholder="Pickup City" required>
                         </div>
                         <div class="input-modern">
-                            <i class="fas fa-location-dot"></i>
+                            <i class="fas fa-map-pin"></i>
                             <input type="text" id="estDrop" placeholder="Drop City" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="input-modern">
                             <i class="fas fa-weight-hanging"></i>
-                            <input type="number" id="estWeight" placeholder="Weight (Tons)" required min="1">
+                            <input type="number" id="estWeight" placeholder="Weight (Tons)" required>
                         </div>
                         <div class="input-modern">
-                            <i class="fas fa-truck"></i>
+                            <i class="fas fa-truck-ramp-box"></i>
                             <select id="estType" required>
-                                <option value="">Vehicle Type</option>
-                                <option value="open">Open Truck (Multi-axle)</option>
-                                <option value="container">Closed Container</option>
+                                <option value="" disabled selected>Vehicle Type</option>
+                                <option value="open">Open Truck (T10-T40)</option>
+                                <option value="closed">Closed Container</option>
                                 <option value="trailer">Flatbed Trailer</option>
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-accent btn-full">Generate Estimate <i class="fas fa-arrow-right"></i></button>
-                </form>
-                <div id="estimateResult" class="estimate-result hidden">
-                    <div class="estimate-loader"><i class="fas fa-circle-notch fa-spin"></i> Calculating standard rates...</div>
-                    <div class="estimate-final hidden">
-                        <h4>Estimated Freight: <span class="text-neon" id="estPrice">₹0.00</span></h4>
-                        <p>Transit Time: <strong id="estTime">...</strong></p>
-                        <small>This is an approximate market estimate based on standard route pricing trends across India. Final quote requires a formal review.</small>
+                    <button type="submit" class="btn btn-accent btn-full">
+                        Calculate Estimate <i class="fas fa-bolt"></i>
+                    </button>
+                    
+                    <div id="estimateResult" class="estimate-result hidden">
+                        <div class="estimate-loader hidden">
+                            <i class="fas fa-circle-notch fa-spin"></i> Analyzing Routes...
+                        </div>
+                        <div class="estimate-final hidden">
+                            <p>Estimated Tariff</p>
+                            <h4 id="estPrice">₹0</h4>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 12px;">
+                                <span id="estTime"><i class="fas fa-clock"></i> 24-48 Hours</span>
+                                <a href="#contact" style="color: var(--neon); text-decoration: none; font-weight: 700;">Book Now &rarr;</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
+            <p style="margin-top: 24px; font-size: 13px; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 8px;">
+                <i class="fas fa-shield-check" style="color: var(--neon);"></i> Trusted by 150+ businesses &middot; No hidden charges &middot; GST invoices provided
+            </p>
         </div>
-        
         <div class="truck-animation-track"><i class="fas fa-truck-moving truck-icon"></i></div>
-        <div class="hero-stats-bar">
-            <div class="container hero-stats-inner">
-                <div class="hero-stat">
+    </section>
+
+    <!-- Logistics Trust Ribbon -->
+    <div class="stats-ribbon">
+        <div class="container" style="max-width: 900px;">
+            <div class="stats-ribbon-inner">
+                <div class="stat-item">
                     <strong class="counter" data-target="23">0</strong><strong>+</strong>
                     <span>Years of Trust</span>
                 </div>
-                <div class="hero-stat">
+                <div class="stat-item">
                     <strong class="counter" data-target="500">0</strong><strong>+</strong>
                     <span>Cities Connected</span>
                 </div>
-                <div class="hero-stat">
+                <div class="stat-item">
                     <strong class="counter" data-target="150">0</strong><strong>+</strong>
                     <span>Partner Businesses</span>
                 </div>
-                <div class="hero-stat">
+                <div class="stat-item">
                     <strong class="counter" data-target="99">0</strong><strong>%</strong>
                     <span>On-Time Delivery</span>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Client Logo Marquee (Generic Trust Signals) -->
-    <div class="client-marquee">
-        <div class="marquee-content">
-            <div class="marquee-items">
-                <span><i class="fas fa-shield-check"></i> SERVING 150+ BUSINESSES ACROSS INDIA</span>
-                <i class="fas fa-industry"></i> Manufacturing
-                <i class="fas fa-boxes-stacked"></i> FMCG Distributors
-                <i class="fas fa-tractor"></i> Agricultural Machinery
-                <i class="fas fa-pills"></i> Healthcare Suppliers
-                <i class="fas fa-cogs"></i> Automotive Components
-                <i class="fas fa-building"></i> Infrastructure
-            </div>
-            <div class="marquee-items">
-                <span><i class="fas fa-shield-check"></i> SERVING 150+ BUSINESSES ACROSS INDIA</span>
-                <i class="fas fa-industry"></i> Manufacturing
-                <i class="fas fa-boxes-stacked"></i> FMCG Distributors
-                <i class="fas fa-tractor"></i> Agricultural Machinery
-                <i class="fas fa-pills"></i> Healthcare Suppliers
-                <i class="fas fa-cogs"></i> Automotive Components
-                <i class="fas fa-building"></i> Infrastructure
-            </div>
-        </div>
     </div>
+
 
     <!-- Live Shipment Tracking -->
     <section id="tracking" class="section section-dark tracking-section">
@@ -311,196 +295,81 @@
         </div>
     </section>
 
-    <!-- About Section (Restored Real Photos) -->
-    <section id="about" class="section">
+    <!-- Redesigned About & Why MFL Section -->
+    <section id="about" class="section section-vibrant">
         <div class="container">
             <div class="about-grid">
                 <div class="about-image tilt-card" data-animate>
-                    <img src="images/about.png?v=2" alt="MFL Logistics Operations" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-float);">
-                    <div class="about-badge" style="position: absolute; bottom: -20px; right: -20px; background: var(--midnight); color: var(--gold); padding: 20px; border-radius: 8px; font-weight: 800; font-family: var(--font-heading); font-size: 18px; box-shadow: var(--shadow-neon);">
-                        <i class="fas fa-award"></i> Est. 2003
+                    <img src="images/fleet-clean.png" alt="MFL Logistics Operations" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-3d);">
+                    <div class="about-badge" style="position: absolute; bottom: -20px; right: -20px; background: var(--midnight); color: var(--gold); padding: 20px; border-radius: 12px; font-weight: 800; font-family: var(--font-heading); font-size: 18px; box-shadow: var(--shadow-neon);">
+                        <i class="fas fa-shield-check"></i> 23+ Years Trust
                     </div>
                 </div>
-                <div class="about-content" data-animate style="margin-left: 20px;">
-                    <p class="label-text">Who We Are</p>
-                    <h2>A Legacy of Grounded Logistics</h2>
-                    <p>MFL (Mamta Forwarding Logistics) is a premier import-export and logistics company specialising in inter-state and inter-city goods transportation across India. With a strong physical fleet network and door-to-door delivery model, we have earned the confidence of over 150 businesses through 23+ years of dependable service.</p>
-                    <p>Founded by <strong>Mr. Arun Kumar Khanna</strong>, MFL is now led by the second generation — <strong>Mr. Anoop Khanna</strong> and <strong>Mr. Ashish Khanna</strong> — who continue to expand the company's reach while upholding its founding values of hard work, reliability, and care.</p>
-                    <div class="about-highlights" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; font-weight: 600; color: var(--midnight);">
-                        <div class="highlight-item"><i class="fas fa-check text-neon" style="color: var(--neon-dark);"></i> Pan-India Network</div>
-                        <div class="highlight-item"><i class="fas fa-check text-neon" style="color: var(--neon-dark);"></i> Door-to-Door Service</div>
-                        <div class="highlight-item"><i class="fas fa-check text-neon" style="color: var(--neon-dark);"></i> Owned Fleet</div>
-                        <div class="highlight-item"><i class="fas fa-check text-neon" style="color: var(--neon-dark);"></i> Safe Goods Handling</div>
+                <div class="about-content" data-animate>
+                    <p class="label-heading">Logistics Excellence</p>
+                    <h2 style="font-size: 38px; margin-bottom: 24px; color: #FFFFFF; text-shadow: 0 4px 15px rgba(0,0,0,0.3);">Your Trusted Partner for Pan-India Freight</h2>
+                    <p style="color: #F8FAFC; font-weight: 600; line-height: 1.8;">MFL (Mamta Forwarding Logistics) provides tech-enabled, reliable goods transport across India. Founded by Mr. Arun Kumar Khanna, we combine decades of experience with modern monitoring to ensure your cargo is always safe and on time.</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px;">
+                        <div class="feature-item" style="display: flex; gap: 16px; align-items: flex-start;">
+                            <i class="fas fa-truck-fast" style="color: var(--neon); font-size: 24px; filter: drop-shadow(0 0 10px rgba(100,255,218,0.4));"></i>
+                            <div>
+                                <h4 style="color: #FFFFFF; margin-bottom: 4px; font-weight: 800;">Fast Delivery</h4>
+                                <p style="font-size: 13px; margin: 0; color: #E2E8F0; font-weight: 600;">Optimized routes for speed.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item" style="display: flex; gap: 16px; align-items: flex-start;">
+                            <i class="fas fa-satellite-dish" style="color: var(--neon); font-size: 24px; filter: drop-shadow(0 0 10px rgba(100,255,218,0.4));"></i>
+                            <div>
+                                <h4 style="color: #FFFFFF; margin-bottom: 4px; font-weight: 800;">Live Tracking</h4>
+                                <p style="font-size: 13px; margin: 0; color: #E2E8F0; font-weight: 600;">GPS-monitored fleet.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item" style="display: flex; gap: 16px; align-items: flex-start;">
+                            <i class="fas fa-boxes-stacked" style="color: var(--neon); font-size: 24px; filter: drop-shadow(0 0 10px rgba(100,255,218,0.4));"></i>
+                            <div>
+                                <h4 style="color: #FFFFFF; margin-bottom: 4px; font-weight: 800;">Safe Handling</h4>
+                                <p style="font-size: 13px; margin: 0; color: #E2E8F0; font-weight: 600;">Strict loading protocols.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item" style="display: flex; gap: 16px; align-items: flex-start;">
+                            <i class="fas fa-headset" style="color: var(--neon); font-size: 24px; filter: drop-shadow(0 0 10px rgba(100,255,218,0.4));"></i>
+                            <div>
+                                <h4 style="color: #FFFFFF; margin-bottom: 4px; font-weight: 800;">24/7 Support</h4>
+                                <p style="font-size: 13px; margin: 0; color: #E2E8F0; font-weight: 600;">Dedicated dispatch team.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Services Section -->
-    <section id="services" class="section section-grey">
+    <section id="services" class="section section-vibrant">
         <div class="container">
             <div class="section-header" data-animate>
                 <p class="label-text">Our Services</p>
-                <h2>Comprehensive Freight Solutions</h2>
-                <p class="section-desc">Reliable, end-to-end transport services tailored to your exact supply chain requirements.</p>
+                <h2>Premium Freight Solutions</h2>
             </div>
             <div class="services-grid">
-                <div class="service-card tilt-card" style="display: flex; flex-direction: column;">
+                <div class="service-card tilt-card" data-animate>
                     <div class="service-icon"><i class="fas fa-truck-moving"></i></div>
-                    <h3>Inter-State Freight</h3>
-                    <p>Reliable goods movement across state boundaries with full compliance, optimized routes, and guaranteed on-time delivery.</p>
-                    <ul style="margin-top: 16px; margin-bottom: 24px; font-size: 13px; color: var(--slate); list-style: none; padding-left: 0; flex: 1;">
-                        <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> 10T to 40T Scale Payloads</li>
-                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> GPS Linked Highway Routes</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline-light" style="width: 100%; font-size: 13px; padding: 10px;">Get Tariff Rate</a>
+                    <h3>Inter-State Transport</h3>
+                    <p>Reliable goods movement across state boundaries with full compliance and optimized routes.</p>
                 </div>
-                <div class="service-card tilt-card" style="display: flex; flex-direction: column;">
-                    <div class="service-icon"><i class="fas fa-city"></i></div>
-                    <h3>Inter-City Express</h3>
-                    <p>Efficient city-to-city cargo transport with a dedicated fleet and real-time coordination for businesses of every size.</p>
-                    <ul style="margin-top: 16px; margin-bottom: 24px; font-size: 13px; color: var(--slate); list-style: none; padding-left: 0; flex: 1;">
-                        <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Same-Day Factory Pickup</li>
-                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> FMCG & Retail Networks</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline-light" style="width: 100%; font-size: 13px; padding: 10px;">Get Tariff Rate</a>
-                </div>
-                <div class="service-card tilt-card" style="display: flex; flex-direction: column;">
-                    <div class="service-icon"><i class="fas fa-dolly"></i></div>
-                    <h3>Door-to-Door Delivery</h3>
-                    <p>Complete end-to-end delivery — from pickup at origin straight to final-mile drop, worry-free.</p>
-                    <ul style="margin-top: 16px; margin-bottom: 24px; font-size: 13px; color: var(--slate); list-style: none; padding-left: 0; flex: 1;">
-                        <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Warehouse-to-Store Logistics</li>
-                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Zero Midpoint Transfers</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline-light" style="width: 100%; font-size: 13px; padding: 10px;">Get Tariff Rate</a>
-                </div>
-                <div class="service-card tilt-card" style="display: flex; flex-direction: column;">
+                <div class="service-card tilt-card" data-animate>
                     <div class="service-icon"><i class="fas fa-route"></i></div>
-                    <h3>Logistics Planning</h3>
-                    <p>Proactive route assignment and load planning mapping out the fastest and most secure delivery configurations.</p>
-                    <ul style="margin-top: 16px; margin-bottom: 24px; font-size: 13px; color: var(--slate); list-style: none; padding-left: 0; flex: 1;">
-                        <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Supply Chain Consulting</li>
-                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Carrier Cost Optimization</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline-light" style="width: 100%; font-size: 13px; padding: 10px;">Consult Expert</a>
+                    <h3>Door-to-Door Logistics</h3>
+                    <p>Complete end-to-end delivery from origin pickup straight to the final destination.</p>
                 </div>
-                <div class="service-card tilt-card" style="display: flex; flex-direction: column;">
-                    <div class="service-icon"><i class="fas fa-ship"></i></div>
-                    <h3>Import &amp; Export Config</h3>
-                    <p>Precise container haulage, customs document flow coordination, and secure port-to-factory dispatch.</p>
-                    <ul style="margin-top: 16px; margin-bottom: 24px; font-size: 13px; color: var(--slate); list-style: none; padding-left: 0; flex: 1;">
-                        <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Internal 40FT Containers</li>
-                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Inland Port Transit</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline-light" style="width: 100%; font-size: 13px; padding: 10px;">Book Haulage</a>
-                </div>
-                <div class="service-card tilt-card" style="display: flex; flex-direction: column;">
-                    <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
-                    <h3>Secured Transit</h3>
-                    <p>Every consignment handled with utmost care — ensuring accountable and damage-free transport under strict monitoring.</p>
-                    <ul style="margin-top: 16px; margin-bottom: 24px; font-size: 13px; color: var(--slate); list-style: none; padding-left: 0; flex: 1;">
-                        <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Transit Insurance Facilitated</li>
-                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Escorted High-Value Freight</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline-light" style="width: 100%; font-size: 13px; padding: 10px;">Protect Cargo</a>
+                <div class="service-card tilt-card" data-animate>
+                    <div class="service-icon"><i class="fas fa-boxes-packing"></i></div>
+                    <h3>Supply Chain Solutions</h3>
+                    <p>Advanced load planning and warehouse-to-store logistics for industrial partners.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works (Process) -->
-    <section id="process" class="section section-dark" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 80px; padding-bottom: 80px;">
-        <div class="container">
-            <div class="section-header text-center" data-animate>
-                <p class="label-text text-accent">Process Overview</p>
-                <h2>How It Works</h2>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; text-align: center;">
-                <div class="tilt-card" style="position: relative; z-index: 2;">
-                    <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: var(--midnight); border: 2px solid var(--neon); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--neon); box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);"><i class="fas fa-file-signature"></i></div>
-                    <h3 style="color: white; margin-bottom: 12px; font-size: 18px;">1. Book & Quote</h3>
-                    <p style="color: var(--slate-light); font-size: 14px;">Submit dimensions online or dial operations for an instant quote.</p>
-                </div>
-                <div class="tilt-card" style="position: relative; z-index: 2;">
-                    <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: var(--midnight); border: 2px solid var(--neon); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--neon); box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);"><i class="fas fa-box-open"></i></div>
-                    <h3 style="color: white; margin-bottom: 12px; font-size: 18px;">2. Secure Loading</h3>
-                    <p style="color: var(--slate-light); font-size: 14px;">Fleet arrives at origin point for compliant, damage-free loading protocols.</p>
-                </div>
-                <div class="tilt-card" style="position: relative; z-index: 2;">
-                    <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: var(--midnight); border: 2px solid var(--neon); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--neon); box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);"><i class="fas fa-truck-fast"></i></div>
-                    <h3 style="color: white; margin-bottom: 12px; font-size: 18px;">3. Monitored Transit</h3>
-                    <p style="color: var(--slate-light); font-size: 14px;">GPS-locked hauling along expedited state and national highway corridors.</p>
-                </div>
-                <div class="tilt-card" style="position: relative; z-index: 2;">
-                    <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: var(--midnight); border: 2px solid var(--neon); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--neon); box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);"><i class="fas fa-clipboard-check"></i></div>
-                    <h3 style="color: white; margin-bottom: 12px; font-size: 18px;">4. Verified Delivery</h3>
-                    <p style="color: var(--slate-light); font-size: 14px;">Punctual offloading with POD generation and transparent GST invoicing.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Consolidated Industry Segments & Why Choose MFL (Trust Signals) -->
-    <div class="divider-diagonal-top" style="background: var(--midnight);"></div>
-    <section id="industries" class="section section-dark" style="padding-top: 24px; padding-bottom: 24px;">
-        <div class="container">
-            <div class="section-header" data-animate>
-                <p class="label-text text-neon">Why MFL Logistics</p>
-                <h2>The Standard for Reliable Transport</h2>
-            </div>
-            <div class="industry-grid" style="margin-bottom: 96px;">
-                <div class="industry-box tilt-card" style="box-shadow: none;">
-                    <i class="fas fa-stopwatch text-neon"></i>
-                    <h3>Fast Delivery</h3>
-                    <p>Optimized routing ensures your cargo reaches its destination exactly when promised.</p>
-                </div>
-                <div class="industry-box tilt-card" style="box-shadow: none;">
-                    <i class="fas fa-headset text-neon"></i>
-                    <h3>24/7 Support</h3>
-                    <p>Our operations dispatch team is available round-the-clock for tracking and assistance.</p>
-                </div>
-                <div class="industry-box tilt-card" style="box-shadow: none;">
-                    <i class="fas fa-user-shield text-neon"></i>
-                    <h3>Experienced Drivers</h3>
-                    <p>Vetted, highly experienced commercial drivers trained in highway safety and load management.</p>
-                </div>
-                <div class="industry-box tilt-card" style="box-shadow: none;">
-                    <i class="fas fa-box-open text-neon"></i>
-                    <h3>Safe Handling</h3>
-                    <p>Strict protocols for loading, un-loading, and securing cargo to prevent transit damage.</p>
-                </div>
-            </div>
-
-            <div class="section-header" data-animate>
-                <p class="label-text text-neon">Specialization</p>
-                <h2>Industry-Grade Haulage Segments</h2>
-            </div>
-            <div class="industry-grid">
-                <div class="industry-box tilt-card">
-                    <i class="fas fa-boxes-stacked" style="color: var(--neon-dark);"></i>
-                    <h3>FMCG & Retail</h3>
-                    <p>High-frequency, dry-cargo transit ensuring retail distribution networks are consistently stocked.</p>
-                </div>
-                <div class="industry-box tilt-card">
-                    <i class="fas fa-industry" style="color: var(--neon-dark);"></i>
-                    <h3>Steel & Heavy Metals</h3>
-                    <p>Multi-axle flatbed transport dedicated strictly to industrial weight-bearing payloads.</p>
-                </div>
-                <div class="industry-box tilt-card">
-                    <i class="fas fa-pills" style="color: var(--neon-dark);"></i>
-                    <h3>Pharma & Health</h3>
-                    <p>Expedited, clean rapid-response routing prioritizing safe transit conditions.</p>
-                </div>
-                <div class="industry-box tilt-card">
-                    <i class="fas fa-cogs" style="color: var(--neon-dark);"></i>
-                    <h3>Heavy Machinery</h3>
-                    <p>Over-dimensional cargo (ODC) handling requiring precision route surveys and secure handling.</p>
-                </div>
-            </div>
-        </div>
-    </section>
     <div class="divider-diagonal-bottom" style="background: var(--midnight);"></div>
 
     <!-- Interactive Cartography Network Map Section -->
@@ -508,7 +377,7 @@
         <div class="container">
             <div class="network-grid" style="align-items: center;">
                 <div class="network-content" data-animate>
-                    <p class="label-text text-neon">The MFL Network</p>
+                    <p class="label-text">The MFL Network</p>
                     <h2>Pan-India Route Coverage</h2>
                     <p class="text-slate">We operate dedicated freight corridors connecting the industrial heartlands of India. Our fleet moves seamlessly across states with strategic pit-stops ensuring safety and speed.</p>
                     <ul class="network-list" style="margin-top: 24px; list-style: none; padding-left: 0;">
@@ -669,7 +538,7 @@
     <section id="contact" class="section section-dark">
         <div class="container">
             <div class="section-header" data-animate>
-                <p class="label-text text-accent">Get in Touch</p>
+                <p class="label-text">Get in Touch</p>
                 <h2>Request a Free Logistics Quote</h2>
                 <p class="section-desc">Submit your freight requirements below. Our operations team will respond to you quickly.</p>
             </div>
@@ -733,18 +602,6 @@
         </div>
     </section>
 
-    <!-- Dedicated SEO Service Corridors -->
-    <div class="seo-keywords" style="background: var(--midnight); padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
-        <div class="container">
-            <h4 style="color: var(--slate-light); font-size: 14px; text-transform: uppercase; margin-bottom: 24px; letter-spacing: 2px;">Primary Logistics Corridors</h4>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
-                <a href="kanpur-to-indore-transport.html" style="padding: 8px 16px; border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; color: var(--gold); font-size: 13px; font-weight: 500; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.background='var(--neon)'; this.style.color='var(--midnight)';" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)';"><i class="fas fa-truck-fast"></i> Kanpur to Indore Transport</a>
-                <a href="up-to-mp-logistics.html" style="padding: 8px 16px; border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; color: var(--gold); font-size: 13px; font-weight: 500; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.background='var(--neon)'; this.style.color='var(--midnight)';" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)';"><i class="fas fa-route"></i> UP to MP Logistics</a>
-                <a href="mp-to-maharashtra-freight.html" style="padding: 8px 16px; border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; color: var(--gold); font-size: 13px; font-weight: 500; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.background='var(--neon)'; this.style.color='var(--midnight)';" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)';"><i class="fas fa-truck-moving"></i> MP to Maharashtra Freight</a>
-                <a href="kanpur-to-mumbai-cargo.html" style="padding: 8px 16px; border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; color: var(--gold); font-size: 13px; font-weight: 500; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.background='var(--neon)'; this.style.color='var(--midnight)';" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)';"><i class="fas fa-boxes-stacked"></i> Kanpur to Mumbai Cargo</a>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer Belt CTA -->
     <div style="background: var(--neon); padding: 48px 0; text-align: center;">
@@ -825,6 +682,8 @@
             <div id="cbStatus" style="display: none; color: var(--neon); margin-top: 16px; font-weight: 600; text-align: center;"></div>
         </div>
     </div>
+
+
 
     <!-- Scripts: Vanilla Tilt + Logic JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>

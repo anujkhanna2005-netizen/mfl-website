@@ -299,18 +299,11 @@ function submitCallback(e) {
 
 // ===== Scroll Spy for Nav Links =====
 
-// ===== Toggle Cities List =====
-window.toggleCities = function() {
-    const list = document.getElementById('citiesList');
-    const btn = document.getElementById('toggleCitiesBtn');
-    if (!list.style.maxHeight || list.style.maxHeight === '0px') {
-        list.style.maxHeight = '500px';
-        btn.innerHTML = 'Hide Cities <i class="fas fa-chevron-up"></i>';
-    } else {
-        list.style.maxHeight = '0px';
-        btn.innerHTML = 'See All Cities <i class="fas fa-chevron-down"></i>';
-    }
-};
+// ===== Global UI Initialization =====
+document.addEventListener('DOMContentLoaded', () => {
+    initScrollSpy();
+    initScrollProgress();
+});
 function initScrollSpy() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('#navLinks a');
