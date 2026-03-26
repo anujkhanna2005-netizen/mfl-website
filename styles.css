@@ -621,9 +621,12 @@ h1, h2, h3, h4, h5, h6 {
 .live-activity span { font-size: 13px; font-weight: 700; color: var(--midnight); }
 
 /* Office Highlights */
-.office-card-special .office-highlight {
+.office-card .office-highlight {
     margin-top: 16px; font-size: 13px; font-weight: 700; color: var(--green-dark);
     line-height: 1.4; border-top: 1px solid rgba(0,0,0,0.04); padding-top: 12px;
+}
+.office-card-dark .office-highlight {
+    color: #ffffff; border-top-color: rgba(255,255,255,0.1);
 }
 
 /* Trust Hardening Utilities */
