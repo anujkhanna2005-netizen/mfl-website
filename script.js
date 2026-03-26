@@ -216,8 +216,34 @@ function initHeroEstimator() {
             
             estPrice.innerText = `₹${finalP}`;
             estTime.innerText = "Guaranteed 24 - 48 Hours";
+
+            // Show Booking Button
+            const booking = document.getElementById('estBookingWrap');
+            if(booking) booking.classList.remove('hidden');
         }, 1500);
     });
+}
+
+// ===== WhatsApp Booking Link Generator =====
+function bookShipment() {
+    const p = document.getElementById('estPickup').value;
+    const d = document.getElementById('estDrop').value;
+    const w = document.getElementById('estWeight').value;
+    const tNode = document.getElementById('estType');
+    const t = tNode.options[tNode.selectedIndex].text;
+    const price = document.getElementById('estPrice').innerText;
+
+    const msg = `Hello MFL Team! I just used your website estimator.
+I want to book a shipment:
+📍 Route: ${p} to ${d}
+⚖️ Weight: ${w} Tons
+🚛 Vehicle: ${t}
+💰 Estimated Tariff: ${price}
+
+Please confirm availability and final quote.`;
+
+    const waLink = `https://wa.me/918707812390?text=${encodeURIComponent(msg)}`;
+    window.open(waLink, '_blank');
 }
 
 // ===== Live Tracking Simulation =====
@@ -346,7 +372,6 @@ function toggleWaWidget() {
     }
 }
 
-// ===== Interactive Expandable Cities List =====
 function toggleCities() {
     const list = document.getElementById('citiesList');
     const btn = document.getElementById('toggleCitiesBtn');
@@ -359,4 +384,32 @@ function toggleCities() {
         list.style.maxHeight = list.scrollHeight + "px";
         btn.innerHTML = 'Collapse List <i class="fas fa-chevron-up"></i>';
     }
+}
+
+// ===== Live Activity Signal Rotation =====
+function initLiveActivity() {
+    const activity = document.getElementById('liveActivity');
+    if(!activity) return;
+
+    const messages = [
+        "🚚 Shipment booked: Kanpur → Indore",
+        "📦 Quote requested from Ahmedabad",
+        "🚛 Truck dispatched: Indore",
+        "📍 Tracking request: Mumbai Corridor",
+        "⚡ New rate inquiry: Gwalior Steel trader"
+    ];
+
+    let index = 0;
+    const showMessage = () => {
+        activity.querySelector('span').innerText = messages[index];
+        activity.classList.add('visible');
+        
+        setTimeout(() => {
+            activity.classList.remove('visible');
+            index = (index + 1) % messages.length;
+            setTimeout(showMessage, 6000); // Rotate every 6 seconds
+        }, 3500); 
+    };
+
+    setTimeout(showMessage, 3000);
 }
