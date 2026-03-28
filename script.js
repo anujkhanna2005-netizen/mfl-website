@@ -6,12 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initScrollAnimations();
     initCounters();
-    initHeroEstimator();
-    initTracking();
     initContactForm();
     initTiltEffects();
     initScrollSpy();
     initScrollProgress();
+    initLiveActivity();
 });
 
 // ===== Mobile Tilt Optimization =====
@@ -135,129 +134,7 @@ function initCounters() {
     counters.forEach(counter => observer.observe(counter));
 }
 
-// ===== Instant Freight Estimator =====
-function initHeroEstimator() {
-    const form = document.getElementById('heroQuoteForm');
-    if(!form) return;
-    
-    const resultDiv = document.getElementById('estimateResult');
-    const loader = resultDiv.querySelector('.estimate-loader');
-    const finalData = resultDiv.querySelector('.estimate-final');
-    const estPrice = document.getElementById('estPrice');
-    const estTime = document.getElementById('estTime');
 
-    const btn = form.querySelector('button[type="submit"]');
-    
-    // Custom error div
-    const errorDiv = document.createElement('div');
-    errorDiv.style.color = '#ff3366';
-    errorDiv.style.fontSize = '13px';
-    errorDiv.style.marginTop = '12px';
-    errorDiv.style.textAlign = 'center';
-    errorDiv.style.display = 'none';
-    form.appendChild(errorDiv);
-
-    btn.addEventListener('click', (e) => {
-        // Prevent native silent HTML5 validation popups that users miss
-        if (!form.checkValidity()) {
-            e.preventDefault();
-            let missing = [];
-            if (!document.getElementById('estPickup').value.trim()) missing.push("Pickup City");
-            if (!document.getElementById('estDrop').value.trim()) missing.push("Drop City");
-            if (!document.getElementById('estWeight').value.trim()) missing.push("Weight");
-            if (!document.getElementById('estType').value) missing.push("Vehicle Type");
-            
-            errorDiv.innerText = "Please provide: " + missing.join(", ");
-            errorDiv.style.display = 'block';
-            
-            // Highlight missing borders as visual cue
-            document.querySelectorAll('#heroQuoteForm input, #heroQuoteForm select').forEach(el => {
-                if (!el.value.trim()) el.style.borderBottomColor = '#ff3366';
-                else el.style.borderBottomColor = 'rgba(255,255,255,0.1)';
-            });
-        } else {
-            errorDiv.style.display = 'none';
-            document.querySelectorAll('#heroQuoteForm input, #heroQuoteForm select').forEach(el => {
-                el.style.borderBottomColor = 'rgba(255,255,255,0.1)';
-            });
-        }
-    });
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const pickup = document.getElementById('estPickup').value;
-        const drop = document.getElementById('estDrop').value;
-        const weight = parseFloat(document.getElementById('estWeight').value) || 1;
-        const typeNode = document.getElementById('estType');
-        const type = typeNode.options[typeNode.selectedIndex].text;
-
-        // Reset display
-        resultDiv.classList.remove('hidden');
-        loader.classList.remove('hidden');
-        finalData.classList.add('hidden');
-
-        // Simulate Route Calculation Time
-        setTimeout(() => {
-            loader.classList.add('hidden');
-            finalData.classList.remove('hidden');
-            
-            // Deterministic hash based on selected route
-            const routeStr = (pickup.trim() + drop.trim()).toLowerCase();
-            let hash = 0;
-            for (let i = 0; i < routeStr.length; i++) {
-                hash = ((hash << 5) - hash) + routeStr.charCodeAt(i);
-                hash |= 0; // Convert to 32bit int
-            }
-            
-            // Generate a realistic base rate using the hash for consistency
-            const baseRate = 12000 + (Math.abs(hash) % 10000); 
-            const finalP = (baseRate * weight).toLocaleString('en-IN');
-            
-            estPrice.innerText = `₹${finalP}`;
-            estTime.innerText = "Guaranteed 24 - 48 Hours";
-
-            // Show Booking Button
-            const booking = document.getElementById('estBookingWrap');
-            if(booking) booking.classList.remove('hidden');
-        }, 1500);
-    });
-}
-
-// ===== WhatsApp Booking Link Generator =====
-function bookShipment() {
-    const p = document.getElementById('estPickup').value;
-    const d = document.getElementById('estDrop').value;
-    const w = document.getElementById('estWeight').value;
-    const tNode = document.getElementById('estType');
-    const t = tNode.options[tNode.selectedIndex].text;
-    const price = document.getElementById('estPrice').innerText;
-
-    const msg = `Hello MFL Team! I just used your website estimator.
-I want to book a shipment:
-📍 Route: ${p} to ${d}
-⚖️ Weight: ${w} Tons
-🚛 Vehicle: ${t}
-💰 Estimated Tariff: ${price}
-
-Please confirm availability and final quote.`;
-
-    const waLink = `https://wa.me/918707812390?text=${encodeURIComponent(msg)}`;
-    window.open(waLink, '_blank');
-}
-
-// ===== Live Tracking Simulation =====
-function initTracking() {
-    const input = document.getElementById('trackingId');
-    if(!input) return;
-
-    input.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            window.open('https://wa.me/918707812390?text=Hello,%20I%20need%20a%20tracking%20update%20for%20LR%20Number:%20' + this.value, '_blank');
-        }
-    });
-}
 
 // ===== Abstract Contact Form Handler =====
 function initContactForm() {
@@ -395,7 +272,7 @@ function initLiveActivity() {
         "🚚 Shipment booked: Kanpur → Indore",
         "📦 Quote requested from Ahmedabad",
         "🚛 Truck dispatched: Indore",
-        "📍 Tracking request: Mumbai Corridor",
+        "📍 Transit: Mumbai Corridor",
         "⚡ New rate inquiry: Gwalior Steel trader"
     ];
 
