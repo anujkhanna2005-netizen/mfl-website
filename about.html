@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | MFL Logistics</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Sticky Mobile Bottom Bar -->
+    <div class="mobile-bottom-bar">
+        <div class="mobile-bar-inner">
+            <a href="tel:+918707812390" class="mobile-bar-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
+            <a href="https://wa.me/918707812390" class="mobile-bar-btn" style="color: var(--accent);"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <button class="mobile-bar-btn primary" onclick="openContactModal()"><i class="fas fa-bolt"></i> Get Quote</button>
+        </div>
+    </div>
+
+    <!-- Contact Modal (Slide-over) -->
+    <div class="modal-overlay" id="contactOverlay" onclick="closeContactModal()"></div>
+    <div class="contact-panel" id="contactPanel">
+        <div class="panel-header">
+            <h3>Contact MFL</h3>
+            <button class="close-modal" onclick="closeContactModal()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <a href="https://wa.me/918707812390" class="contact-action-btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+            <a href="tel:+918707812390" class="contact-action-btn btn-phone">
+                <i class="fas fa-phone-alt"></i> Call Us Directly
+            </a>
+            <button class="contact-action-btn" onclick="toggleQuoteForm()" style="border-color: var(--gold); color: var(--primary-deep); background: var(--gradient-gold); font-weight: 800;">
+                <i class="fas fa-file-invoice-dollar"></i> Request Custom Quote
+            </button>
+            
+            <form action="https://formsubmit.co/anujkhanna1029@gmail.com" method="POST" class="quote-form" id="quoteForm">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New Freight Quote Request!">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label>Origin City</label>
+                    <input type="text" name="origin" placeholder="e.g. Kanpur" required>
+                </div>
+                <div class="form-group">
+                    <label>Destination City</label>
+                    <input type="text" name="destination" placeholder="e.g. Ahmedabad" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+            </form>
+
+            <a href="mailto:anujkhanna1029@gmail.com" class="contact-action-btn" style="margin-top: 12px;">
+                <i class="fas fa-envelope"></i> anujkhanna1029@gmail.com
+            </a>
+
+            <div class="office-info">
+                <h4>Our Offices</h4>
+                <div class="office-card">
+                    <strong>Indore (Head Office)</strong>
+                    123 Transport Nagar, Kanpur, UP, India - 208023
+                </div>
+                <div class="office-card">
+                    <strong>Kanpur (Branch Office)</strong>
+                    456 Scheme No. 78, Indore, MP, India - 452010
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo-new.png" alt="MFL Logistics" class="logo-img">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="about.html" style="color: var(--secondary);">About & Legacy</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#network">Network</a></li>
+                <li><button class="btn nav-cta" onclick="openContactModal()">Get Quote</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Hero Section -->
+    <header class="hero" style="background-image: url('images/hero-bg.png'); min-height: 50vh; padding: 80px 0;">
+        <div class="container">
+            <div class="hero-content">
+                <h1 style="font-size: 48px;">Our Heritage. Your Trust.</h1>
+                <p>The story of Mamta Forwarding Logistics: A family-led commitment to reliable freight forwarding across India.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Our Story -->
+    <section class="section">
+        <div class="container" style="max-width: 900px; text-align: center;">
+            <h2 class="section-title">The MFL Journey</h2>
+            <p style="font-size: 18px; color: var(--text-light); margin-bottom: 24px;">
+                Mamta Forwarding Logistics began with a simple mission: to provide transparent, reliable, and secure freight services connecting the heart of India's manufacturing zones. What started as a modest regional operation in Indore has steadily evolved into an expansive logistics network serving over 20+ cities.
+            </p>
+            <p style="font-size: 18px; color: var(--text-light);">
+                Despite our growth, we remain a family-led enterprise. This means our core values—integrity, accountability, and treating every cargo as if it were our own—are deeply embedded in every level of our operations.
+            </p>
+        </div>
+    </section>
+
+    <!-- The Leadership Team -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title text-center">The People Behind MFL</h2>
+            <p class="section-subtitle text-center" style="color: rgba(255,255,255,0.9);">Guiding MFL with decades of combined industry expertise.</p>
+            
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-img" style="background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjS5DwHO-Br4tzhSAeiQUlLLCo5W2pt6BH8vHTFlQnT5pTkG3cWE3ND_ouE7DbQTuvPIIZo_1_aD5eY9sUxyGM-p-JeZyWWquHBYOaN1Tsj671k4AWG8yu8BZ3jSAsBhVDUMN4iF-M-uo56vJYLGa4QMms4f8Na_4dw8C8fa3N_cvpgo1e4xtNk3RROPOfIRP9LkZKBKMY1imyc-0ikFlX6K8OlhNLyE58bNtjaUn_gU8QaHd07gEniZ6Kz9UGicyy_BHuyux1vIs') center/cover;"></div>
+                    <h3 style="color: #fff;">Mr. Arun Kumar Khanna</h3>
+                    <p>Founder</p>
+                    <span style="font-size: 15px; color: rgba(255,255,255,0.8);">The visionary who laid the foundation of trust and operational excellence that defines MFL today.</span>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-img" style="background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPZXJL2z71KY2lkasMAkn9_LSux9vs7eEdo1u3xCQSU35qUGmCACFX-rqbOt5qr_fcSD4JtyME9NGs2KQoyZoT792TXPIxSm5TCSRBHwucRJUGgk4kWOfROHKATKWH9RbuGioUmWnoQqpAXpy3XlFFD_1ESq4__QOvBSHZ8x-Q4Y74wN42jhx8ZA_fJ5Q1N9QxtT3RdvaGSDdryMjCtkRMZ_kdcREFcuC8ZmmjMucUC_FE4PI0GEihwLHRJ3qL69MYnQ0xxrbAK_0') center/cover;"></div>
+                    <h3 style="color: #fff;">Mr. Anoop Khanna</h3>
+                    <p>Co-Founder</p>
+                    <span style="font-size: 15px; color: rgba(255,255,255,0.8);">Driving regional expansion and ensuring our fleet operations meet the highest standards of safety and efficiency.</span>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-img" style="background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAh1mziXghQHd2iaa_iukKyPriFcUbmaIzkv75oZFg8X2forj-O5F_KnV5j21CtXV5IU0wPjBox1wodoVyUIdeAk1B4gfBZgbcqr8HK4EFCIthEBkocXUFkp3caW_kOiVVEqqwfUjoI_DRpWlpdOhHH5auLJJrcfT8t_3zExz-7-50lbym2dDgkFs_KSCN0LxZUca2lOkLJ5ooEgqkGTyDCrPyR6bvw_-OC0ddPRgKVoSpegEDpbwwB0tdv_49EuPHkKlrKbWujQms') center/cover;"></div>
+                    <h3 style="color: #fff;">Mr. Ashish Khanna</h3>
+                    <p>Co-Founder</p>
+                    <span style="font-size: 15px; color: rgba(255,255,255,0.8);">Spearheading technological adoption and customer relations to modernize the MFL freight experience.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Timeline -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title text-center">Our Milestones</h2>
+            <p class="section-subtitle text-center">Key moments in the growth of MFL Logistics.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2001</div>
+                    <div class="timeline-content">
+                        <h3>Company Foundation</h3>
+                        <p style="color: var(--text-light); font-size: 15px;">MFL is established in Indore by Mr. Arun Kumar Khanna with a vision to streamline regional freight operations.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2005</div>
+                    <div class="timeline-content">
+                        <h3>Early Operations</h3>
+                        <p style="color: var(--text-light); font-size: 15px;">Secured key contracts across MP and Central India, establishing a strong reputation for on-time deliveries and secure cargo handling.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2010</div>
+                    <div class="timeline-content">
+                        <h3>Fleet Growth</h3>
+                        <p style="color: var(--text-light); font-size: 15px;">Significant investment in expanding the proprietary fleet to manage increased demand across Central India.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-content">
+                        <h3>Expansion to Kanpur</h3>
+                        <p style="color: var(--text-light); font-size: 15px;">Opened the strategic Kanpur branch, connecting UP and Northern India to our primary network.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h3>Technology Adoption</h3>
+                        <p style="color: var(--text-light); font-size: 15px;">Implemented advanced route planning and operational software to optimize efficiency and client communication.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-content">
+                        <h3>Present Day & Future Growth</h3>
+                        <p style="color: var(--text-light); font-size: 15px;">Serving 20+ cities with a commitment to continuous expansion and delivering premium logistics experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title text-center">Our Core Values</h2>
+            
+            <div class="services-grid" style="margin-top: 40px;">
+                <div class="service-card" style="padding: 32px; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+                    <div class="service-icon" style="color: var(--gold); background: rgba(212, 175, 55, 0.1);"><i class="fas fa-handshake"></i></div>
+                    <h3 style="color: #fff;">Integrity</h3>
+                    <p style="color: rgba(255,255,255,0.8);">We believe in absolute transparency in all our dealings. Our word is our bond.</p>
+                </div>
+                <div class="service-card" style="padding: 32px; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+                    <div class="service-icon" style="color: var(--gold); background: rgba(212, 175, 55, 0.1);"><i class="fas fa-clock"></i></div>
+                    <h3 style="color: #fff;">Reliability</h3>
+                    <p style="color: rgba(255,255,255,0.8);">Consistent, on-time performance is the backbone of our operational ethos.</p>
+                </div>
+                <div class="service-card" style="padding: 32px; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+                    <div class="service-icon" style="color: var(--gold); background: rgba(212, 175, 55, 0.1);"><i class="fas fa-users"></i></div>
+                    <h3 style="color: #fff;">Customer Focus</h3>
+                    <p style="color: rgba(255,255,255,0.8);">We treat every client's cargo as if it were our own, ensuring personalized care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Vision & CTA -->
+    <section class="section" style="background: var(--gradient-premium); border-top: 4px solid var(--gold); color: #fff; text-align: center; padding: 80px 0;">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="color: #fff; font-size: 36px; margin-bottom: 24px;">The Road Ahead</h2>
+            <p style="font-size: 18px; opacity: 0.9; margin-bottom: 40px;">
+                Connect with our team to explore tailored logistics solutions for your business.
+            </p>
+            <button class="btn" style="background: var(--gold); color: var(--primary-deep); font-weight: 800; border: none; box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);" onclick="openContactModal()">Partner With Us Today</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo-new.png" alt="MFL Logistics Logo" style="height: 120px; margin-bottom: 24px;">
+                    <h3 style="color: #fff; margin-bottom: 8px; font-size: 20px;">Mamta Forwarding Logistics</h3>
+                    <p style="color: var(--gold); font-weight: 600; margin-bottom: 16px;">Trusted Freight Operations Since 2001</p>
+                    <p>Mamta Forwarding Logistics provides premium freight solutions across India, combining decades of trusted experience with modern operational efficiency.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About & Legacy</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services">Full Truck Load</a></li>
+                        <li><a href="index.html#services">Part Truck Load</a></li>
+                        <li><a href="index.html#services">Express Delivery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="openContactModal(); return false;">Contact Us</a></li>
+                        <li><a href="tel:+918707812390">+91 87078 12390</a></li>
+                        <li><a href="mailto:anujkhanna1029@gmail.com">anujkhanna1029@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px;">
+                <p style="font-size: 16px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">Moving India's Supply Chains Forward Since 2001</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mamta Forwarding Logistics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function openContactModal() {
+            document.getElementById('contactOverlay').classList.add('active');
+            document.getElementById('contactPanel').classList.add('active');
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactOverlay').classList.remove('active');
+            document.getElementById('contactPanel').classList.remove('active');
+            document.getElementById('quoteForm').classList.remove('active'); // reset
+        }
+
+        function toggleQuoteForm() {
+            document.getElementById('quoteForm').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

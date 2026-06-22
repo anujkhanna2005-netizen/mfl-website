@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MFL Services | Premium B2B Logistics Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #15803D 0%, #0F766E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .step-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 100%;
+            height: 2px;
+            background: repeating-linear-gradient(to right, #00652c 0, #00652c 4px, transparent 4px, transparent 8px);
+            z-index: -1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#95f8a7",
+                      "on-tertiary-container": "#f2f2ff",
+                      "surface-dim": "#d0dbed",
+                      "tertiary-fixed": "#dbe1ff",
+                      "on-secondary-fixed": "#00201d",
+                      "inverse-on-surface": "#eaf1ff",
+                      "tertiary": "#004cca",
+                      "primary-fixed-dim": "#79db8d",
+                      "surface-container-high": "#dee9fc",
+                      "inverse-primary": "#79db8d",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#15803d",
+                      "on-tertiary-fixed-variant": "#003ea8",
+                      "gradient-end": "#0F766E",
+                      "on-surface-variant": "#3f493f",
+                      "on-surface": "#121c2a",
+                      "secondary-container": "#99efe5",
+                      "background": "#f8f9ff",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#d9e3f6",
+                      "secondary-fixed": "#9cf2e8",
+                      "surface": "#f8f9ff",
+                      "highlight-orange": "#F97316",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#00174b",
+                      "error": "#ba1a1a",
+                      "surface-container-highest": "#d9e3f6",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed-variant": "#005323",
+                      "on-primary-container": "#d3ffd5",
+                      "surface-bright": "#f8f9ff",
+                      "surface-white": "#FFFFFF",
+                      "error-container": "#ffdad6",
+                      "outline-variant": "#becabc",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed-dim": "#80d5cb",
+                      "surface-container-low": "#eff4ff",
+                      "on-background": "#121c2a",
+                      "on-primary-fixed": "#00210a",
+                      "outline": "#6f7a6e",
+                      "secondary": "#006a63",
+                      "on-secondary-fixed-variant": "#00504a",
+                      "accent-gradient-end": "#0F766E",
+                      "surface-tint": "#006d30",
+                      "inverse-surface": "#27313f",
+                      "tertiary-fixed-dim": "#b4c5ff",
+                      "primary": "#00652c",
+                      "bg-off-white": "#F8FAFC",
+                      "surface-container": "#e6eeff",
+                      "gradient-start": "#15803D",
+                      "tertiary-container": "#2865ed",
+                      "on-secondary-container": "#006f67",
+                      "on-secondary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "custom": "20px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "margin-mobile": "16px",
+                      "stack-gap": "16px",
+                      "gutter": "24px",
+                      "card-padding": "24px",
+                      "margin-desktop": "48px"
+              },
+              "fontFamily": {
+                      "label-uppercase": ["Inter"],
+                      "headline-display": ["Sora"],
+                      "headline-lg": ["Sora"],
+                      "body-sm": ["Inter"],
+                      "stats-number": ["Sora"],
+                      "headline-lg-mobile": ["Sora"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Sora"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "label-uppercase": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "stats-number": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 w-full z-50 bg-surface/80 dark:bg-on-background/80 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-full">
+<div class="flex items-center gap-2">
+<img alt="MFL Logo" class="h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB63B61uFs2TUUnW0JHhEIjeNjW7vmWBWvmjw_EOPsRBDdBncd79yxZ-Sd9Z4yQPWoySyZIukQvq4Ry2wXgLm9qsNlA51BXF2XGOXMPWBxlMlzTQwULnLQOW36-sHR4ABT9VQ3sDRg9IHu46axFK1U0Hv8VocQnS2vpHIj2fxxsWStlQx5XGdkmegw16BAvbwnN-1LLO1SiKpyo_wSA4EatMJ3-vSEtieBFME9eTMni-urcgqgXnEXWEfGPGV_LikA2TrFrOZoq9E"/>
+<span class="font-headline-md text-headline-md font-bold text-primary">MFL</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Solutions</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Network</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Track</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a>
+</div>
+<button class="bg-gradient-to-r from-gradient-start to-gradient-end text-on-primary px-6 py-2.5 rounded-xl font-bold shadow-md hover:shadow-lg transition-all duration-300">
+                Get a Quote
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[600px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center scale-105" data-alt="A cinematic, high-angle wide shot of a futuristic, ultra-modern logistics warehouse facility. Pristine white and emerald green transport vehicles are neatly lined up at loading docks under bright, cool-toned daylight. The architecture is clean and industrial-minimalist, with vast glass panels reflecting a clear blue sky. The lighting is crisp and professional, creating an atmosphere of absolute efficiency and high-end B2B operations." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDPhQ3I5SlB7i2i0ZVL5LzpRtKiUL4IQEUZVsvUDucrHco6AtoQZAn-uf5tJ16Op0cmjEMC38JkqKpOEhFbupDYjfVthYxwVjhwYrGg0ucdCQlcxZ44adI6C3qwTf2VuASoHCKhfUXf0y5Q7LIUwWAwIV8GLL-qr5YlXyJfyNbm8gtum0Ut67AfwPS2zP2seYgL7zAk4SmNRmQr637G9Le4b-ieB37mP-l9sSheNgjsG0i4s2m58-stteTsOJNf5MaNdU5738azx4')"></div>
+<div class="absolute inset-0 bg-on-background/40 backdrop-blur-[2px]"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-on-background/80 to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-4xl text-on-primary">
+<span class="inline-block px-4 py-1 bg-primary/20 backdrop-blur-md border border-primary-fixed/30 rounded-full font-label-uppercase text-label-uppercase mb-6">
+                    Logistics 4.0 Excellence
+                </span>
+<h1 class="font-headline-display text-headline-display mb-6 leading-tight">
+                    End-to-End <br/><span class="text-primary-fixed">Logistics Solutions</span>
+</h1>
+<p class="font-body-lg text-body-lg mb-10 text-surface-variant max-w-xl">
+                    Streamline your supply chain with our high-velocity distribution network. MFL combines industrial reliability with advanced SaaS visibility for modern enterprises.
+                </p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-custom font-bold flex items-center gap-2 hover:bg-primary-container transition-all">
+                        Explore Solutions
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-custom font-bold hover:bg-white/20 transition-all">
+                        Download Portfolio
+                    </button>
+</div>
+</div>
+</section>
+<!-- Core Services Bento Grid -->
+<section class="py-margin-desktop px-margin-desktop bg-bg-off-white">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-4">Strategic Core Services</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Precision-engineered logistics modules designed to scale with your business demands, from local distribution to complex national networks.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Service 1: Inter-State -->
+<div class="md:col-span-8 group relative overflow-hidden bg-white rounded-custom p-card-padding shadow-sm hover:shadow-xl transition-all border border-transparent hover:border-primary/10">
+<div class="flex flex-col md:flex-row gap-8 h-full">
+<div class="flex-1 space-y-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background">Inter-State Transport</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">High-capacity fleet operations covering every major trade corridor across the subcontinent with real-time GPS telemetry.</p>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Route Optimization AI</span>
+</li>
+<li class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Climate-Controlled Options</span>
+</li>
+</ul>
+<div class="pt-6">
+<div class="font-stats-number text-stats-number text-primary">99.2%</div>
+<div class="font-label-uppercase text-label-uppercase text-on-surface-variant uppercase">SLA ACCURACY</div>
+</div>
+</div>
+<div class="flex-1 min-h-[240px] rounded-xl overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A hyper-detailed digital illustration of a sleek, aerodynamic semi-truck moving swiftly along a modern highway during a sunset. The aesthetic is clean, flat, and corporate with gradients of emerald green and deep teal. Soft, glowing light trails emphasize speed and technological integration. The scene is framed with plenty of whitespace and feels premium and minimalist." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTxZhtuLmpNW6UYmPv5OBkWOXSY8MUlqRhKzf9Wr_2qMXN_-iLzyJEQ8a16yyDW0zwzBZtVueDVLHYEDmy2fYhmEJwpmt0x0ldLck1PQj9C7coihjzbX6dwlNcOiku86Vw-L_6C4NIRUPNoPDq8y1ifGIlZMzpiaTE1KoZ3aWSu_7jan4pAnOBLozaTNTSDtPLXhIB1K9IU4QAZZhkDAw9vB5d9tZlC0BZx5yMUIfYFZnZAWVvjyGvtp7BhUc1VjDucWQXtbD8w34')"></div>
+</div>
+</div>
+</div>
+<!-- Service 2: Door-to-Door -->
+<div class="md:col-span-4 bg-white rounded-custom p-card-padding shadow-sm hover:shadow-xl transition-all border border-transparent hover:border-primary/10 flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed mb-6">
+<span class="material-symbols-outlined">home_pin</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-4">Door-to-Door</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Seamless last-mile fulfillment ensuring your cargo reaches the precise destination without intermediaries.</p>
+</div>
+<div class="mt-8 pt-8 border-t border-surface-variant">
+<div class="font-stats-number text-stats-number text-secondary">24/7</div>
+<div class="font-label-uppercase text-label-uppercase text-on-surface-variant uppercase">GLOBAL TRACKING</div>
+</div>
+</div>
+<!-- Service 3: Supply Chain -->
+<div class="md:col-span-4 bg-on-background text-on-primary rounded-custom p-card-padding shadow-sm hover:shadow-xl transition-all relative overflow-hidden">
+<div class="relative z-10">
+<div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-white mb-6">
+<span class="material-symbols-outlined">hub</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Supply Chain Integration</h3>
+<p class="font-body-md text-body-md text-surface-variant">Deep-layered technical integration for full lifecycle visibility from manufacturing to the end consumer.</p>
+<div class="mt-8 flex items-center gap-4">
+<div class="px-3 py-1 rounded-full border border-primary/30 bg-primary/10 font-body-sm text-body-sm">Inventory Sync</div>
+<div class="px-3 py-1 rounded-full border border-primary/30 bg-primary/10 font-body-sm text-body-sm">ERP Ready</div>
+</div>
+</div>
+<!-- Subtle background decoration -->
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+</div>
+<!-- Service 4: Warehouse -->
+<div class="md:col-span-8 bg-surface-container rounded-custom p-card-padding shadow-sm hover:shadow-xl transition-all border border-transparent hover:border-primary/10">
+<div class="flex flex-col md:flex-row items-center gap-8 h-full">
+<div class="flex-1">
+<div class="w-full h-48 rounded-xl bg-cover bg-center" data-alt="A minimalist architectural photograph of a high-tech warehouse interior featuring automated shelving systems. The color palette consists of cool greys, charcoal, and emerald green accents. The lighting is bright and evenly distributed, highlighting the clean, dust-free environment. The composition uses leading lines to create depth and a sense of infinite scale and order." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAHMQd_-ud5P4Myi3OeZrC4s0RMeyjyJftRXJ6LDdBurutYUHrxiauQc8zaWeWQl9twkY-wF0gkUFjvT6okVIe2TL0AaYXLRFEEnkhgLrAYq3tfeZNXRi55S5hJfFja4Lt8iOyb1TZPBG3IelnYhGBC3bpqfPDvVcyeIO7aQEvqxXX_JfDF-Sl7k_hb_itMRArDG4GCCdaJ-3xAN30YMDLqlAO59F5SP_SRIeeIOM9T7FR81OibTnAx_8kCBAjpnwFLCm9VSyh_42w')"></div>
+</div>
+<div class="flex-1 space-y-4">
+<h3 class="font-headline-md text-headline-md text-on-background">Smart Warehousing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Strategically located hubs featuring WMS integration, cross-docking, and inventory management solutions.</p>
+<button class="text-primary font-bold flex items-center gap-1 group">
+                                Explore Hub Network 
+                                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Industry Applications (Control Tower Feel) -->
+<section class="py-margin-desktop bg-on-background relative overflow-hidden">
+
+<div class="relative z-10 px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg text-on-primary mb-4">Vertical Excellence</h2>
+<p class="font-body-md text-body-md text-surface-variant">We tailor our logistics frameworks to meet the specialized demands of high-growth industry sectors.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center px-6 border-r border-white/10">
+<span class="font-stats-number text-stats-number text-primary-fixed">500+</span>
+<span class="font-label-uppercase text-label-uppercase text-white/60">ACTIVE CLIENTS</span>
+</div>
+<div class="flex flex-col items-center px-6">
+<span class="font-stats-number text-stats-number text-primary-fixed">15M+</span>
+<span class="font-label-uppercase text-label-uppercase text-white/60">TONS SHIPPED</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-gap">
+<!-- Manufacturer -->
+<div class="glass-card p-card-padding rounded-custom hover:-translate-y-2 transition-all duration-300">
+<div class="h-40 mb-6 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<div class="w-full h-full bg-cover bg-center" data-alt="A high-end industrial photography of a modern manufacturing assembly line with robotic arms in action. The lighting is dramatic, focusing on the precision and technical sophistication of the environment. The color scheme features deep blacks and vibrant emerald green lights, embodying a premium B2B SaaS aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBLE5L3sqUm5aKeB4wTKnXoJsVlXMOHi0jT9SfTAs0g1nUY3-ADVHH8K-VSst81cKBz8dTYsz7lqZznISFmzWoK-ES1ECFTCfz1yalx8nFZ5qzsSX1WY6U3hYneJ5lV82j5GLWm9Diy-ASHHVIWg27b9dtDgwYSaBspb9Vew2JAg4biONxN5KZ6p1vVOxB4Ol1oBMZbeJ8pg5j7-EgMutsPRgZtPYztV1Djq8DTY5GeBdaXw9wptfbZlh3nAWNR1eIit79LFop040')"></div>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-primary mb-3">Manufacturers</h4>
+<p class="font-body-sm text-body-sm text-surface-variant">JIT (Just-In-Time) delivery frameworks for raw materials and finished goods distribution.</p>
+</div>
+<!-- Traders -->
+<div class="glass-card p-card-padding rounded-custom hover:-translate-y-2 transition-all duration-300">
+<div class="h-40 mb-6 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<div class="w-full h-full bg-cover bg-center" data-alt="A conceptual business scene showing a modern trading floor environment or a busy commercial port from a distance at night. The image is filtered with a deep teal and emerald green palette, emphasizing a sophisticated, global trade network feel. Soft glows from screens and harbor lights add a sense of activity and connectivity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGA-1Y33w4OtRwFohwtOlL1XFsmUTZMYXdAYVo1nGfTb7Nf8Hp_XCejFxMt2lFAenqsxF06y4C0Wa3FXvBw-ro_MciqUA7pssMgDnbdIlu2pSnS07eHXKI8dXWB-qVhleDZDuHQvS3aHOneorHZxXlZLck5acFxjZlZonlkAJ4wDE3V1Z5GgrOMLh0tKFEGGen4FSkNMLahpwHjVoy_IlWKLUxR1BA3L5iCi5H_xXy92f4TZP8Bec49q8b1G1prFabhhQ8rwybH3A')"></div>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-primary mb-3">Traders</h4>
+<p class="font-body-sm text-body-sm text-surface-variant">Flexible freight solutions and consolidated shipments for dynamic market trading and distribution.</p>
+</div>
+<!-- FMCG -->
+<div class="glass-card p-card-padding rounded-custom hover:-translate-y-2 transition-all duration-300">
+<div class="h-40 mb-6 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<div class="w-full h-full bg-cover bg-center" data-alt="A lifestyle product shot of premium consumer goods neatly stacked on pallets in a brightly lit, high-end retail distribution center. The visual style is crisp and clean, highlighting product safety and organized supply chain handling. The lighting is soft and professional, with subtle green accents throughout the scene." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCY2KFtOnaxYYaT48T0fBx91QTgB92qRXTttBQGqIC99s56HRSUkOQwXlSRXfBe9obeCwolMlM9cZhgniH7Q5RdfGzkqr8dDcXGifXdDZacCR8e_gyWeseOLuaaDioofFJWGum4awQYM57URBLoTo4olMtOc0-4Fm954bGRAaREBmYkn6yZRv5yrEkh0jwIP-xybndTA2VHXcqzhe9bkyFoLRiZhdoM1rwYQdVeRE2qlzwkZRL4Y6nFMMyqTukJYugF8frPRf966Ds')"></div>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-primary mb-3">FMCG</h4>
+<p class="font-body-sm text-body-sm text-surface-variant">High-velocity, temperature-sensitive logistics for fast-moving consumer goods across urban centers.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="py-margin-desktop px-margin-desktop bg-surface-white">
+<div class="max-w-4xl mx-auto text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-4">The MFL Workflow</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Simple, transparent, and digitally-native. Experience logistics that moves at the speed of software.</p>
+</div>
+<div class="relative flex flex-col md:flex-row justify-between items-start gap-12 md:gap-4">
+<!-- Step 1 -->
+<div class="flex-1 text-center relative px-4 group">
+<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary">assignment_add</span>
+</div>
+<div class="hidden md:block absolute top-10 left-1/2 w-full h-[2px] border-t-2 border-dashed border-outline-variant -z-10 translate-x-[10%]"></div>
+<h5 class="font-headline-md text-[18px] mb-2">Request</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Submit your cargo requirements via our portal or EDI.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex-1 text-center relative px-4 group">
+<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary">front_loader</span>
+</div>
+<div class="hidden md:block absolute top-10 left-1/2 w-full h-[2px] border-t-2 border-dashed border-outline-variant -z-10 translate-x-[10%]"></div>
+<h5 class="font-headline-md text-[18px] mb-2">Pickup</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Professional loading using specialized equipment for your category.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex-1 text-center relative px-4 group">
+<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary">moving</span>
+</div>
+<div class="hidden md:block absolute top-10 left-1/2 w-full h-[2px] border-t-2 border-dashed border-outline-variant -z-10 translate-x-[10%]"></div>
+<h5 class="font-headline-md text-[18px] mb-2">Transit</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time monitored transit with optimized routing algorithms.</p>
+</div>
+<!-- Step 4 -->
+<div class="flex-1 text-center relative px-4 group">
+<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary">task_alt</span>
+</div>
+<h5 class="font-headline-md text-[18px] mb-2">Delivery</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Final verification, e-POD generation, and secure offloading.</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="my-margin-desktop px-margin-desktop">
+<div class="bg-gradient-to-br from-primary to-gradient-end rounded-custom p-12 text-on-primary relative overflow-hidden">
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="max-w-xl">
+<h2 class="font-headline-lg text-headline-lg mb-4">Ready to optimize your distribution?</h2>
+<p class="font-body-lg text-body-lg text-primary-fixed">Consult with our logistics architects to design a bespoke supply chain strategy for your business.</p>
+</div>
+<div class="flex shrink-0">
+<button class="bg-surface-white text-primary font-bold px-10 py-5 rounded-custom shadow-xl hover:bg-surface-bright transition-all">
+                            Talk to an Expert
+                        </button>
+</div>
+</div>
+<!-- Abstract background pattern -->
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-24 -left-24 w-96 h-96 bg-black/5 rounded-full blur-3xl"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-on-background dark:bg-surface-container-lowest w-full rounded-t-[20px] text-bg-off-white">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-stack-gap px-margin-desktop py-margin-desktop">
+<div class="space-y-6">
+<div class="flex items-center gap-2">
+<img alt="MFL Logo" class="h-10 brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB63B61uFs2TUUnW0JHhEIjeNjW7vmWBWvmjw_EOPsRBDdBncd79yxZ-Sd9Z4yQPWoySyZIukQvq4Ry2wXgLm9qsNlA51BXF2XGOXMPWBxlMlzTQwULnLQOW36-sHR4ABT9VQ3sDRg9IHu46axFK1U0Hv8VocQnS2vpHIj2fxxsWStlQx5XGdkmegw16BAvbwnN-1LLO1SiKpyo_wSA4EatMJ3-vSEtieBFME9eTMni-urcgqgXnEXWEfGPGV_LikA2TrFrOZoq9E"/>
+<span class="font-headline-md text-headline-md text-bg-off-white">MFL</span>
+</div>
+<p class="font-body-sm text-body-sm text-surface-variant/70">
+                    Redefining B2B logistics through high-velocity distribution and intelligent visibility.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</a>
+</div>
+</div>
+<div class="space-y-4">
+<h6 class="font-bold text-white">Hubs</h6>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-body-sm text-surface-variant/70 hover:text-primary-fixed transition-colors" href="#">Kanpur Hub</a></li>
+<li><a class="font-body-sm text-body-sm text-surface-variant/70 hover:text-primary-fixed transition-colors" href="#">Indore Hub</a></li>
+<li><a class="font-body-sm text-body-sm text-surface-variant/70 hover:text-primary-fixed transition-colors" href="#">Routes</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h6 class="font-bold text-white">Support</h6>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-body-sm text-surface-variant/70 hover:text-primary-fixed transition-colors" href="#">WhatsApp Support</a></li>
+<li><a class="font-body-sm text-body-sm text-surface-variant/70 hover:text-primary-fixed transition-colors" href="#">LinkedIn</a></li>
+<li><a class="font-body-sm text-body-sm text-surface-variant/70 hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h6 class="font-bold text-white">Newsletter</h6>
+<p class="font-body-sm text-body-sm text-surface-variant/70">Stay updated on logistics trends.</p>
+<div class="flex gap-2">
+<input class="bg-white/10 border-transparent rounded-lg px-4 py-2 text-white focus:ring-primary w-full" placeholder="Email address" type="email"/>
+<button class="bg-primary px-4 py-2 rounded-lg font-bold">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="border-t border-white/10 px-margin-desktop py-6 text-center text-surface-variant/50 font-body-sm text-body-sm">
+            © 2024 Mamta Forwarding Logistics. All rights reserved.
+        </div>
+</footer>
+<!-- Simple interaction script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 20) {
+                    nav.classList.add('shadow-md');
+                } else {
+                    nav.classList.remove('shadow-md');
+                }
+            });
+
+            // Reveal animations on scroll
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section > div').forEach(el => {
+                el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body></html>

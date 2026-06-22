@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anujkhanna2005-netizen.github.io/mfl-website/sitemap.xml

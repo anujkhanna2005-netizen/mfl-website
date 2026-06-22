@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFL | Premium Logistics & Freight</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Sticky Mobile Bottom Bar -->
+    <div class="mobile-bottom-bar">
+        <div class="mobile-bar-inner">
+            <a href="tel:+918707812390" class="mobile-bar-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
+            <a href="https://wa.me/918707812390" class="mobile-bar-btn" style="color: #15803D;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <button class="mobile-bar-btn primary" onclick="openContactModal()"><i class="fas fa-bolt"></i> Get Quote</button>
+        </div>
+    </div>
+
+    <!-- Contact Modal (Slide-over) -->
+    <div class="modal-overlay" id="contactOverlay" onclick="closeContactModal()"></div>
+    <div class="contact-panel" id="contactPanel">
+        <div class="panel-header">
+            <h3>Contact MFL</h3>
+            <button class="close-modal" onclick="closeContactModal()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <a href="https://wa.me/918707812390" class="contact-action-btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+            <a href="tel:+918707812390" class="contact-action-btn btn-phone">
+                <i class="fas fa-phone-alt"></i> Call Us Directly
+            </a>
+            <button class="contact-action-btn" onclick="toggleQuoteForm()" style="border-color: var(--gold); color: var(--primary-deep); background: var(--gradient-gold); font-weight: 800;">
+                <i class="fas fa-file-invoice-dollar"></i> Request Custom Quote
+            </button>
+            
+            <form action="https://formsubmit.co/anujkhanna1029@gmail.com" method="POST" class="quote-form" id="quoteForm">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New Freight Quote Request!">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label>Origin City</label>
+                    <input type="text" name="origin" placeholder="e.g. Kanpur" required>
+                </div>
+                <div class="form-group">
+                    <label>Destination City</label>
+                    <input type="text" name="destination" placeholder="e.g. Ahmedabad" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+            </form>
+
+            <a href="mailto:anujkhanna1029@gmail.com" class="contact-action-btn" style="margin-top: 12px;">
+                <i class="fas fa-envelope"></i> anujkhanna1029@gmail.com
+            </a>
+
+            <div class="office-info">
+                <h4>Our Offices</h4>
+                <div class="office-card">
+                    <strong>Indore (Head Office)</strong>
+                    456 Scheme No. 78, Indore, MP, India - 452010
+                </div>
+                <div class="office-card">
+                    <strong>Kanpur (Branch Office)</strong>
+                    123 Transport Nagar, Kanpur, UP, India - 208023
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo-new.png" alt="MFL Logistics" class="logo-img">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About & Legacy</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#network">Network</a></li>
+                <li><button class="btn nav-cta" onclick="openContactModal()">Get Quote</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" style="background-image: url('images/ops-truck-back.png');">
+        <div class="container">
+            <div class="hero-content">
+                <span style="color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-weight: 800; font-size: 15px; margin-bottom: 24px; display: block;">Trusted Freight Solutions Since 2001</span>
+                <h1>A Legacy Built on Trust.<br>Logistics Delivered.</h1>
+                <p>Premium freight and transportation solutions connecting Kanpur, Indore, and the rest of India with unmatched reliability.</p>
+                <div class="hero-btns">
+                    <button class="btn btn-primary" onclick="openContactModal()">Request a Quote</button>
+                    <a href="about.html" class="btn btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.5);">Our Legacy</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Quick Stats -->
+    <div class="container">
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3>2001</h3>
+                <p>Established</p>
+            </div>
+            <div class="metric-card">
+                <h3>20+</h3>
+                <p>Major Routes</p>
+            </div>
+            <div class="metric-card">
+                <h3>Family</h3>
+                <p>Led Business</p>
+            </div>
+            <div class="metric-card">
+                <h3>Pan India</h3>
+                <p>Coverage</p>
+            </div>
+        </div>
+        
+        <div style="background: rgba(7, 26, 19, 0.05); border: 1px solid rgba(7, 26, 19, 0.1); border-radius: var(--radius); padding: 24px; margin-top: 48px; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 24px;">
+            <span style="color: var(--primary-deep); font-weight: 700; font-size: 15px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Family-Led Since 2001</span>
+            <span style="color: var(--primary-deep); font-weight: 700; font-size: 15px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Trusted Across Major Freight Corridors</span>
+            <span style="color: var(--primary-deep); font-weight: 700; font-size: 15px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Dedicated FTL & PTL Operations</span>
+            <span style="color: var(--primary-deep); font-weight: 700; font-size: 15px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Relationship-Driven Logistics Solutions</span>
+        </div>
+    </div>
+
+    <!-- Why MFL -->
+    <section class="section">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+                <div>
+                    <h2 class="section-title">Why Choose MFL</h2>
+                    <p class="section-subtitle">Since 2001, we have built our reputation on fulfilling promises and maintaining the highest operational standards.</p>
+                    
+                    <div style="margin-top: 48px;">
+                        <div style="display: flex; gap: 24px; margin-bottom: 32px; align-items: flex-start;">
+                            <div style="width: 64px; height: 64px; background: var(--surface-dark); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 28px; flex-shrink: 0; box-shadow: var(--shadow-md); border: 1px solid rgba(212, 175, 55, 0.2);"><i class="fas fa-shield-alt"></i></div>
+                            <div>
+                                <h3 style="font-size: 22px; margin-bottom: 8px;">Unmatched Reliability</h3>
+                                <p style="color: var(--text-light); line-height: 1.6; font-size: 16px;">With decades of experience, our operational standards guarantee safe and timely deliveries across all routes.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 24px; margin-bottom: 32px; align-items: flex-start;">
+                            <div style="width: 64px; height: 64px; background: var(--surface-dark); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 28px; flex-shrink: 0; box-shadow: var(--shadow-md); border: 1px solid rgba(212, 175, 55, 0.2);"><i class="fas fa-route"></i></div>
+                            <div>
+                                <h3 style="font-size: 22px; margin-bottom: 8px;">Optimized Routing</h3>
+                                <p style="color: var(--text-light); line-height: 1.6; font-size: 16px;">Advanced logistics planning ensures the most efficient paths between origins and destinations.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 24px; align-items: flex-start;">
+                            <div style="width: 64px; height: 64px; background: var(--surface-dark); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 28px; flex-shrink: 0; box-shadow: var(--shadow-md); border: 1px solid rgba(212, 175, 55, 0.2);"><i class="fas fa-handshake"></i></div>
+                            <div>
+                                <h3 style="font-size: 22px; margin-bottom: 8px;">Family-Led Trust</h3>
+                                <p style="color: var(--text-light); line-height: 1.6; font-size: 16px;">We treat your cargo as our own. A strong legacy of personalized, trustworthy service.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="images/manual-loading.png" alt="MFL Operations" style="width: 100%; border-radius: 8px; box-shadow: var(--shadow-xl); border: 4px solid var(--border);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title text-center">Premium Logistics Solutions</h2>
+            <p class="section-subtitle text-center">Tailored freight services designed for modern supply chains.</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="images/hero-truck-branded.png" alt="Full Truck Load" class="service-img">
+                    <div class="service-content">
+                        <h3>Full Truck Load (FTL)</h3>
+                        <p>Dedicated transport for large shipments ensuring maximum security and direct routing.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="images/ops-loading.png" alt="Part Truck Load" class="service-img">
+                    <div class="service-content">
+                        <h3>Part Truck Load (PTL)</h3>
+                        <p>Cost-effective consolidated freight solutions for shipments that don't require a full truck.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="images/fleet-clean.png" alt="Express Delivery" class="service-img">
+                    <div class="service-content">
+                        <h3>Express Freight</h3>
+                        <p>Time-critical logistics for urgent shipments across the country with priority handling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Coverage -->
+    <section id="network" class="section section-dark">
+        <div class="container network-layout">
+            <div class="network-content">
+                <h2 class="section-title">Expansive Network Coverage</h2>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 32px; font-size: 18px;">Connecting primary manufacturing hubs with key consumption markets across India.</p>
+                
+                <ul class="network-features">
+                    <li>
+                        <i class="fas fa-map-marker-alt" style="color: var(--gold);"></i>
+                        <div>
+                            <h4 style="color: #fff;">Indore Head Office</h4>
+                            <p style="color: rgba(255,255,255,0.8);">Central operations hub serving MP, Gujarat, and Maharashtra.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt" style="color: var(--gold);"></i>
+                        <div>
+                            <h4 style="color: #fff;">Kanpur Branch</h4>
+                            <p style="color: rgba(255,255,255,0.8);">Strategic regional office covering UP and Northern India.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-road" style="color: var(--gold);"></i>
+                        <div>
+                            <h4 style="color: #fff;">20+ Key Routes</h4>
+                            <p style="color: rgba(255,255,255,0.8);">Daily operations across major industrial corridors.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="network-map">
+                <img src="images/india-map-new.png" alt="MFL Network Map">
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries We Serve -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title text-center">Industries We Serve</h2>
+            <p class="section-subtitle text-center">Delivering specialized logistics solutions across key economic sectors.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 48px;">
+                <div style="background: var(--bg-white); border: 1px solid var(--border); border-radius: 8px; padding: 32px; text-align: center; box-shadow: var(--shadow-sm); transition: var(--transition);" onmouseover="this.style.boxShadow='var(--shadow-lg)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.boxShadow='var(--shadow-sm)'; this.style.borderColor='var(--border)';">
+                    <i class="fas fa-industry" style="font-size: 40px; color: var(--gold); margin-bottom: 24px;"></i>
+                    <h3 style="font-size: 20px; color: var(--primary-deep); margin-bottom: 12px; font-weight: 800;">Manufacturing</h3>
+                    <p style="color: var(--text-light); font-size: 15px;">Heavy machinery and industrial raw materials transport.</p>
+                </div>
+                <div style="background: var(--bg-white); border: 1px solid var(--border); border-radius: 8px; padding: 32px; text-align: center; box-shadow: var(--shadow-sm); transition: var(--transition);" onmouseover="this.style.boxShadow='var(--shadow-lg)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.boxShadow='var(--shadow-sm)'; this.style.borderColor='var(--border)';">
+                    <i class="fas fa-box-open" style="font-size: 40px; color: var(--gold); margin-bottom: 24px;"></i>
+                    <h3 style="font-size: 20px; color: var(--primary-deep); margin-bottom: 12px; font-weight: 800;">FMCG</h3>
+                    <p style="color: var(--text-light); font-size: 15px;">Fast-moving consumer goods with time-sensitive delivery.</p>
+                </div>
+                <div style="background: var(--bg-white); border: 1px solid var(--border); border-radius: 8px; padding: 32px; text-align: center; box-shadow: var(--shadow-sm); transition: var(--transition);" onmouseover="this.style.boxShadow='var(--shadow-lg)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.boxShadow='var(--shadow-sm)'; this.style.borderColor='var(--border)';">
+                    <i class="fas fa-tshirt" style="font-size: 40px; color: var(--gold); margin-bottom: 24px;"></i>
+                    <h3 style="font-size: 20px; color: var(--primary-deep); margin-bottom: 12px; font-weight: 800;">Textiles</h3>
+                    <p style="color: var(--text-light); font-size: 15px;">Secure transit for garments, fabrics, and retail supplies.</p>
+                </div>
+                <div style="background: var(--bg-white); border: 1px solid var(--border); border-radius: 8px; padding: 32px; text-align: center; box-shadow: var(--shadow-sm); transition: var(--transition);" onmouseover="this.style.boxShadow='var(--shadow-lg)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.boxShadow='var(--shadow-sm)'; this.style.borderColor='var(--border)';">
+                    <i class="fas fa-cogs" style="font-size: 40px; color: var(--gold); margin-bottom: 24px;"></i>
+                    <h3 style="font-size: 20px; color: var(--primary-deep); margin-bottom: 12px; font-weight: 800;">Industrial Goods</h3>
+                    <p style="color: var(--text-light); font-size: 15px;">Specialized handling for large-scale industrial equipment.</p>
+                </div>
+                <div style="background: var(--bg-white); border: 1px solid var(--border); border-radius: 8px; padding: 32px; text-align: center; box-shadow: var(--shadow-sm); transition: var(--transition);" onmouseover="this.style.boxShadow='var(--shadow-lg)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.boxShadow='var(--shadow-sm)'; this.style.borderColor='var(--border)';">
+                    <i class="fas fa-hard-hat" style="font-size: 40px; color: var(--gold); margin-bottom: 24px;"></i>
+                    <h3 style="font-size: 20px; color: var(--primary-deep); margin-bottom: 12px; font-weight: 800;">Construction</h3>
+                    <p style="color: var(--text-light); font-size: 15px;">High-capacity transport for bulk building materials.</p>
+                </div>
+                <div style="background: var(--bg-white); border: 1px solid var(--border); border-radius: 8px; padding: 32px; text-align: center; box-shadow: var(--shadow-sm); transition: var(--transition);" onmouseover="this.style.boxShadow='var(--shadow-lg)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.boxShadow='var(--shadow-sm)'; this.style.borderColor='var(--border)';">
+                    <i class="fas fa-network-wired" style="font-size: 40px; color: var(--gold); margin-bottom: 24px;"></i>
+                    <h3 style="font-size: 20px; color: var(--primary-deep); margin-bottom: 12px; font-weight: 800;">Distribution</h3>
+                    <p style="color: var(--text-light); font-size: 15px;">Seamless supply chain integration for wholesale networks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Showcase -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title text-center">Our Fleet Operations</h2>
+            <p class="section-subtitle text-center">Real operations driving real results.</p>
+            
+            <div class="fleet-grid">
+                <div class="fleet-card">
+                    <img src="images/hero-truck-clean.png" alt="MFL Fleet on Highway">
+                    <div class="fleet-overlay">
+                        <h3>Highway Operations</h3>
+                        <p>Maintaining strong operational discipline across major national highways.</p>
+                    </div>
+                </div>
+                <div class="fleet-card">
+                    <img src="images/ops-warehouse.png" alt="MFL Loading Operations">
+                    <div class="fleet-overlay">
+                        <h3>Loading Protocols</h3>
+                        <p>Strict quality control during loading and unloading procedures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Commitment -->
+    <section class="section" style="background: var(--bg-white);">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <i class="fas fa-handshake" style="font-size: 48px; color: var(--gold); margin-bottom: 24px;"></i>
+                <h2 class="section-title">A Commitment to Excellence</h2>
+                <p style="font-size: 20px; color: var(--text-main); font-weight: 500; line-height: 1.6; margin-bottom: 32px;">
+                    "Serving manufacturers, traders, distributors and industrial businesses across India. At MFL, we don't just transport freight—we build long-term operational partnerships based on trust, safety, and reliability."
+                </p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <span style="background: var(--bg-main); padding: 8px 16px; border-radius: 4px; font-weight: 600; color: var(--primary-deep); border-left: 3px solid var(--primary);">Safety First</span>
+                    <span style="background: var(--bg-main); padding: 8px 16px; border-radius: 4px; font-weight: 600; color: var(--primary-deep); border-left: 3px solid var(--primary);">Timely Delivery</span>
+                    <span style="background: var(--bg-main); padding: 8px 16px; border-radius: 4px; font-weight: 600; color: var(--primary-deep); border-left: 3px solid var(--primary);">Transparent Pricing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legacy Preview -->
+    <section class="section section-dark text-center">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-title">A Legacy Built on Trust</h2>
+            <p style="font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 40px;">
+                Founded by Mr. Arun Kumar Khanna, and now driven forward by Co-Founders Mr. Anoop Khanna and Mr. Ashish Khanna, MFL remains a family-led enterprise committed to operational excellence and generational trust.
+            </p>
+            <a href="about.html" class="btn btn-gold-outline">Discover Our Story</a>
+        </div>
+    </section>
+
+    <!-- Operational Excellence -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title text-center">Operational Excellence</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 48px;">
+                <div style="background: #fff; padding: 24px; border-radius: 8px; box-shadow: var(--shadow-sm); border-left: 4px solid var(--gold);">
+                    <h4 style="color: var(--primary-deep); font-size: 18px; margin-bottom: 8px; font-weight: 800;">Safe Handling</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Zero-compromise protocols for cargo security.</p>
+                </div>
+                <div style="background: #fff; padding: 24px; border-radius: 8px; box-shadow: var(--shadow-sm); border-left: 4px solid var(--gold);">
+                    <h4 style="color: var(--primary-deep); font-size: 18px; margin-bottom: 8px; font-weight: 800;">Timely Dispatch</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Precision scheduling to ensure on-time departures.</p>
+                </div>
+                <div style="background: #fff; padding: 24px; border-radius: 8px; box-shadow: var(--shadow-sm); border-left: 4px solid var(--gold);">
+                    <h4 style="color: var(--primary-deep); font-size: 18px; margin-bottom: 8px; font-weight: 800;">Transparent Communication</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Proactive updates throughout the transit lifecycle.</p>
+                </div>
+                <div style="background: #fff; padding: 24px; border-radius: 8px; box-shadow: var(--shadow-sm); border-left: 4px solid var(--gold);">
+                    <h4 style="color: var(--primary-deep); font-size: 18px; margin-bottom: 8px; font-weight: 800;">Trusted Relationships</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Building long-term partnerships through reliability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="background: var(--gradient-premium); border-top: 4px solid var(--gold); color: #fff; text-align: center; padding: 60px 0;">
+        <div class="container">
+            <h2 style="color: #fff; font-size: 36px; margin-bottom: 24px;">Ready to Optimize Your Supply Chain?</h2>
+            <p style="font-size: 18px; opacity: 0.9; margin-bottom: 32px; max-width: 600px; margin-inline: auto;">
+                Connect with our logistics experts today for a customized freight solution.
+            </p>
+            <button class="btn" style="background: #fff; color: var(--primary-deep);" onclick="openContactModal()">Get a Custom Quote</button>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo-new.png" alt="MFL Logistics Logo" style="height: 120px; margin-bottom: 24px;">
+                    <h3 style="color: #fff; margin-bottom: 8px; font-size: 20px;">Mamta Forwarding Logistics</h3>
+                    <p style="color: var(--gold); font-weight: 600; margin-bottom: 16px;">Trusted Freight Operations Since 2001</p>
+                    <p>Mamta Forwarding Logistics provides premium freight solutions across India, combining decades of trusted experience with modern operational efficiency.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About & Legacy</a></li>
+                        <li><a href="#services">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Full Truck Load</a></li>
+                        <li><a href="#">Part Truck Load</a></li>
+                        <li><a href="#">Express Delivery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="openContactModal(); return false;">Contact Us</a></li>
+                        <li><a href="tel:+918707812390">+91 87078 12390</a></li>
+                        <li><a href="mailto:anujkhanna1029@gmail.com">anujkhanna1029@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px;">
+                <p style="font-size: 16px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">Moving India's Supply Chains Forward Since 2001</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mamta Forwarding Logistics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function openContactModal() {
+            document.getElementById('contactOverlay').classList.add('active');
+            document.getElementById('contactPanel').classList.add('active');
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactOverlay').classList.remove('active');
+            document.getElementById('contactPanel').classList.remove('active');
+            document.getElementById('quoteForm').classList.remove('active'); // reset
+        }
+
+        function toggleQuoteForm() {
+            document.getElementById('quoteForm').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MFL | Mamta Forwarding Logistics - Trusted Logistics &amp; Seamless Deliveries</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#95f8a7",
+                        "on-tertiary-container": "#f2f2ff",
+                        "surface-dim": "#d0dbed",
+                        "tertiary-fixed": "#dbe1ff",
+                        "on-secondary-fixed": "#00201d",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary": "#004cca",
+                        "primary-fixed-dim": "#79db8d",
+                        "surface-container-high": "#dee9fc",
+                        "inverse-primary": "#79db8d",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#15803d",
+                        "on-tertiary-fixed-variant": "#003ea8",
+                        "gradient-end": "#0F766E",
+                        "on-surface-variant": "#3f493f",
+                        "on-surface": "#121c2a",
+                        "secondary-container": "#99efe5",
+                        "background": "#f8f9ff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#d9e3f6",
+                        "secondary-fixed": "#9cf2e8",
+                        "surface": "#f8f9ff",
+                        "highlight-orange": "#F97316",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#00174b",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#d9e3f6",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#005323",
+                        "on-primary-container": "#d3ffd5",
+                        "surface-bright": "#f8f9ff",
+                        "surface-white": "#FFFFFF",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#becabc",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#80d5cb",
+                        "surface-container-low": "#eff4ff",
+                        "on-background": "#121c2a",
+                        "on-primary-fixed": "#00210a",
+                        "outline": "#6f7a6e",
+                        "secondary": "#006a63",
+                        "on-secondary-fixed-variant": "#00504a",
+                        "accent-gradient-end": "#0F766E",
+                        "surface-tint": "#006d30",
+                        "inverse-surface": "#27313f",
+                        "tertiary-fixed-dim": "#b4c5ff",
+                        "primary": "#00652c",
+                        "bg-off-white": "#F8FAFC",
+                        "surface-container": "#e6eeff",
+                        "gradient-start": "#15803D",
+                        "tertiary-container": "#2865ed",
+                        "on-secondary-container": "#006f67",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "mfl": "20px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "stack-gap": "16px",
+                        "gutter": "24px",
+                        "card-padding": "24px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "label-uppercase": ["Inter"],
+                        "headline-display": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "body-sm": ["Inter"],
+                        "stats-number": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Sora"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-uppercase": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "stats-number": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-nav {
+            background: rgba(248, 250, 252, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .mfl-gradient-primary {
+            background: linear-gradient(135deg, #15803D 0%, #0F766E 100%);
+        }
+        .mfl-card-shadow {
+            box-shadow: 0px 4px 20px rgba(31, 41, 55, 0.05);
+        }
+        .mfl-card-hover:hover {
+            box-shadow: 0px 10px 30px rgba(31, 41, 55, 0.10);
+            border: 1px solid rgba(21, 128, 61, 0.1);
+        }
+        .marker-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            70% { transform: scale(3); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-count {
+            animation: countUp 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-bg-off-white text-on-background font-body-md overflow-x-hidden">
+<!-- Top Navigation -->
+<nav class="sticky top-0 w-full z-50 glass-nav border-b border-surface-variant/20">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-full">
+<div class="flex items-center gap-4">
+<img alt="MFL Logo" class="h-16 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_OzsdTAwX9l3iWYTpUC3BybmCJzlSHTfaBJbXL4K5pPMGSrjZF7ZqspxqeGyCPE_eu06LnS196ZU8O5legr2eups7wwzygh0SDd2usFidSqshVz5AkY3sF1G39_YwA77Kkx2Wra-B7oDrfiqEjbYy57mBIyhuTzaDowdQC56EKUG_49TETZyWCRqPG-KtCi75M6zjKC3XR8wPXBESq5TkraPIY1eNs_rCotysXMhw3rFXo82ufmrnjX78FLOc-RdcKJqImlAqSKk"/>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md" href="#">Solutions</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Network</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Track</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">About Us</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-highlight-orange hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-body-md font-semibold transition-all transform hover:scale-105">
+                    Get a Quote
+                </button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-[90vh] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-bg-off-white via-bg-off-white/40 to-transparent z-10"></div>
+<img alt="Cinematic fleet photography showing MFL trucks with official branding" class="absolute right-0 top-0 h-full w-2/3 object-cover object-center opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_GGfcR9Fs3uoG5BKHZDtAyFg3TiquC0k40R0UHrwkIHgCSPtWzFP2He9VvbsqSBYdVHrqisvyyvL_IZ7B9xR8-QRRiTAc952_eWXLM4Nbi2BWBm9fL0WLuZ34ea3iPrThzb-dta28ms9bNqqaF6ZMbXPebKbyesbtEFbQGRjh_RohFzjH2suefHqTSmAlsuKlhfzgqthp-5NiodyWJalgK5embQx66iEcN7ROHCzQvS2cLMTFTgS7LsRuIXs_JLOyzimffKpX2L8"/>
+</div>
+<div class="relative z-20 px-margin-desktop max-w-4xl">
+<span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-label-uppercase text-label-uppercase mb-6">TRUSTED SINCE 2001</span>
+<h1 class="font-headline-display text-headline-display text-on-background mb-6 leading-tight">
+                Trusted Logistics.<br/>
+<span class="text-primary">Seamless Deliveries.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                Nationwide freight solutions engineered with safety, speed, and absolute reliability. We turn complex supply chains into competitive advantages for enterprises across India.
+            </p>
+<div class="flex flex-wrap gap-4">
+<button class="mfl-gradient-primary text-white px-8 py-4 rounded-xl font-body-lg font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
+                    Our Services <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border-2 border-primary text-primary px-8 py-4 rounded-xl font-body-lg font-bold hover:bg-primary/5 transition-all">
+                    Contact Us
+                </button>
+</div>
+</div>
+</header>
+<!-- Metrics Bar -->
+<section class="relative z-30 -mt-16 px-margin-desktop mb-24">
+<div class="bg-surface-white rounded-mfl mfl-card-shadow p-stack-gap grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center md:border-r border-surface-variant/30 py-4 animate-count">
+<div class="font-stats-number text-stats-number text-primary mb-1">23+</div>
+<div class="font-label-uppercase text-label-uppercase text-on-surface-variant">YEARS EXPERIENCE</div>
+</div>
+<div class="text-center md:border-r border-surface-variant/30 py-4 animate-count" style="animation-delay: 0.1s">
+<div class="font-stats-number text-stats-number text-primary mb-1">500+</div>
+<div class="font-label-uppercase text-label-uppercase text-on-surface-variant">CITIES SERVED</div>
+</div>
+<div class="text-center md:border-r border-surface-variant/30 py-4 animate-count" style="animation-delay: 0.2s">
+<div class="font-stats-number text-stats-number text-primary mb-1">100+</div>
+<div class="font-label-uppercase text-label-uppercase text-on-surface-variant">FLEET PARTNERS</div>
+</div>
+<div class="text-center py-4 animate-count" style="animation-delay: 0.3s">
+<div class="font-stats-number text-stats-number text-primary mb-1">99.2%</div>
+<div class="font-label-uppercase text-label-uppercase text-on-surface-variant">ON-TIME DELIVERY</div>
+</div>
+</div>
+</section>
+<!-- Services Section (Bento Grid) -->
+<section class="px-margin-desktop mb-32">
+<div class="mb-16 text-center max-w-3xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-4">Precision Logistics Solutions</h2>
+<p class="font-body-md text-on-surface-variant">Tailored transportation and supply chain services designed for the demands of modern commerce.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Bento Card -->
+<div class="md:col-span-8 bg-surface-white rounded-mfl p-card-padding mfl-card-shadow mfl-card-hover transition-all flex flex-col md:flex-row gap-8 min-h-[400px] overflow-hidden group">
+<div class="flex-1">
+<span class="material-symbols-outlined text-primary text-5xl mb-6" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<h3 class="font-headline-md text-headline-md mb-4">Inter-State Transport</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Nationwide full-truckload (FTL) and part-load solutions. Our expansive network ensures your cargo moves seamlessly across state borders with real-time tracking.</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-2 font-body-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Dedicated Fleet Support</li>
+<li class="flex items-center gap-2 font-body-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Route Optimization</li>
+</ul>
+<a class="text-primary font-bold flex items-center gap-2 group-hover:translate-x-2 transition-transform" href="#">Explore Transport <span class="material-symbols-outlined">east</span></a>
+</div>
+<div class="flex-1 relative rounded-xl overflow-hidden -mr-card-padding -mb-card-padding mt-4 md:mt-0">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGh0WxN0ZEoL5rxsxIwkbqGJpGBmOlxx3A1aQyonB4WrmVWOIQQcGhekI-VsB5Ot1Re71HHJyDTf4lWgnrljFUYg55LqB5ypaUUylei9qPJrfq66caZ892JCz-CYoHXx6k662WLmyUs0mbWMAgpX085uJ09IXdLS8Qne-o-zN62lF8rIZ6qTRG8qbYvN_sMKOMI39M45sF83DDvkAMOb8inzP7qefxDtl2xv7o2pYc-fUJHvU2yHtVIcdDsqS4Dp0v0giaOeT4dj8')"></div>
+</div>
+</div>
+<!-- Smaller Bento Card 1 -->
+<div class="md:col-span-4 bg-primary text-white rounded-mfl p-card-padding mfl-card-shadow flex flex-col justify-between group">
+<div>
+<span class="material-symbols-outlined text-primary-fixed text-5xl mb-6">home_work</span>
+<h3 class="font-headline-md text-headline-md mb-4">Door-to-Door Delivery</h3>
+<p class="font-body-md text-primary-fixed/80">End-to-end handling from your warehouse to your client's doorstep, minimizing touchpoints and maximizing safety.</p>
+</div>
+<a class="mt-8 text-primary-fixed font-bold flex items-center gap-2" href="#">Get Quote <span class="material-symbols-outlined">east</span></a>
+</div>
+<!-- Smaller Bento Card 2 -->
+<div class="md:col-span-4 bg-surface-white rounded-mfl p-card-padding mfl-card-shadow mfl-card-hover transition-all flex flex-col group">
+<span class="material-symbols-outlined text-highlight-orange text-5xl mb-6">hub</span>
+<h3 class="font-headline-md text-headline-md mb-4">Supply Chain Hubs</h3>
+<p class="font-body-md text-on-surface-variant flex-grow">Strategic warehousing and cross-docking facilities at Kanpur and Indore hubs to streamline distribution.</p>
+<div class="mt-8 flex gap-2">
+<span class="px-3 py-1 bg-surface-variant/30 rounded-full text-body-sm">Kanpur</span>
+<span class="px-3 py-1 bg-surface-variant/30 rounded-full text-body-sm">Indore</span>
+</div>
+</div>
+<!-- Medium Bento Card -->
+<div class="md:col-span-8 bg-surface-white rounded-mfl p-card-padding mfl-card-shadow mfl-card-hover transition-all flex flex-col md:flex-row gap-8 items-center group">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md mb-4">Express Freight Tracking</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Gain absolute visibility with our advanced tracking platform. Know exactly where your cargo is, 24/7.</p>
+<div class="flex gap-4">
+<input class="flex-grow bg-bg-off-white border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20" placeholder="Enter Tracking ID" type="text"/>
+<button class="bg-primary text-white px-6 py-3 rounded-xl font-bold">Track</button>
+</div>
+</div>
+<div class="hidden md:block w-48 h-48 bg-primary/5 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-7xl animate-pulse">distance</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Network Map Section -->
+<section class="bg-on-background py-32 relative overflow-hidden">
+<div class="px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-24 items-center max-w-[1400px] mx-auto relative z-10">
+<div>
+<span class="text-primary-fixed font-label-uppercase text-label-uppercase mb-4 block">STRATEGIC REACH</span>
+<h2 class="font-headline-lg text-headline-lg text-white mb-8">Our Network. <span class="text-primary-fixed">Your Advantage.</span></h2>
+<p class="font-body-lg text-surface-variant/80 mb-12">Headquartered in Kanpur with a major regional hub in Indore, we connect the industrial heartland of India to every corner of the country through major operational corridors.</p>
+<div class="space-y-8">
+<div class="flex gap-6 items-start">
+<div class="bg-primary-container p-3 rounded-xl text-primary-fixed">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<h4 class="font-headline-md text-white text-lg mb-1">Kanpur Headquarters</h4>
+<p class="text-surface-variant/70 text-body-md">Primary operational hub serving the Northern and Eastern corridors of India.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="bg-secondary-container p-3 rounded-xl text-on-secondary-container">
+<span class="material-symbols-outlined">hub</span>
+</div>
+<div>
+<h4 class="font-headline-md text-white text-lg mb-1">Indore Logistics Hub</h4>
+<p class="text-surface-variant/70 text-body-md">Strategic gateway connecting the Western and Southern industrial belts.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative bg-surface-white/5 rounded-mfl p-12 backdrop-blur-sm border border-white/10 aspect-square flex items-center justify-center overflow-hidden"><div class="relative w-full h-full flex items-center justify-center"><img alt="India Logistics Network Map" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZfmwRedTheMd_5pvNKqyzvJhLmyvjBqQpRu8ByMNfMoIhzOxm8fvQ4EjecMC85FSjEXjZsfT3FUjvK9RWQN7ChSQmYUTjFL2fIsDXfqKC3bReFJIiFk6AmDjFMv3kQNj3dmlCrH_DM6-a6YHjDXYvcfLkQqromU786svv9LjgYGuLlDLweRPJYBbxSk77r8TT1fGm5UDOwcRoGe4PYSuKiGKNpQYWXNlFhnsbbqSNcPD7huNCTmJXkxFFV7PkSxIwj9GNDMGpQPM"/><div class="relative w-full h-full"><div class="absolute top-[35%] left-[52%] flex flex-col items-center"><div class="relative"><div class="absolute inset-0 bg-primary-fixed rounded-full marker-pulse"></div><div class="relative w-5 h-5 bg-primary-fixed rounded-full shadow-[0_0_20px_rgba(149,248,167,1)]"></div></div><span class="mt-2 text-primary-fixed font-bold text-sm tracking-widest bg-on-background/80 px-2 py-0.5 rounded">KANPUR</span></div><div class="absolute top-[55%] left-[38%] flex flex-col items-center"><div class="relative"><div class="absolute inset-0 bg-secondary-fixed rounded-full marker-pulse" style="animation-delay: 0.5s"></div><div class="relative w-5 h-5 bg-secondary-fixed rounded-full shadow-[0_0_20px_rgba(156,242,232,1)]"></div></div><span class="mt-2 text-secondary-fixed font-bold text-sm tracking-widest bg-on-background/80 px-2 py-0.5 rounded">INDORE</span></div><svg class="absolute inset-0 w-full h-full pointer-events-none" viewbox="0 0 400 500"><path d="M208 175 L152 275" stroke="rgba(149,248,167,0.6)" stroke-dasharray="8 8" stroke-width="3"><animate attributename="stroke-dashoffset" dur="3s" from="100" repeatcount="indefinite" to="0"></animate></path><path d="M208 175 L320 120" stroke="rgba(149,248,167,0.4)" stroke-dasharray="8 8" stroke-width="2"><animate attributename="stroke-dashoffset" dur="4s" from="0" repeatcount="indefinite" to="100"></animate></path><path d="M152 275 L120 420" stroke="rgba(156,242,232,0.4)" stroke-dasharray="8 8" stroke-width="2"><animate attributename="stroke-dashoffset" dur="5s" from="100" repeatcount="indefinite" to="0"></animate></path><path d="M208 175 L290 380" stroke="rgba(149,248,167,0.4)" stroke-dasharray="8 8" stroke-width="2"><animate attributename="stroke-dashoffset" dur="6s" from="0" repeatcount="indefinite" to="100"></animate></path></svg></div></div></div>
+</div>
+</section>
+<!-- Fleet Showcase -->
+<section class="py-32 bg-surface-white">
+<div class="px-margin-desktop mb-16 flex flex-col md:flex-row justify-between items-end gap-6">
+<div class="max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg mb-4">Our Fleet. <span class="text-primary">Your Assurance.</span></h2>
+<p class="font-body-md text-on-surface-variant">We take pride in our 100+ vehicle fleet. Every MFL truck is GPS-enabled, well-maintained, and operated by seasoned professionals.</p>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-surface-variant flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-surface-variant flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-gutter overflow-x-auto px-margin-desktop pb-8 no-scrollbar">
+<div class="min-w-[400px] h-[300px] rounded-mfl overflow-hidden group">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFufI6Gf_vNi_99CDKSUReBN0urG0rAn-JLLjNBiTzSG_TkOVrIMQWO8xRxDiRXDt2MgeywrfnLQY40WJgaDAYdg9zEguiwGAW4y_EVs0JwL4KWBsnFZW5oSnDRC-cSge49d9trIfPWiNn-dzBxIabWarUY_Fkag9CAsHmOKHqWZhEru5UolKFqS4cZtWAHRohx2gu-dQ-eVu2GjAW29E2oCbzULrA1gUkIiiYEvuQlHOKnyW4b_6o8wANF0iQzo9dfdK2fn2pveY')"></div>
+</div>
+<div class="min-w-[400px] h-[300px] rounded-mfl overflow-hidden group">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBfDF8YzAomGUFnyiW_RX0PsBwjXo6tkOdmRdQFPKqhQZtMKAjS948dnRW_-I97_jV9WulpUs6xZAuyL3kJnybZ8h8ayzuVUQ6QqCHf8EYmWWJA-3VHDRY2TAjarexGcrNTbi20gwcq2qMtXW4U_sJ95WuwHZq6yeMuD1d8fDYdmdxZcIKs9_Gk7zbwQI7jj2eu6MaTAnbVcmVFUAa3wJMeLV2orVk4771bql3MEm23Y0riLZJ4PqmydROXgwkVwuvkVol9FT0-N_U')"></div>
+</div>
+<div class="min-w-[400px] h-[300px] rounded-mfl overflow-hidden group">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBkX7nYa64xtUovpWFG3o3Ufnj5V1B5Y7jP9RL3I-aRDUglntgY0-Oogua0c5nKdoNnubBVsJ-rA8hnfDwdqu_0XKYX3BheHZwW06znUYkOt6KQ_1aYsA3rsbSmYGNoEMiH8i66uLBmXH7foL_dd-jh6S3AEsnry1zYzR3vMadn63Q32M127A44w7KD5vOld2eTRQCja5wxC2MuQCyKGeWH09WwFLEsWsRN1dfrpWiSuzmRq7J8eVSxyekJPNeyEU8AcJLkWBBlhhM')"></div>
+</div>
+<div class="min-w-[400px] h-[300px] rounded-mfl overflow-hidden group">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7WWGEktIWA_s05_JQfatX1qVckSTbo1IkEKNqGTOZqcY5m_LNxpbVH3W4vAXARnWPfn9LABoq0DyuJvFj9MhmF_PVIPLdD-MrDpmLe5YEE3MhCVrzpSKgLdQ2PBZgBYApZQKhj7s4cXCwNR59p2dgsTX86eUIi--iGWuIoB-hl1ZMIB4JFijyE_szkng3ep4JYHqJHdiorOPDos4DMJzLZKf9cmGOoluE3Qsz63U54hLRCX678S01tmAWi8FowauVbMJm2-VlDCY')"></div>
+</div>
+</div>
+</section>
+<!-- Our Legacy Section -->
+<section class="py-32 px-margin-desktop bg-bg-off-white bg-primary/5">
+<div class="mb-16 text-center max-w-3xl mx-auto">
+<span class="text-primary font-bold tracking-widest text-sm uppercase mb-4 block">Our Heritage</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">A Legacy Built on Trust, Driven by Values.</h2>
+<p class="font-body-md text-on-surface-variant">With over 25 years of unwavering commitment, MFL has evolved from a regional pioneer into a premier nationwide logistics enterprise. Our legacy is built on a foundation of absolute trust, operational excellence, and a relentless focus on client success.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Founder 1 -->
+<div class="bg-surface-white rounded-mfl overflow-hidden mfl-card-shadow mfl-card-hover group">
+<div class="aspect-[3/4] overflow-hidden">
+<img alt="Mr. Arun Kumar Khanna" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjS5DwHO-Br4tzhSAeiQUlLLCo5W2pt6BH8vHTFlQnT5pTkG3cWE3ND_ouE7DbQTuvPIIZo_1_aD5eY9sUxyGM-p-JeZyWWquHBYOaN1Tsj671k4AWG8yu8BZ3jSAsBhVDUMN4iF-M-uo56vJYLGa4QMms4f8Na_4dw8C8fa3N_cvpgo1e4xtNk3RROPOfIRP9LkZKBKMY1imyc-0ikFlX6K8OlhNLyE58bNtjaUn_gU8QaHd07gEniZ6Kz9UGicyy_BHuyux1vIs"/>
+</div>
+<div class="p-8 text-center">
+<h3 class="font-headline-md text-primary mb-1">Mr. Arun Kumar Khanna</h3>
+<p class="font-body-sm text-on-surface-variant font-semibold">Founder</p>
+</div>
+</div>
+<!-- Founder 2 -->
+<div class="bg-surface-white rounded-mfl overflow-hidden mfl-card-shadow mfl-card-hover group">
+<div class="aspect-[3/4] overflow-hidden">
+<img alt="Mr. Anoop Khanna" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPZXJL2z71KY2lkasMAkn9_LSux9vs7eEdo1u3xCQSU35qUGmCACFX-rqbOt5qr_fcSD4JtyME9NGs2KQoyZoT792TXPIxSm5TCSRBHwucRJUGgk4kWOfROHKATKWH9RbuGioUmWnoQqpAXpy3XlFFD_1ESq4__QOvBSHZ8x-Q4Y74wN42jhx8ZA_fJ5Q1N9QxtT3RdvaGSDdryMjCtkRMZ_kdcREFcuC8ZmmjMucUC_FE4PI0GEihwLHRJ3qL69MYnQ0xxrbAK_0"/>
+</div>
+<div class="p-8 text-center">
+<h3 class="font-headline-md text-primary mb-1">Mr. Anoop Khanna</h3>
+<p class="font-body-sm text-on-surface-variant font-semibold">Co-Founder</p>
+</div>
+</div>
+<!-- Founder 3 -->
+<div class="bg-surface-white rounded-mfl overflow-hidden mfl-card-shadow mfl-card-hover group">
+<div class="aspect-[3/4] overflow-hidden">
+<img alt="Mr. Ashish Khanna" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh1mziXghQHd2iaa_iukKyPriFcUbmaIzkv75oZFg8X2forj-O5F_KnV5j21CtXV5IU0wPjBox1wodoVyUIdeAk1B4gfBZgbcqr8HK4EFCIthEBkocXUFkp3caW_kOiVVEqqwfUjoI_DRpWlpdOhHH5auLJJrcfT8t_3zExz-7-50lbym2dDgkFs_KSCN0LxZUca2lOkLJ5ooEgqkGTyDCrPyR6bvw_-OC0ddPRgKVoSpegEDpbwwB0tdv_49EuPHkKlrKbWujQms"/>
+</div>
+<div class="p-8 text-center">
+<h3 class="font-headline-md text-primary mb-1">Mr. Ashish Khanna</h3>
+<p class="font-body-sm text-on-surface-variant font-semibold">Co-Founder</p>
+</div>
+</div>
+</div>
+<div class="mt-16 text-center">
+<a class="mfl-gradient-primary text-white px-10 py-4 rounded-xl font-body-lg font-bold shadow-lg hover:scale-105 transition-all inline-flex items-center gap-3 group" href="#">Discover Our Full Story <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span></a>
+</div>
+</section>
+<!-- Trust & Partners -->
+<section class="pb-32 px-margin-desktop text-center">
+<p class="font-label-uppercase text-label-uppercase text-on-surface-variant mb-12 uppercase tracking-widest">Accreditations &amp; Partners</p>
+<div class="flex flex-wrap justify-center items-center gap-16 opacity-40 grayscale hover:grayscale-0 transition-all">
+<span class="material-symbols-outlined text-6xl">verified_user</span>
+<span class="material-symbols-outlined text-6xl">verified</span>
+<span class="material-symbols-outlined text-6xl">security</span>
+<span class="material-symbols-outlined text-6xl">award_star</span>
+<span class="material-symbols-outlined text-6xl">workspace_premium</span>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full rounded-t-[20px] bg-on-background py-20 px-margin-desktop text-bg-off-white">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-stack-gap">
+<!-- Brand Column -->
+<div class="md:col-span-1">
+<img alt="MFL Logo" class="h-20 mb-6 brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_OzsdTAwX9l3iWYTpUC3BybmCJzlSHTfaBJbXL4K5pPMGSrjZF7ZqspxqeGyCPE_eu06LnS196ZU8O5legr2eups7wwzygh0SDd2usFidSqshVz5AkY3sF1G39_YwA77Kkx2Wra-B7oDrfiqEjbYy57mBIyhuTzaDowdQC56EKUG_49TETZyWCRqPG-KtCi75M6zjKC3XR8wPXBESq5TkraPIY1eNs_rCotysXMhw3rFXo82ufmrnjX78FLOc-RdcKJqImlAqSKk"/>
+<p class="font-body-sm text-surface-variant/70 mb-8 max-w-xs">Serving businesses with trust and reliability since 2001. <br/><br/>A legacy of 25+ years in precision logistics. Delivering excellence across India with safety and speed. <br/><br/><strong>Always Best Services Safe On Time</strong></p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">contact_support</span>
+</a>
+</div>
+</div>
+<!-- Hubs Column -->
+<div>
+<h5 class="font-headline-md text-white text-lg mb-6">Our Hubs</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-surface-variant/70 hover:text-primary-fixed transition-colors" href="#">Kanpur Headquarters</a></li>
+<li><a class="font-body-sm text-surface-variant/70 hover:text-primary-fixed transition-colors" href="#">Indore Hub</a></li>
+<li><a class="font-body-sm text-surface-variant/70 hover:text-primary-fixed transition-colors" href="#">Inter-State Routes</a></li>
+<li class="pt-4 border-t border-white/5"><p class="text-xs text-surface-variant/50 uppercase tracking-wider mb-2">Corporate Office</p><p class="font-body-sm text-surface-variant/70">123 Logistics Plaza, Kanpur, UP</p></li></ul>
+</div>
+<!-- Quick Links Column -->
+<div>
+<h5 class="font-headline-md text-white text-lg mb-6">Support</h5>
+<ul class="space-y-4">
+<li><a class="font-body-sm text-surface-variant/70 hover:text-primary-fixed transition-colors" href="#">WhatsApp Support</a></li>
+<li><a class="font-body-sm text-surface-variant/70 hover:text-primary-fixed transition-colors" href="#">Track Shipment</a></li>
+<li><a class="font-body-sm text-surface-variant/70 hover:text-primary-fixed transition-colors" href="#">LinkedIn</a></li>
+<li><a class="font-body-sm text-surface-variant/70 hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<!-- CTA Column -->
+<div class="bg-primary/10 rounded-xl p-8 border border-primary/20">
+<h5 class="font-headline-md text-white text-lg mb-4">Start Moving</h5>
+<p class="font-body-sm text-surface-variant/70 mb-6">Connect with our logistics experts for a custom freight quote.</p>
+<button class="w-full bg-highlight-orange text-white py-3 rounded-xl font-bold hover:scale-[1.02] transition-transform">Request Quote</button>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-sm text-surface-variant/50">© 2024 Mamta Forwarding Logistics. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="text-surface-variant/50 hover:text-white transition-colors text-xs" href="#">Terms of Service</a>
+<a class="text-surface-variant/50 hover:text-white transition-colors text-xs" href="#">Compliance</a>
+</div>
+</div>
+</footer>
+<!-- FAB for Support -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-[100]">
+<span class="material-symbols-outlined text-3xl">chat</span>
+</button>
+<script>
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.bg-surface-white').forEach(el => {
+            if (!el.classList.contains('animate-count')) {
+                el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            }
+        });
+    </script>
+</body></html>
