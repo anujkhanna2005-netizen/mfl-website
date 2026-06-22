@@ -18,7 +18,7 @@
     --border: #E5E7EB;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, rgba(7, 26, 19, 0.96) 0%, rgba(16, 38, 30, 0.88) 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(7, 26, 19, 0.75) 0%, rgba(16, 38, 30, 0.65) 100%);
     --gradient-premium: linear-gradient(135deg, #071A13 0%, #10261E 100%);
     --gradient-gold: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #BF953F);
     
