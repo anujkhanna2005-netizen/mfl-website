@@ -305,7 +305,9 @@ h1, h2, h3, h4, h5, h6 {
     .ops-grid { grid-template-columns: 1fr; gap: 20px; }
     .nav-container { height: 70px; padding: 0 16px; }
     .logo img { height: 50px; }
-    .nav-links { display: none; }
+    .nav-links { display: flex; gap: 16px; }
+    .nav-links li:nth-child(n+3) { display: none; }
+    .nav-links a { font-size: 14px; }
     .mobile-bottom-bar { display: block; }
     .timeline::before { left: 40px; }
     .timeline-item { flex-direction: column !important; align-items: flex-start; }
