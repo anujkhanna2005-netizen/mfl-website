@@ -278,17 +278,33 @@ h1, h2, h3, h4, h5, h6 {
 .footer-links a:hover { color: var(--gold); }
 .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 14px; color: rgba(255,255,255,0.5); }
 
+/* Custom Grids */
+.why-mfl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.industries-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 48px; }
+.ops-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 48px; }
+
 /* Responsive */
 @media (max-width: 992px) {
     .metrics-grid, .services-grid, .testimonial-grid, .leadership-grid { grid-template-columns: repeat(2, 1fr); }
     .network-layout { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
+    .why-mfl-grid { gap: 32px; }
 }
 
 @media (max-width: 768px) {
-    .hero h1 { font-size: 40px; }
-    .metrics-grid, .services-grid, .fleet-grid, .testimonial-grid, .leadership-grid, .footer-grid { grid-template-columns: 1fr; }
-    .metrics-grid { margin-top: 40px; }
+    body { padding-bottom: 70px; } /* Space for mobile-bottom-bar */
+    .hero { padding: 60px 0 40px !important; min-height: auto !important; }
+    .hero h1 { font-size: 36px; margin-bottom: 16px; }
+    .hero p { font-size: 16px; margin-bottom: 24px; }
+    .metrics-grid { margin-top: 40px; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .metric-card { padding: 24px 16px; }
+    .metric-card h3 { font-size: 28px; }
+    .services-grid, .fleet-grid, .testimonial-grid, .leadership-grid, .footer-grid { grid-template-columns: 1fr; }
+    .why-mfl-grid { grid-template-columns: 1fr; gap: 32px; }
+    .industries-grid { grid-template-columns: 1fr; gap: 24px; }
+    .ops-grid { grid-template-columns: 1fr; gap: 20px; }
+    .nav-container { height: 70px; padding: 0 16px; }
+    .logo img { height: 50px; }
     .nav-links { display: none; }
     .mobile-bottom-bar { display: block; }
     .timeline::before { left: 40px; }
@@ -296,6 +312,8 @@ h1, h2, h3, h4, h5, h6 {
     .timeline-year { left: 40px; top: -20px; transform: translateX(-50%); }
     .timeline-content { width: 100%; padding-left: 80px; box-shadow: none; border: none; background: transparent; }
     .contact-panel { width: 100%; right: -100%; }
+    .section { padding: 50px 0; }
+    .section-title { font-size: 32px; margin-bottom: 12px; }
 }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
