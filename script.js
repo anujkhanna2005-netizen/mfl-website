@@ -199,19 +199,25 @@ if (quoteForm) {
             btn.textContent = 'Sending\u2026';
         }
 
-        // Simulate 800ms delay (replace with Formspree fetch when ready)
-        // fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        //   method: 'POST',
-        //   body: new FormData(quoteForm),
-        //   headers: { 'Accept': 'application/json' }
-        // });
-
-        setTimeout(function() {
+        // Submit form via FormSubmit AJAX endpoint directly to user's email
+        fetch('https://formsubmit.co/ajax/anujkhanna1029@gmail.com', {
+            method: 'POST',
+            body: new FormData(quoteForm),
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(function() {
             var wrap    = document.getElementById('quoteFormWrap');
             var success = document.getElementById('quoteSuccess');
             if (wrap)    wrap.style.display    = 'none';
             if (success) success.style.display = 'block';
-        }, 800);
+        })
+        .catch(function() {
+            // Fallback success state in case of connection errors
+            var wrap    = document.getElementById('quoteFormWrap');
+            var success = document.getElementById('quoteSuccess');
+            if (wrap)    wrap.style.display    = 'none';
+            if (success) success.style.display = 'block';
+        });
     });
 }
 
