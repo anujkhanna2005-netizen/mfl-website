@@ -5,93 +5,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MFL | Premium Logistics &amp; Freight</title>
 
-    <!-- Phase 2 — SEO & Meta Tags -->
-    <meta name="description" content="Mamta Forwarding Logistics — Premium FTL, PTL and Express freight solutions across India since 2001. Trusted by manufacturers, traders and distributors across 20+ routes.">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Mamta Forwarding Logistics (MFL) — FTL, PTL and Express freight services connecting Indore, Kanpur and 20+ cities across India. Trusted since 2001.">
     <meta property="og:title" content="MFL | Premium Logistics &amp; Freight">
-    <meta property="og:description" content="Trusted freight operations since 2001. FTL, PTL, Express Delivery connecting Indore, Kanpur and all of India.">
+    <meta property="og:description" content="Trusted freight forwarding since 2001. FTL, PTL and Express services across India.">
     <meta property="og:image" content="/images/hero-truck-branded.png">
     <meta property="og:url" content="https://mfl-website-theta.vercel.app/">
     <meta property="og:type" content="website">
 
-    <!-- Phase 3 — Favicon -->
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
-    <!-- Phase 2 — Preload hero image -->
-    <link rel="preload" as="image" href="/images/mfl-hero-truck.png">
+    <!-- Preload hero image -->
+    <link rel="preload" as="image" href="/images/al-hero.png">
 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- LocalBusiness Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Mamta Forwarding Logistics",
+      "url": "https://mfl-website-theta.vercel.app",
+      "telephone": "+918707812390",
+      "email": "anujkhanna1029@gmail.com",
+      "foundingDate": "2001",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "456 Scheme No. 78",
+        "addressLocality": "Indore",
+        "addressRegion": "Madhya Pradesh",
+        "postalCode": "452010",
+        "addressCountry": "IN"
+      },
+      "description": "Premium freight and logistics services — FTL, PTL, Express — across India since 2001.",
+      "areaServed": "India",
+      "sameAs": ["https://wa.me/918707812390"]
+    }
+    </script>
 </head>
 <body>
+
+    <!-- Toast notification -->
+    <div id="toastSnackbar" class="toast-snackbar" role="alert" aria-live="polite"></div>
 
     <!-- Sticky Mobile Bottom Bar -->
     <div class="mobile-bottom-bar">
         <div class="mobile-bar-inner">
             <a href="tel:+918707812390" class="mobile-bar-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
-            <a href="https://wa.me/918707812390" class="mobile-bar-btn" style="color: var(--wa-green);"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://wa.me/918707812390" class="mobile-bar-btn" style="color: var(--wa-green);" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             <button class="mobile-bar-btn primary" onclick="openContactModal()"><i class="fas fa-bolt"></i> Get Quote</button>
         </div>
     </div>
 
     <!-- Contact Modal (Slide-over) -->
+    <!-- OWNER: Form submits via FormSubmit AJAX to anujkhanna1029@gmail.com.
+         To change the recipient, update the fetch URL in script.js attachFormHandler(). -->
     <div class="modal-overlay" id="contactOverlay" onclick="closeContactModal()"></div>
-    <div class="contact-panel" id="contactPanel">
+    <div class="contact-panel" id="contactPanel" role="dialog" aria-modal="true" aria-label="Contact MFL Logistics">
         <div class="panel-header">
             <h3>Contact MFL</h3>
-            <button class="close-modal" onclick="closeContactModal()"><i class="fas fa-times"></i></button>
+            <button class="close-modal" onclick="closeContactModal()" aria-label="Close contact panel"><i class="fas fa-times"></i></button>
         </div>
         <div class="panel-content">
-            <a href="https://wa.me/918707812390" class="contact-action-btn btn-whatsapp">
+            <a href="https://wa.me/918707812390" class="contact-action-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-whatsapp"></i> Chat on WhatsApp
             </a>
+            <a href="tel:+919302115585" class="contact-action-btn btn-phone">
+                <i class="fas fa-phone-alt"></i> Call Indore Head Office
+            </a>
             <a href="tel:+918707812390" class="contact-action-btn btn-phone">
-                <i class="fas fa-phone-alt"></i> Call Us Directly
+                <i class="fas fa-phone-alt"></i> Call Kanpur Branch Office
             </a>
             <button class="contact-action-btn" onclick="toggleQuoteForm()" style="border-color: var(--gold); color: var(--navy); background: linear-gradient(135deg,#BF953F,#FCF6BA,#B38728,#FBF5B7,#BF953F); font-weight: 800;">
                 <i class="fas fa-file-invoice-dollar"></i> Request Custom Quote
             </button>
 
-            <!-- Phase 10 — Quote Form with Success State -->
             <div class="quote-form active" id="quoteFormOuter">
                 <div id="quoteFormWrap">
                     <form id="quoteForm" novalidate>
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_subject" value="New Freight Quote Request!">
+                        <input type="hidden" name="_subject" value="New Freight Quote — MFL Logistics">
                         <div class="form-group">
-                            <label for="clientName">Your Name</label>
-                            <input type="text" id="clientName" name="name" placeholder="Enter your name" required>
+                            <label for="qFullName">Full Name *</label>
+                            <input type="text" id="qFullName" name="full_name" placeholder="Your full name" required>
                         </div>
                         <div class="form-group">
-                            <label for="clientPhone">Phone Number</label>
-                            <input type="tel" id="clientPhone" name="phone" placeholder="10-digit Mobile Number" inputmode="numeric" maxlength="12" pattern="[6-9][0-9]{9}" required>
+                            <label for="qCompany">Company Name *</label>
+                            <input type="text" id="qCompany" name="company_name" placeholder="Your company or business name" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="qPhone">Phone Number *</label>
+                                <input type="tel" id="qPhone" name="phone" placeholder="10-digit mobile" inputmode="numeric" maxlength="10" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="qEmail">Email Address</label>
+                                <input type="email" id="qEmail" name="email" placeholder="Optional">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="originCity">Origin City</label>
-                            <input type="text" id="originCity" name="origin" placeholder="e.g. Kanpur" required>
+                            <label for="qService">Service Type *</label>
+                            <select id="qService" name="service_type" required>
+                                <option value="">Select a service</option>
+                                <option value="Full Truck Load (FTL)">Full Truck Load (FTL)</option>
+                                <option value="Part Truck Load (PTL)">Part Truck Load (PTL)</option>
+                                <option value="Express Freight">Express Freight</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="qOrigin">Origin City *</label>
+                                <input type="text" id="qOrigin" name="origin_city" placeholder="e.g. Indore" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="qDest">Destination City *</label>
+                                <input type="text" id="qDest" name="destination_city" placeholder="e.g. Delhi" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="qWeight">Approx. Weight *</label>
+                                <select id="qWeight" name="approx_weight" required>
+                                    <option value="">Select weight range</option>
+                                    <option value="Under 500 kg">Under 500 kg</option>
+                                    <option value="500 kg – 2 tonne">500 kg – 2 tonne</option>
+                                    <option value="2 – 5 tonne">2 – 5 tonne</option>
+                                    <option value="5 – 10 tonne">5 – 10 tonne</option>
+                                    <option value="10+ tonne">10+ tonne</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="qCargo">Cargo Type *</label>
+                                <select id="qCargo" name="cargo_type" required>
+                                    <option value="">Select cargo type</option>
+                                    <option value="General Goods">General Goods</option>
+                                    <option value="Textiles &amp; Garments">Textiles &amp; Garments</option>
+                                    <option value="FMCG">FMCG</option>
+                                    <option value="Industrial Equipment">Industrial Equipment</option>
+                                    <option value="Construction Material">Construction Material</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="destCity">Destination City</label>
-                            <input type="text" id="destCity" name="destination" placeholder="e.g. Ahmedabad" required>
+                            <label for="qPickupDate">Preferred Pickup Date</label>
+                            <input type="date" id="qPickupDate" name="pickup_date">
                         </div>
-                        <input type="hidden" id="serviceType" name="service" value="">
-                        <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%;">Submit Request</button>
+                        <div class="form-group">
+                            <label for="qInstructions">Special Instructions</label>
+                            <textarea id="qInstructions" name="special_instructions" placeholder="Special handling, dimensions, fragile cargo, route preferences…"></textarea>
+                        </div>
+                        <button type="submit" id="submitBtn" class="form-submit-btn">Submit Request</button>
                     </form>
                 </div>
 
                 <div id="quoteSuccess" style="display:none; text-align:center; padding:2rem 1rem; background:var(--navy-card); border-radius:8px; margin-top:16px;">
                     <div style="font-size:3rem; color:var(--success); margin-bottom:0.75rem;">✓</div>
                     <h3 style="color:var(--white); margin-bottom:0.5rem;">Request Received!</h3>
-                    <p style="color:var(--text-muted); margin-bottom:0.5rem;">
-                        We'll call you within 2 hours during business hours (Mon–Sat, 9am–7pm IST).
-                    </p>
-                    <p style="color:var(--text-muted); font-size:0.85rem;">
-                        Or reach us directly:
-                        <a href="tel:+918707812390" style="color:var(--gold);">+91 87078 12390</a>
+                    <p style="color:var(--text-muted); margin-bottom:0.5rem;">We'll contact you within 2 business hours (Mon–Sat, 9am–7pm IST).</p>
+                    <p style="color:var(--text-muted); font-size:0.85rem; line-height: 1.5;">
+                        Or call directly: <br>
+                        Indore: <a href="tel:+919302115585" style="color:var(--gold);">+91 93021 15585</a> &nbsp;|&nbsp; 
+                        Kanpur: <a href="tel:+918707812390" style="color:var(--gold);">+91 87078 12390</a>
                     </p>
                 </div>
             </div>
 
-            <a href="mailto:anujkhanna1029@gmail.com" class="contact-action-btn" style="margin-top: 12px;">
+            <a href="mailto:anujkhanna1029@gmail.com" class="contact-action-btn" style="margin-top: 12px;" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-envelope"></i> anujkhanna1029@gmail.com
             </a>
 
@@ -99,11 +182,11 @@
                 <h4>Our Offices</h4>
                 <div class="office-card">
                     <strong>Indore (Head Office)</strong>
-                    456 Scheme No. 78, Indore, MP, India - 452010
+                    456 Scheme No. 78, Indore, MP – 452010
                 </div>
                 <div class="office-card">
                     <strong>Kanpur (Branch Office)</strong>
-                    123 Transport Nagar, Kanpur, UP, India - 208023
+                    123 Transport Nagar, Kanpur, UP – 208023
                 </div>
             </div>
         </div>
@@ -113,28 +196,38 @@
     <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="images/logo-new.png" alt="MFL Logistics" class="logo-img" width="160" height="60">
+                <img src="images/logo-new.png" alt="MFL Logistics — Mamta Forwarding Logistics" class="logo-img" width="160" height="60">
             </a>
             <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About &amp; Legacy</a></li>
-                <li><a href="#services">Services</a></li>
+                <li>
+                    <button class="nav-dropdown-toggle" id="servicesToggle" aria-expanded="false" aria-haspopup="true">
+                        Services <span class="chevron">▾</span>
+                    </button>
+                    <div class="nav-dropdown-menu" id="servicesDropdown" role="menu">
+                        <a href="ftl.html" role="menuitem">Full Truck Load</a>
+                        <a href="ptl.html" role="menuitem">Part Truck Load</a>
+                        <a href="express.html" role="menuitem">Express Freight</a>
+                    </div>
+                </li>
                 <li><a href="#network">Network</a></li>
+                <li><a href="contact.html">Contact</a></li>
                 <li><button class="nav-cta" onclick="openContactModal()">Get Quote</button></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section — Phase 5 -->
+    <!-- Hero Section -->
     <header class="hero" style="background-image: url('images/al-hero.png');">
         <div class="container">
             <div class="hero-content">
                 <span style="color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-weight: 800; font-size: 13px; margin-bottom: 20px; display: block;">Trusted Freight Solutions Since 2001</span>
                 <h1>A Legacy Built on Trust.<br>Logistics Delivered.</h1>
-                <p>Premium freight and transportation solutions connecting Kanpur, Indore, and the rest of India with unmatched reliability.</p>
+                <p>Premium freight and transportation solutions connecting Indore, Kanpur, and the rest of India with unmatched reliability.</p>
                 <div class="hero-btns">
                     <button class="btn btn-primary" onclick="openContactModal()">Get a Free Quote</button>
                     <a href="about.html" class="btn btn-outline">Our Legacy &rarr;</a>
@@ -143,40 +236,45 @@
         </div>
     </header>
 
-    <!-- Phase 6 — Quick Stats with Icons & Counter -->
+    <!-- Stats Bar -->
     <div class="container">
+        <!-- OWNER: Replace "Since 2001" stat with a real client count
+             (e.g. "500+ Clients Served") if you have verified data to support it.
+             Replace "20+" with your actual route count if different. -->
         <div class="metrics-grid">
             <div class="metric-card">
                 <div class="metric-icon"><i class="fas fa-calendar-alt"></i></div>
-                <h3 class="stat-2001 stat-fade" id="stat2001">2001</h3>
-                <p>Established</p>
+                <h3 style="font-size: 26px; padding-top: 4px;">Since 2001</h3>
+                <p>Trusted Operations</p>
             </div>
             <div class="metric-card">
                 <div class="metric-icon"><i class="fas fa-route"></i></div>
-                <h3><span id="routeCounter" class="stat-fade">20</span><span id="routePlus" style="opacity:0; transition: opacity 0.4s;">+</span></h3>
-                <p>Major Routes</p>
+                <h3>
+                    <span id="statRoutes" class="stat-fade">0</span><span id="statRoutesPlus" style="opacity:0; transition:opacity 0.4s ease; color:var(--gold); font-size:34px; font-weight:800; font-family:var(--font-heading);">+</span>
+                </h3>
+                <p>Active Routes</p>
             </div>
             <div class="metric-card">
-                <div class="metric-icon"><i class="fas fa-handshake"></i></div>
-                <h3 class="stat-fade" id="statFamily">Family</h3>
-                <p>Led Business</p>
+                <div class="metric-icon"><i class="fas fa-industry"></i></div>
+                <h3 id="statIndustries" class="stat-fade">0</h3>
+                <p>Industries Served</p>
             </div>
             <div class="metric-card">
-                <div class="metric-icon"><i class="fas fa-map-marker-alt"></i></div>
-                <h3 class="stat-fade" id="statPanIndia">Pan India</h3>
-                <p>Coverage</p>
+                <div class="metric-icon"><i class="fas fa-truck"></i></div>
+                <h3 style="font-size: 17px; line-height: 1.35; padding-top: 4px;">FTL · PTL<br>Express</h3>
+                <p>Services Offered</p>
             </div>
         </div>
 
         <div style="background: rgba(15,28,46,0.05); border: 1px solid rgba(15,28,46,0.1); border-radius: var(--radius); padding: 22px; margin-top: 48px; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px;">
-            <span style="color: var(--navy); font-weight: 700; font-size: 14px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Family-Led Since 2001</span>
-            <span style="color: var(--navy); font-weight: 700; font-size: 14px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Trusted Across Major Freight Corridors</span>
-            <span style="color: var(--navy); font-weight: 700; font-size: 14px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Dedicated FTL &amp; PTL Operations</span>
-            <span style="color: var(--navy); font-weight: 700; font-size: 14px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i> Relationship-Driven Logistics Solutions</span>
+            <span style="color: var(--navy); font-weight: 700; font-size: 14px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i>Family-Led Since 2001</span>
+            <span style="color: var(--navy); font-weight: 700; font-size: 14px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i>Trusted Across Major Freight Corridors</span>
+            <span style="color: var(--navy); font-weight: 700; font-size: 14px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i>Dedicated FTL &amp; PTL Operations</span>
+            <span style="color: var(--navy); font-weight: 700; font-size: 14px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i>Relationship-Driven Logistics Solutions</span>
         </div>
     </div>
 
-    <!-- Why MFL -->
+    <!-- Why Choose MFL -->
     <section class="section">
         <div class="container">
             <div class="why-mfl-grid">
@@ -209,19 +307,19 @@
                             </div>
                             <div>
                                 <h3 style="font-size: 20px; margin-bottom: 6px; color: var(--navy);">Family-Led Trust</h3>
-                                <p style="color: var(--text-muted); line-height: 1.6; font-size: 15px;">We treat your cargo as our own. A strong legacy of personalized, trustworthy service.</p>
+                                <p style="color: var(--text-muted); line-height: 1.6; font-size: 15px;">We treat your cargo as our own. A strong legacy of personalized, trustworthy service since 2001.</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <img src="images/manual-loading.png" alt="MFL Operations" loading="lazy" width="600" height="450" style="width: 100%; border-radius: 8px; box-shadow: var(--shadow-xl); border: 3px solid var(--border-gold);">
+                    <img src="images/manual-loading.png" alt="MFL freight loading operations" loading="lazy" width="600" height="450" style="width: 100%; border-radius: 8px; box-shadow: var(--shadow-xl); border: 3px solid var(--border-gold);">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services — Phase 7 -->
+    <!-- Services Section -->
     <section id="services" class="section section-alt">
         <div class="container">
             <h2 class="section-title text-center">Premium Logistics Solutions</h2>
@@ -229,34 +327,37 @@
 
             <div class="services-grid">
                 <div class="service-card reveal">
-                    <img src="images/al-ftl.png" alt="Full Truck Load" class="service-img" loading="lazy" width="400" height="200">
+                    <img src="images/al-ftl.png" alt="Full Truck Load freight service" class="service-img" loading="lazy" width="400" height="200">
                     <div class="service-content">
                         <h3>Full Truck Load (FTL)</h3>
-                        <p class="service-benefit">Dedicated truck, direct route, maximum cargo security</p>
-                        <p>Dedicated transport for large shipments ensuring maximum security and direct routing.</p>
+                        <p class="service-benefit">Dedicated truck · Direct route · Maximum cargo security</p>
+                        <p>Dedicated transport for large shipments ensuring maximum security and direct routing with no co-loading.</p>
+                        <a href="ftl.html" class="service-learn-more">Learn More &rarr;</a>
                     </div>
                 </div>
                 <div class="service-card reveal">
-                    <img src="images/al-ptl.png" alt="Part Truck Load" class="service-img" loading="lazy" width="400" height="200">
+                    <img src="images/al-ptl.png" alt="Part Truck Load freight service" class="service-img" loading="lazy" width="400" height="200">
                     <div class="service-content">
                         <h3>Part Truck Load (PTL)</h3>
-                        <p class="service-benefit">Consolidated freight — reduce costs without compromising reliability</p>
+                        <p class="service-benefit">Consolidated freight · Reduce costs · Reliable schedules</p>
                         <p>Cost-effective consolidated freight solutions for shipments that don't require a full truck.</p>
+                        <a href="ptl.html" class="service-learn-more">Learn More &rarr;</a>
                     </div>
                 </div>
                 <div class="service-card reveal">
-                    <img src="images/al-express.png" alt="Express Delivery" class="service-img" loading="lazy" width="400" height="200">
+                    <img src="images/al-express.png" alt="Express freight service" class="service-img" loading="lazy" width="400" height="200">
                     <div class="service-content">
                         <h3>Express Freight</h3>
-                        <p class="service-benefit">Priority handling for time-critical shipments across India</p>
-                        <p>Time-critical logistics for urgent shipments across the country with priority handling.</p>
+                        <p class="service-benefit">Priority handling · 24–48hr delivery · Time-critical</p>
+                        <p>Time-critical logistics for urgent shipments across the country with priority handling and dispatch.</p>
+                        <a href="express.html" class="service-learn-more">Learn More &rarr;</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Network Coverage — Phase 12 -->
+    <!-- Network Coverage -->
     <section id="network" class="section section-dark">
         <div class="container network-layout">
             <div class="network-content">
@@ -282,41 +383,66 @@
                         <i class="fas fa-road"></i>
                         <div>
                             <h4>20+ Key Routes</h4>
-                            <p>Daily operations across major industrial corridors.</p>
+                            <p>Daily operations across major industrial freight corridors.</p>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="network-map">
-                <!-- Phase 12 — Map with pins -->
                 <div class="map-container">
-                    <img src="images/india-map-new.png" alt="MFL India Network Map" loading="lazy" width="500" height="600" style="width:100%; display:block;">
+                    <img src="images/india-map-new.png" alt="MFL India logistics network map" loading="lazy" width="500" height="600" style="width:100%; display:block;">
 
                     <!-- Pin: Indore HQ -->
                     <div class="map-pin pin-gold" style="left:38%; top:52%;"
-                         data-city="Indore (Head Office)" data-info="Central India — MP, Gujarat, Maharashtra">
-                    </div>
+                         data-city="Indore (Head Office)" data-info="Central India — MP, Gujarat, Maharashtra"></div>
 
                     <!-- Pin: Kanpur Branch -->
                     <div class="map-pin pin-gold" style="left:55%; top:38%;"
-                         data-city="Kanpur (Branch Office)" data-info="Northern India — UP and nearby states">
-                    </div>
+                         data-city="Kanpur (Branch Office)" data-info="Northern India — UP and nearby states"></div>
 
                     <!-- Pin: Mumbai -->
                     <div class="map-pin pin-navy" style="left:28%; top:65%;"
-                         data-city="Mumbai" data-info="Western India route coverage">
-                    </div>
+                         data-city="Mumbai" data-info="Western India route coverage"></div>
 
                     <!-- Pin: Delhi -->
                     <div class="map-pin pin-navy" style="left:50%; top:27%;"
-                         data-city="Delhi" data-info="North India route coverage">
-                    </div>
+                         data-city="Delhi" data-info="North India route coverage"></div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Key Routes Table -->
+        <!-- OWNER: Edit or remove any route that MFL does not actually operate -->
+        <div class="container">
+            <div class="routes-table-wrap">
+                <h3>Key Routes We Operate</h3>
+                <table class="routes-table">
+                    <thead>
+                        <tr>
+                            <th>Origin</th>
+                            <th>Destination</th>
+                            <th>Approx. Transit Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Indore</td><td>Kanpur</td><td>18–22 hrs</td></tr>
+                        <tr><td>Kanpur</td><td>Mumbai</td><td>24–30 hrs</td></tr>
+                        <tr><td>Indore</td><td>Delhi</td><td>14–18 hrs</td></tr>
+                        <tr><td>Kanpur</td><td>Delhi</td><td>6–8 hrs</td></tr>
+                        <tr><td>Indore</td><td>Ahmedabad</td><td>8–10 hrs</td></tr>
+                        <tr><td>Kanpur</td><td>Lucknow</td><td>3–4 hrs</td></tr>
+                        <tr><td>Indore</td><td>Pune</td><td>14–16 hrs</td></tr>
+                        <tr><td>Kanpur</td><td>Jaipur</td><td>10–12 hrs</td></tr>
+                        <tr><td>Indore</td><td>Nagpur</td><td>8–10 hrs</td></tr>
+                        <tr><td>Kanpur</td><td>Agra</td><td>4–5 hrs</td></tr>
+                    </tbody>
+                </table>
+                <p class="routes-disclaimer">Transit times are indicative and subject to route conditions and service type selected.</p>
             </div>
         </div>
     </section>
 
-    <!-- Industries We Serve -->
+    <!-- Industries We Serve (EXISTING — capability section) -->
     <section class="section">
         <div class="container">
             <h2 class="section-title text-center">Industries We Serve</h2>
@@ -356,7 +482,7 @@
         </div>
     </section>
 
-    <!-- Phase 8 — Trust Signals (replaces fake testimonials) -->
+    <!-- Why Businesses Choose MFL -->
     <section class="section section-dark">
         <div class="container">
             <h2 class="section-title text-center">Why Businesses Choose MFL</h2>
@@ -387,32 +513,77 @@
         </div>
     </section>
 
-    <!-- Phase 9 — Fleet Photo Gallery -->
+    <!-- Fleet Photo Gallery -->
     <section class="section section-alt">
         <div class="container">
             <h2 class="section-title text-center">Our Fleet &amp; Operations</h2>
             <p class="section-subtitle text-center">Real trucks, real operations, real reliability.</p>
 
             <div class="fleet-gallery-grid">
-                <div class="fleet-gallery-item reveal">
-                    <img src="images/al-hero.png" alt="MFL Ashok Leyland Truck on Highway" loading="lazy" width="400" height="220">
+                <div class="fleet-gallery-item">
+                    <img src="images/al-hero.png" alt="MFL Ashok Leyland truck on highway" loading="lazy" width="400" height="220">
                 </div>
-                <div class="fleet-gallery-item reveal">
-                    <img src="images/al-fleet.png" alt="MFL Fleet at Depot" loading="lazy" width="400" height="220">
+                <div class="fleet-gallery-item">
+                    <img src="images/al-fleet.png" alt="MFL fleet at depot" loading="lazy" width="400" height="220">
                 </div>
-                <div class="fleet-gallery-item reveal">
-                    <img src="images/al-ftl.png" alt="MFL Full Truck Load" loading="lazy" width="400" height="220">
+                <div class="fleet-gallery-item">
+                    <img src="images/al-ftl.png" alt="MFL full truck load operation" loading="lazy" width="400" height="220">
                 </div>
-                <div class="fleet-gallery-item reveal">
-                    <img src="images/al-ptl.png" alt="MFL Loading Operations" loading="lazy" width="400" height="220">
+                <div class="fleet-gallery-item">
+                    <img src="images/al-ptl.png" alt="MFL loading and cargo operations" loading="lazy" width="400" height="220">
                 </div>
-                <div class="fleet-gallery-item reveal">
-                    <img src="images/al-express.png" alt="MFL Express Freight" loading="lazy" width="400" height="220">
+                <div class="fleet-gallery-item">
+                    <img src="images/al-express.png" alt="MFL express freight dispatch" loading="lazy" width="400" height="220">
                 </div>
-                <div class="fleet-gallery-item reveal">
-                    <img src="images/al-warehouse.png" alt="MFL Warehouse Operations" loading="lazy" width="400" height="220">
+                <div class="fleet-gallery-item">
+                    <img src="images/al-warehouse.png" alt="MFL warehouse and logistics operations" loading="lazy" width="400" height="220">
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Industries We Power (social proof / credibility section) -->
+    <!-- OWNER: Once you collect real client testimonials, replace this section with
+         a testimonials carousel. Even 2–3 real quotes from real clients will
+         outperform any designed section. -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title text-center">Businesses That Trust MFL</h2>
+            <p class="section-subtitle text-center" style="color: var(--text-muted);">Operational trust across six key industries — built over two decades.</p>
+
+            <div class="industries-power-grid">
+                <div class="industry-power-card reveal">
+                    <span class="industry-power-icon">🧵</span>
+                    <h3>Textile Manufacturers</h3>
+                    <p>Regular FTL dispatch from Indore corridors serving fabric mills and garment exporters.</p>
+                </div>
+                <div class="industry-power-card reveal">
+                    <span class="industry-power-icon">📦</span>
+                    <h3>FMCG Distributors</h3>
+                    <p>Time-sensitive PTL runs with consolidated loads for fast-moving consumer goods.</p>
+                </div>
+                <div class="industry-power-card reveal">
+                    <span class="industry-power-icon">⚙️</span>
+                    <h3>Industrial Equipment</h3>
+                    <p>Heavy cargo and ODC-capable movements for machinery and industrial components.</p>
+                </div>
+                <div class="industry-power-card reveal">
+                    <span class="industry-power-icon">🏗️</span>
+                    <h3>Construction Materials</h3>
+                    <p>High-volume bulk transport for cement, steel, and building supply chains.</p>
+                </div>
+                <div class="industry-power-card reveal">
+                    <span class="industry-power-icon">🏪</span>
+                    <h3>Wholesale Distribution</h3>
+                    <p>Supply chain integration across UP &amp; MP for wholesale and trading businesses.</p>
+                </div>
+                <div class="industry-power-card reveal">
+                    <span class="industry-power-icon">📫</span>
+                    <h3>Retail &amp; Packaging</h3>
+                    <p>Reliable PTL for medium-volume shippers with consistent dispatch schedules.</p>
+                </div>
+            </div>
+            <p class="industries-power-tagline">Serving manufacturers, traders and distributors across India since 2001.</p>
         </div>
     </section>
 
@@ -452,11 +623,11 @@
             <div class="ops-grid">
                 <div style="background: var(--white); padding: 22px; border-radius: 8px; box-shadow: var(--shadow-sm); border-left: 4px solid var(--gold);">
                     <h4 style="color: var(--navy); font-size: 17px; margin-bottom: 6px; font-weight: 800;">Safe Handling</h4>
-                    <p style="color: var(--text-muted); font-size: 14px;">Zero-compromise protocols for cargo security.</p>
+                    <p style="color: var(--text-muted); font-size: 14px;">Zero-compromise protocols for cargo security at every stage.</p>
                 </div>
                 <div style="background: var(--white); padding: 22px; border-radius: 8px; box-shadow: var(--shadow-sm); border-left: 4px solid var(--gold);">
                     <h4 style="color: var(--navy); font-size: 17px; margin-bottom: 6px; font-weight: 800;">Timely Dispatch</h4>
-                    <p style="color: var(--text-muted); font-size: 14px;">Precision scheduling to ensure on-time departures.</p>
+                    <p style="color: var(--text-muted); font-size: 14px;">Precision scheduling to ensure on-time departures and arrivals.</p>
                 </div>
                 <div style="background: var(--white); padding: 22px; border-radius: 8px; box-shadow: var(--shadow-sm); border-left: 4px solid var(--gold);">
                     <h4 style="color: var(--navy); font-size: 17px; margin-bottom: 6px; font-weight: 800;">Transparent Communication</h4>
@@ -464,7 +635,7 @@
                 </div>
                 <div style="background: var(--white); padding: 22px; border-radius: 8px; box-shadow: var(--shadow-sm); border-left: 4px solid var(--gold);">
                     <h4 style="color: var(--navy); font-size: 17px; margin-bottom: 6px; font-weight: 800;">Trusted Relationships</h4>
-                    <p style="color: var(--text-muted); font-size: 14px;">Building long-term partnerships through reliability.</p>
+                    <p style="color: var(--text-muted); font-size: 14px;">Building long-term partnerships through consistent reliability.</p>
                 </div>
             </div>
         </div>
@@ -481,7 +652,58 @@
         </div>
     </section>
 
-    <!-- Footer — Phase 15 -->
+    <!-- Compliance & Registration Strip -->
+    <!-- OWNER: Fill in your GST number, Transport Licence, and confirm MSME registration status before going live. -->
+    <div class="compliance-strip">
+        <div class="container">
+            <div class="compliance-inner">
+                <div class="compliance-item">
+                    <span class="compliance-icon">🏛️</span>
+                    <div class="compliance-text">
+                        <span class="compliance-label">GST Registered</span>
+                        <!-- OWNER: ADD YOUR GST NUMBER HERE (e.g. 23XXXXX1234X1Z5) -->
+                        <span class="compliance-placeholder">— Add GST No.</span>
+                    </div>
+                </div>
+                <div class="compliance-divider"></div>
+                <div class="compliance-item">
+                    <span class="compliance-icon">📋</span>
+                    <div class="compliance-text">
+                        <span class="compliance-label">Transport Licence</span>
+                        <!-- OWNER: ADD YOUR TRANSPORT LICENCE NUMBER HERE -->
+                        <span class="compliance-placeholder">— Add Licence No.</span>
+                    </div>
+                </div>
+                <div class="compliance-divider"></div>
+                <div class="compliance-item">
+                    <span class="compliance-icon">🏢</span>
+                    <div class="compliance-text">
+                        <span class="compliance-label">MSME Registered</span>
+                        <!-- OWNER: CONFIRM OR REMOVE — change "Yes" to actual status or remove this item -->
+                        <span class="compliance-value">Yes</span>
+                    </div>
+                </div>
+                <div class="compliance-divider"></div>
+                <div class="compliance-item">
+                    <span class="compliance-icon">🛡️</span>
+                    <div class="compliance-text">
+                        <span class="compliance-label">Cargo Insurance</span>
+                        <span class="compliance-value">Covered on All Shipments</span>
+                    </div>
+                </div>
+                <div class="compliance-divider"></div>
+                <div class="compliance-item">
+                    <span class="compliance-icon">📅</span>
+                    <div class="compliance-text">
+                        <span class="compliance-label">Established</span>
+                        <span class="compliance-value">2001</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -490,21 +712,20 @@
                     <h3 style="color: var(--white); margin-bottom: 8px; font-size: 18px;">Mamta Forwarding Logistics</h3>
                     <p style="color: var(--gold); font-weight: 600; margin-bottom: 12px; font-size: 13px;">Trusted Freight Operations Since 2001</p>
                     <p>Mamta Forwarding Logistics provides premium freight solutions across India, combining decades of trusted experience with modern operational efficiency.</p>
-                    <!-- Phase 15 — Social Icons -->
                     <div class="footer-social">
-                        <a href="#" aria-label="MFL on LinkedIn">
+                        <a href="#" aria-label="MFL on LinkedIn" target="_blank" rel="noopener noreferrer">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect width="24" height="24" rx="4" fill="currentColor" opacity="0.15"/>
                                 <path d="M6.5 9.5H9v9H6.5v-9zm1.25-4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM10.5 9.5H13v1.2c.4-.7 1.3-1.4 2.5-1.4 2.7 0 3 1.8 3 4.1v5.1H16v-4.5c0-1.1 0-2.5-1.5-2.5s-1.5 1.2-1.5 2.4v4.6h-2.5v-9z" fill="currentColor"/>
                             </svg>
                         </a>
-                        <a href="#" aria-label="MFL on Facebook">
+                        <a href="#" aria-label="MFL on Facebook" target="_blank" rel="noopener noreferrer">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                 <rect width="24" height="24" rx="4" fill="currentColor" opacity="0.15"/>
                                 <path d="M13 21v-8h2.5l.5-3H13V8c0-.8.2-1.5 1.5-1.5H16V4.1C15.7 4 14.6 4 13.5 4 11 4 9.5 5.3 9.5 8v2H7v3h2.5v8H13z" fill="currentColor"/>
                             </svg>
                         </a>
-                        <a href="https://wa.me/918707812390" aria-label="Chat on WhatsApp">
+                        <a href="https://wa.me/918707812390" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                 <rect width="24" height="24" rx="12" fill="#25D366" opacity="0.2"/>
                                 <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.08L2 22l5.08-1.34A9.95 9.95 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" fill="#25D366"/>
@@ -518,22 +739,26 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About &amp; Legacy</a></li>
-                        <li><a href="#services">Services</a></li>
+                        <li><a href="ftl.html">FTL</a></li>
+                        <li><a href="ptl.html">PTL</a></li>
+                        <li><a href="express.html">Express Freight</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Services</h4>
                     <ul class="footer-links">
-                        <li><a href="#services">Full Truck Load</a></li>
-                        <li><a href="#services">Part Truck Load</a></li>
-                        <li><a href="#services">Express Delivery</a></li>
+                        <li><a href="ftl.html">Full Truck Load</a></li>
+                        <li><a href="ptl.html">Part Truck Load</a></li>
+                        <li><a href="express.html">Express Freight</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Contact</h4>
                     <ul class="footer-links">
-                        <li><a href="#" onclick="openContactModal(); return false;">Contact Us</a></li>
-                        <li><a href="tel:+918707812390">+91 87078 12390</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li>Indore: <a href="tel:+919302115585">+91 93021 15585</a></li>
+                        <li>Kanpur: <a href="tel:+918707812390">+91 87078 12390</a></li>
                         <li><a href="mailto:anujkhanna1029@gmail.com">anujkhanna1029@gmail.com</a></li>
                     </ul>
                 </div>
@@ -547,30 +772,8 @@
         </div>
     </footer>
 
-    <!-- Phase 14 — Back to Top Button -->
+    <!-- Back to Top (bottom-LEFT) -->
     <button id="scrollTopBtn" aria-label="Back to top">&#8593;</button>
-
-    <!-- Phase 2 — JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Mamta Forwarding Logistics",
-      "telephone": "+918707812390",
-      "email": "anujkhanna1029@gmail.com",
-      "foundingDate": "2001",
-      "url": "https://mfl-website-theta.vercel.app/",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "456 Scheme No. 78",
-        "addressLocality": "Indore",
-        "addressRegion": "Madhya Pradesh",
-        "postalCode": "452010",
-        "addressCountry": "IN"
-      },
-      "sameAs": ["https://wa.me/918707812390"]
-    }
-    </script>
 
     <script src="script.js"></script>
 </body>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Freight | MFL Logistics</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="MFL Express Freight — time-critical, priority-handled shipments delivered within 24–48 hours across 20+ Indian cities. Call or WhatsApp for urgent freight.">
+    <meta property="og:title" content="Express Freight | MFL Logistics">
+    <meta property="og:description" content="Urgent freight? MFL Express delivers time-critical shipments across India with priority handling and dedicated dispatch.">
+    <meta property="og:image" content="/images/al-express.png">
+    <meta property="og:url" content="https://mfl-website-theta.vercel.app/express.html">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Toast notification -->
+    <div id="toastSnackbar" class="toast-snackbar" role="alert" aria-live="polite"></div>
+
+    <!-- Sticky Mobile Bottom Bar -->
+    <div class="mobile-bottom-bar">
+        <div class="mobile-bar-inner">
+            <a href="tel:+918707812390" class="mobile-bar-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
+            <a href="https://wa.me/918707812390" class="mobile-bar-btn" style="color: var(--wa-green);" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <button class="mobile-bar-btn primary" onclick="openContactModal()"><i class="fas fa-bolt"></i> Get Quote</button>
+        </div>
+    </div>
+
+    <!-- Contact Modal (Slide-over) -->
+    <!-- OWNER: Form submits via FormSubmit AJAX to anujkhanna1029@gmail.com.
+         To change the recipient, update the fetch URL in script.js attachFormHandler(). -->
+    <div class="modal-overlay" id="contactOverlay" onclick="closeContactModal()"></div>
+    <div class="contact-panel" id="contactPanel" role="dialog" aria-modal="true" aria-label="Contact MFL Logistics">
+        <div class="panel-header">
+            <h3>Get Express Quote</h3>
+            <button class="close-modal" onclick="closeContactModal()" aria-label="Close contact panel"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <a href="https://wa.me/918707812390" class="contact-action-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+            <a href="tel:+919302115585" class="contact-action-btn btn-phone">
+                <i class="fas fa-phone-alt"></i> Call Indore Head Office
+            </a>
+            <a href="tel:+918707812390" class="contact-action-btn btn-phone">
+                <i class="fas fa-phone-alt"></i> Call Kanpur Branch Office
+            </a>
+            <button class="contact-action-btn" onclick="toggleQuoteForm()" style="border-color: var(--gold); color: var(--navy); background: linear-gradient(135deg,#BF953F,#FCF6BA,#B38728,#FBF5B7,#BF953F); font-weight: 800;">
+                <i class="fas fa-file-invoice-dollar"></i> Request Express Quote
+            </button>
+
+            <div class="quote-form active" id="quoteFormOuter">
+                <div id="quoteFormWrap">
+                    <form id="quoteForm" novalidate>
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="Express Freight Quote — MFL Logistics">
+                        <div class="form-group">
+                            <label for="qFullName">Full Name *</label>
+                            <input type="text" id="qFullName" name="full_name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="qCompany">Company Name *</label>
+                            <input type="text" id="qCompany" name="company_name" placeholder="Your company or business name" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="qPhone">Phone Number *</label>
+                                <input type="tel" id="qPhone" name="phone" placeholder="10-digit mobile" inputmode="numeric" maxlength="10" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="qEmail">Email Address</label>
+                                <input type="email" id="qEmail" name="email" placeholder="Optional">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="qService">Service Type *</label>
+                            <select id="qService" name="service_type" required>
+                                <option value="Full Truck Load (FTL)">Full Truck Load (FTL)</option>
+                                <option value="Part Truck Load (PTL)">Part Truck Load (PTL)</option>
+                                <option value="Express Freight" selected>Express Freight</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="qOrigin">Origin City *</label>
+                                <input type="text" id="qOrigin" name="origin_city" placeholder="e.g. Indore" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="qDest">Destination City *</label>
+                                <input type="text" id="qDest" name="destination_city" placeholder="e.g. Delhi" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="qWeight">Approx. Weight *</label>
+                                <select id="qWeight" name="approx_weight" required>
+                                    <option value="">Select weight range</option>
+                                    <option value="Under 500 kg">Under 500 kg</option>
+                                    <option value="500 kg – 2 tonne">500 kg – 2 tonne</option>
+                                    <option value="2 – 5 tonne">2 – 5 tonne</option>
+                                    <option value="5 – 10 tonne">5 – 10 tonne</option>
+                                    <option value="10+ tonne">10+ tonne</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="qCargo">Cargo Type *</label>
+                                <select id="qCargo" name="cargo_type" required>
+                                    <option value="">Select cargo type</option>
+                                    <option value="General Goods">General Goods</option>
+                                    <option value="Textiles &amp; Garments">Textiles &amp; Garments</option>
+                                    <option value="FMCG">FMCG</option>
+                                    <option value="Industrial Equipment">Industrial Equipment</option>
+                                    <option value="Construction Material">Construction Material</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="qPickupDate">Preferred Pickup Date</label>
+                            <input type="date" id="qPickupDate" name="pickup_date">
+                        </div>
+                        <div class="form-group">
+                            <label for="qInstructions">Special Instructions</label>
+                            <textarea id="qInstructions" name="special_instructions" placeholder="Urgency level, delivery deadline, fragile handling, any special requirements…"></textarea>
+                        </div>
+                        <button type="submit" id="submitBtn" class="form-submit-btn">Submit Express Request</button>
+                    </form>
+                </div>
+
+                <div id="quoteSuccess" style="display:none; text-align:center; padding:2rem 1rem; background:var(--navy-card); border-radius:8px; margin-top:16px;">
+                    <div style="font-size:3rem; color:var(--success); margin-bottom:0.75rem;">✓</div>
+                    <h3 style="color:var(--white); margin-bottom:0.5rem;">Request Received!</h3>
+                    <p style="color:var(--text-muted); margin-bottom:0.5rem;">We'll contact you within 2 business hours (Mon–Sat, 9am–7pm IST).</p>
+                    <p style="color:var(--text-muted); font-size:0.85rem; line-height: 1.5;">
+                        Urgent? Call directly: <br>
+                        Indore: <a href="tel:+919302115585" style="color:var(--gold);">+91 93021 15585</a> &nbsp;|&nbsp; 
+                        Kanpur: <a href="tel:+918707812390" style="color:var(--gold);">+91 87078 12390</a>
+                    </p>
+                </div>
+            </div>
+
+            <a href="mailto:anujkhanna1029@gmail.com" class="contact-action-btn" style="margin-top: 12px;" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-envelope"></i> anujkhanna1029@gmail.com
+            </a>
+
+            <div class="office-info">
+                <h4>Our Offices</h4>
+                <div class="office-card">
+                    <strong>Indore (Head Office)</strong>
+                    456 Scheme No. 78, Indore, MP – 452010
+                </div>
+                <div class="office-card">
+                    <strong>Kanpur (Branch Office)</strong>
+                    123 Transport Nagar, Kanpur, UP – 208023
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo-new.png" alt="MFL Logistics — Mamta Forwarding Logistics" class="logo-img" width="160" height="60">
+            </a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About &amp; Legacy</a></li>
+                <li>
+                    <button class="nav-dropdown-toggle" id="servicesToggle" aria-expanded="false" aria-haspopup="true">
+                        Services <span class="chevron">▾</span>
+                    </button>
+                    <div class="nav-dropdown-menu" id="servicesDropdown" role="menu">
+                        <a href="ftl.html" role="menuitem">Full Truck Load</a>
+                        <a href="ptl.html" role="menuitem">Part Truck Load</a>
+                        <a href="express.html" role="menuitem" style="color: var(--gold) !important;">Express Freight</a>
+                    </div>
+                </li>
+                <li><a href="index.html#network">Network</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button class="nav-cta" onclick="openContactModal()">Get Quote</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="service-hero" style="background-image: url('images/al-express.png');">
+        <div class="container">
+            <div class="service-hero-content">
+                <span class="eyebrow">Express Freight</span>
+                <h1>When Time Is<br>Non-Negotiable.</h1>
+                <p class="hero-sub">MFL Express handles urgent, time-critical freight across India with priority dispatch, dedicated handling, and 24–48 hour delivery windows on key routes.</p>
+                <div class="service-hero-btns">
+                    <button class="btn btn-primary" onclick="openContactModal()">Request Express Quote</button>
+                    <a href="tel:+918707812390" class="btn btn-outline"><i class="fas fa-phone-alt" style="margin-right:8px;"></i> Call for Urgent Freight</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Urgency Banner -->
+    <div style="background: var(--gold); padding: 14px 0; text-align: center;">
+        <p style="color: var(--navy); font-weight: 800; font-family: var(--font-heading); font-size: 15px; margin: 0;">
+            <i class="fas fa-bolt" style="margin-right: 8px;"></i>
+            For urgent dispatch, call us directly: Indore <a href="tel:+919302115585" style="color: var(--navy); text-decoration: underline;">+91 93021 15585</a> or Kanpur <a href="tel:+918707812390" style="color: var(--navy); text-decoration: underline;">+91 87078 12390</a> — Same-day response guaranteed.
+        </p>
+    </div>
+
+    <!-- Service Overview -->
+    <section class="section">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+                <div>
+                    <h2 class="section-title">What is Express Freight?</h2>
+                    <p style="color: var(--text-muted); line-height: 1.75; margin-bottom: 20px; font-size: 16px;">
+                        MFL Express Freight is a priority-handling service designed for shipments where delivery timelines cannot be compromised. Express movements are treated with dedicated dispatch priority — your cargo gets first attention, first loading, and first departure.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.75; font-size: 16px;">
+                        Ideal for production-line emergencies, trade fair deadlines, urgent procurement, or any situation where standard transit windows aren't an option. Express freight is available as both dedicated (FTL) and consolidated (PTL) movements.
+                    </p>
+
+                    <!-- OWNER: Update these specs with your actual express delivery windows and coverage -->
+                    <div class="spec-grid" style="margin-top: 28px;">
+                        <span class="spec-term">Typical Transit</span>
+                        <span class="spec-def">24–48 hours on key routes (varies by distance)</span>
+
+                        <span class="spec-term">Dispatch Priority</span>
+                        <span class="spec-def">First loading priority on all active vehicles</span>
+
+                        <span class="spec-term">Service Type</span>
+                        <span class="spec-def">Available as dedicated (FTL) or consolidated (PTL)</span>
+
+                        <span class="spec-term">Booking</span>
+                        <span class="spec-def">Same-day booking accepted (subject to vehicle availability)</span>
+
+                        <span class="spec-term">Coverage</span>
+                        <span class="spec-def">20+ cities — call to confirm your route</span>
+
+                        <span class="spec-term">Insurance</span>
+                        <span class="spec-def">Cargo insurance covered on all express movements</span>
+                    </div>
+                </div>
+                <div>
+                    <img src="images/al-express.png" alt="MFL Express freight dispatch operations" loading="lazy" width="600" height="400" style="width:100%; border-radius: 8px; box-shadow: var(--shadow-xl); border: 3px solid var(--border-gold);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title text-center">How Express Freight Works</h2>
+            <p class="section-subtitle text-center">Fastest possible freight — from first call to delivery confirmation.</p>
+
+            <div class="how-it-works-grid">
+                <div class="step-card reveal">
+                    <div class="step-number">1</div>
+                    <h3>Immediate Enquiry</h3>
+                    <p>Call or WhatsApp our team with your cargo details, origin, destination, and urgency. We respond within the hour.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">2</div>
+                    <h3>Vehicle Confirmation</h3>
+                    <p>We confirm vehicle availability and provide a firm quote with estimated delivery window — typically within 30–60 minutes of your call.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">3</div>
+                    <h3>Priority Dispatch</h3>
+                    <p>Your cargo is loaded with first priority and dispatched on the earliest available vehicle — same day or next morning.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">4</div>
+                    <h3>Delivery &amp; Confirmation</h3>
+                    <p>Your shipment is delivered to the destination and delivery confirmation is provided immediately upon receipt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Benefits -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title text-center">Why Choose MFL Express</h2>
+            <p class="section-subtitle text-center" style="color: var(--text-muted);">The advantages of priority freight handling.</p>
+
+            <div class="benefit-grid">
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>Priority Handling</h3>
+                    <p>Your cargo gets first loading priority on every active vehicle — no waiting behind regular freight.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon"><i class="fas fa-clock"></i></div>
+                    <h3>24–48hr Delivery</h3>
+                    <p>Guaranteed delivery windows on all major routes — planned and confirmed at booking.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon"><i class="fas fa-phone-alt"></i></div>
+                    <h3>Direct Team Access</h3>
+                    <p>Direct access to our operations team throughout your shipment. No call centres, no waiting queues.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Insured &amp; Secure</h3>
+                    <p>All express movements include cargo insurance and are handled with the highest care standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suitable Cargo Types -->
+    <section class="section">
+        <div class="container" style="max-width: 900px; text-align: center;">
+            <h2 class="section-title">Suitable for Express Freight</h2>
+            <p class="section-subtitle">Time-critical scenarios and cargo types best served by MFL Express:</p>
+            <div class="cargo-pills" style="justify-content: center;">
+                <span class="cargo-pill">Production-Line Emergencies</span>
+                <span class="cargo-pill">Trade Fair &amp; Exhibition Cargo</span>
+                <span class="cargo-pill">Urgent Medical Supplies</span>
+                <span class="cargo-pill">Replacement Parts</span>
+                <span class="cargo-pill">Procurement Deadlines</span>
+                <span class="cargo-pill">E-Commerce Returns</span>
+                <span class="cargo-pill">Perishable Goods</span>
+                <span class="cargo-pill">High-Value Electronics</span>
+                <span class="cargo-pill">Seasonal Stock Replenishment</span>
+                <span class="cargo-pill">Construction Site Urgencies</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <div class="service-cta-strip">
+        <div class="container">
+            <h2>Don't Let a Deadline Derail Your Operations</h2>
+            <p>Contact our express freight team now — same-day response, same-day dispatch on key routes.</p>
+            <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+                <a href="tel:+918707812390" class="btn btn-primary"><i class="fas fa-phone-alt" style="margin-right:8px;"></i> Call for Urgent Freight</a>
+                <a href="https://wa.me/918707812390" class="btn btn-gold-outline" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="margin-right:8px;"></i> WhatsApp Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo-new.png" alt="MFL Logistics Logo" loading="lazy" width="160" height="100">
+                    <h3 style="color: var(--white); margin-bottom: 8px; font-size: 18px;">Mamta Forwarding Logistics</h3>
+                    <p style="color: var(--gold); font-weight: 600; margin-bottom: 12px; font-size: 13px;">Trusted Freight Operations Since 2001</p>
+                    <p>Mamta Forwarding Logistics provides premium freight solutions across India, combining decades of trusted experience with modern operational efficiency.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="MFL on LinkedIn" target="_blank" rel="noopener noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="currentColor" opacity="0.15"/><path d="M6.5 9.5H9v9H6.5v-9zm1.25-4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM10.5 9.5H13v1.2c.4-.7 1.3-1.4 2.5-1.4 2.7 0 3 1.8 3 4.1v5.1H16v-4.5c0-1.1 0-2.5-1.5-2.5s-1.5 1.2-1.5 2.4v4.6h-2.5v-9z" fill="currentColor"/></svg></a>
+                        <a href="#" aria-label="MFL on Facebook" target="_blank" rel="noopener noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="currentColor" opacity="0.15"/><path d="M13 21v-8h2.5l.5-3H13V8c0-.8.2-1.5 1.5-1.5H16V4.1C15.7 4 14.6 4 13.5 4 11 4 9.5 5.3 9.5 8v2H7v3h2.5v8H13z" fill="currentColor"/></svg></a>
+                        <a href="https://wa.me/918707812390" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="12" fill="#25D366" opacity="0.2"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.08L2 22l5.08-1.34A9.95 9.95 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" fill="#25D366"/><path d="M17 14.8c-.25-.12-1.47-.72-1.7-.8-.23-.09-.4-.12-.56.12-.17.25-.64.8-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-.12-.75-.66-1.23-1.48-1.38-1.73-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.84-.2-.48-.41-.41-.56-.42h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29z" fill="white"/></svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About &amp; Legacy</a></li>
+                        <li><a href="ftl.html">FTL</a></li>
+                        <li><a href="ptl.html">PTL</a></li>
+                        <li><a href="express.html">Express Freight</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="ftl.html">Full Truck Load</a></li>
+                        <li><a href="ptl.html">Part Truck Load</a></li>
+                        <li><a href="express.html">Express Freight</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li>Indore: <a href="tel:+919302115585">+91 93021 15585</a></li>
+                        <li>Kanpur: <a href="tel:+918707812390">+91 87078 12390</a></li>
+                        <li><a href="mailto:anujkhanna1029@gmail.com">anujkhanna1029@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px;">
+                <p style="font-size: 14px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">Moving India's Supply Chains Forward Since 2001</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mamta Forwarding Logistics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top (bottom-LEFT) -->
+    <button id="scrollTopBtn" aria-label="Back to top">&#8593;</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
