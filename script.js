@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initQuoteForm();
     initModalAccessibility();
     initDateInputs();
+    initFaqAccordion();
     initWaFloat();
 });
 
@@ -275,22 +276,41 @@ function attachFormHandler(form, submitBtnId, wrapId, successId) {
         var fullName  = form.querySelector('[name="full_name"]');
         var company   = form.querySelector('[name="company_name"]');
         var phone     = form.querySelector('[name="phone"]');
-        var service   = form.querySelector('[name="service_type"]');
-        var origin    = form.querySelector('[name="origin_city"]');
-        var dest      = form.querySelector('[name="destination_city"]');
-        var weight    = form.querySelector('[name="approx_weight"]');
+        var service   = form.querySelector('[name="required_service"]');
+        var origin    = form.querySelector('[name="pickup_city"]');
+        var dest      = form.querySelector('[name="delivery_city"]');
+        var weight    = form.querySelector('[name="estimated_weight"]');
         var cargo     = form.querySelector('[name="cargo_type"]');
+        var volume    = form.querySelector('[name="monthly_volume"]');
 
         if (!fullName || !fullName.value.trim())                         { showFieldError(fullName,  'Full name is required'); valid = false; }
         if (!company  || !company.value.trim())                          { showFieldError(company,   'Company name is required'); valid = false; }
         if (!phone    || !phoneRegex.test(phone.value.trim()))           { showFieldError(phone,     'Enter a valid 10-digit mobile number starting with 6–9'); valid = false; }
-        if (!service  || !service.value)                                 { showFieldError(service,   'Please select a service type'); valid = false; }
-        if (!origin   || !origin.value.trim())                           { showFieldError(origin,    'Origin city is required'); valid = false; }
-        if (!dest     || !dest.value.trim())                             { showFieldError(dest,      'Destination city is required'); valid = false; }
-        if (!weight   || !weight.value)                                  { showFieldError(weight,    'Please select an approximate weight'); valid = false; }
+        if (!service  || !service.value)                                 { showFieldError(service,   'Please select a required service'); valid = false; }
+        if (!origin   || !origin.value.trim())                           { showFieldError(origin,    'Pickup city is required'); valid = false; }
+        if (!dest     || !dest.value.trim())                             { showFieldError(dest,      'Delivery city is required'); valid = false; }
+        if (!weight   || !weight.value)                                  { showFieldError(weight,    'Please select an estimated weight'); valid = false; }
         if (!cargo    || !cargo.value)                                   { showFieldError(cargo,     'Please select a cargo type'); valid = false; }
+        if (!volume   || !volume.value)                                  { showFieldError(volume,    'Please select an approximate monthly shipment volume'); valid = false; }
 
         if (!valid) return;
+
+        // Structured payload object for future backend/CRM integration
+        var payload = {
+            fullName: fullName.value.trim(),
+            companyName: company.value.trim(),
+            phone: phone.value.trim(),
+            email: form.querySelector('[name="email"]') ? form.querySelector('[name="email"]').value.trim() : '',
+            requiredService: service.value,
+            pickupCity: origin.value.trim(),
+            deliveryCity: dest.value.trim(),
+            estimatedWeight: weight.value,
+            cargoType: cargo.value,
+            monthlyVolume: volume.value,
+            pickupDate: form.querySelector('[name="pickup_date"]') ? form.querySelector('[name="pickup_date"]').value : '',
+            additionalNotes: form.querySelector('[name="additional_notes"]') ? form.querySelector('[name="additional_notes"]').value.trim() : ''
+        };
+        console.log("MFL Enquiry Submitted Payload:", payload);
 
         var btn = document.getElementById(submitBtnId);
         if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
@@ -613,4 +633,45 @@ function toggleCities() {
         list.style.maxHeight = list.scrollHeight + 'px';
         btn.innerHTML = 'Collapse List <i class="fas fa-chevron-up"></i>';
     }
+}
+
+// =========================================================
+// FAQ Accordion Handler (contact.html)
+// Supports ARIA tags, height animation, and keyboard focus
+// =========================================================
+function initFaqAccordion() {
+    var accordionItems = document.querySelectorAll('.faq-item');
+    if (!accordionItems.length) return;
+
+    accordionItems.forEach(function (item) {
+        var trigger = item.querySelector('.faq-trigger');
+        var panel   = item.querySelector('.faq-panel');
+        if (!trigger || !panel) return;
+
+        trigger.addEventListener('click', function () {
+            var isActive = item.classList.contains('active');
+
+            // Close other items
+            accordionItems.forEach(function (otherItem) {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    var otherTrigger = otherItem.querySelector('.faq-trigger');
+                    var otherPanel   = otherItem.querySelector('.faq-panel');
+                    if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+                    if (otherPanel) otherPanel.style.maxHeight = '0px';
+                }
+            });
+
+            // Toggle current item
+            if (isActive) {
+                item.classList.remove('active');
+                trigger.setAttribute('aria-expanded', 'false');
+                panel.style.maxHeight = '0px';
+            } else {
+                item.classList.add('active');
+                trigger.setAttribute('aria-expanded', 'true');
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+            }
+        });
+    });
 }

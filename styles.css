@@ -424,14 +424,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 .mobile-bar-inner { display: flex; justify-content: space-between; align-items: center; }
 .mobile-bar-btn {
-  flex: 1; padding: 14px 8px; text-align: center; font-family: var(--font-heading);
-  font-size: 13px; font-weight: 700; color: var(--text-main);
-  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  flex: 1; padding: 10px 4px; text-align: center; font-family: var(--font-heading);
+  font-size: 12px; font-weight: 700; color: var(--text-main);
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
   border-right: 1px solid var(--border); background: none; border-top: none;
   border-bottom: none; border-left: none; cursor: pointer;
+  text-decoration: none;
 }
 .mobile-bar-btn:last-child { border-right: none; }
-.mobile-bar-btn i { font-size: 18px; }
+.mobile-bar-btn i, .mobile-bar-icon { font-size: 16px; display: inline-block; }
 .mobile-bar-btn.primary { background: var(--gold); color: var(--navy); }
 
 /* ===== Hero Section ===== */
@@ -1086,14 +1087,448 @@ h1, h2, h3, h4, h5, h6 {
   .section-subtitle { font-size: 14px; margin-bottom: 32px; }
 
   /* Back-to-top (left) and WA float (right) — clear mobile bottom bar */
-  #scrollTopBtn { bottom: 88px; left: 16px; }
-  .wa-float     { bottom: 88px; right: 16px; }
-
-  /* Hide WA tooltip on mobile — icon is universally recognised */
-  .wa-float::after { display: none; }
+  #scrollTopBtn { bottom: 70px; left: 16px; }
+  .wa-float     { display: none !important; }
 
   .toast-snackbar {
     white-space: normal; width: calc(100% - 48px);
     text-align: center; top: 72px;
   }
+}
+
+/* ===== Enterprise QA Audits: Focus Visible ===== */
+*:focus-visible {
+  outline: 2px solid var(--gold) !important;
+  outline-offset: 3px !important;
+}
+
+/* ===== Desktop Top Bar ===== */
+.top-bar {
+  background: var(--navy-card);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 11px;
+  color: var(--text-muted);
+  height: 34px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  z-index: 1001;
+}
+.top-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.top-bar-left, .top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.top-bar-left span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.top-bar-right a {
+  color: var(--text-muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease;
+}
+.top-bar-right a:hover {
+  color: var(--gold);
+}
+.emergency-badge {
+  background: rgba(200, 144, 42, 0.15);
+  color: var(--gold);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+#navbar.nav-scrolled .top-bar {
+  height: 0;
+  border-bottom: none;
+  opacity: 0;
+}
+@media (max-width: 991px) {
+  .top-bar {
+    display: none;
+  }
+}
+
+/* ===== Trust Ribbon ===== */
+.trust-ribbon {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+}
+.trust-ribbon-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.ribbon-item {
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ribbon-item i {
+  color: var(--gold);
+  font-size: 14px;
+}
+.ribbon-divider {
+  width: 1px;
+  height: 18px;
+  background: rgba(15, 28, 46, 0.1);
+}
+@media (max-width: 768px) {
+  .ribbon-divider { display: none; }
+  .trust-ribbon-inner { justify-content: center; gap: 8px 16px; }
+}
+
+/* Offset for desktop nav with top-bar */
+@media (min-width: 992px) {
+  .hero {
+    padding-top: 174px !important;
+  }
+  .service-hero {
+    padding-top: 174px !important;
+  }
+}
+
+/* ===== Company Overview ===== */
+.company-overview-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  margin-top: 24px;
+}
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.overview-item {
+  border-left: 3px solid var(--gold);
+  padding-left: 16px;
+}
+.overview-item h4 {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.8px;
+  margin-bottom: 4px;
+}
+.overview-item p {
+  font-size: 15px;
+  color: var(--navy);
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* ===== Our Freight Process ===== */
+.freight-process-inner {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+  position: relative;
+}
+.process-step {
+  text-align: center;
+  position: relative;
+}
+.process-icon-wrap {
+  width: 50px;
+  height: 50px;
+  background: var(--navy);
+  color: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin: 0 auto 12px;
+  border: 2px solid var(--gold);
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-sm);
+}
+.process-step h4 {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--navy);
+}
+.process-step p {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.freight-process-inner::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 7%;
+  right: 7%;
+  height: 2px;
+  background: var(--border);
+  z-index: 1;
+}
+@media (max-width: 991px) {
+  .freight-process-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .freight-process-inner::before {
+    display: none;
+  }
+  .process-icon-wrap {
+    margin-bottom: 8px;
+  }
+}
+
+/* ===== Operations Preview ===== */
+.ops-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+.ops-preview-item {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.ops-preview-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.ops-preview-item:hover img {
+  transform: scale(1.03);
+}
+.ops-preview-item p {
+  padding: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  font-weight: 600;
+}
+@media (max-width: 991px) {
+  .ops-preview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  .ops-preview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Why Businesses Trust MFL ===== */
+.trust-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+.trust-card-rc {
+  background: var(--navy-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  transition: var(--transition);
+}
+.trust-card-rc:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(200, 144, 42, 0.15);
+  transform: translateY(-2px);
+}
+.trust-card-rc-icon {
+  font-size: 24px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.trust-card-rc h3 {
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.trust-card-rc p {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+@media (max-width: 991px) {
+  .trust-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  .trust-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== FAQ Accordion ===== */
+.faq-section-wrapper {
+  margin-top: 48px;
+  max-width: 800px;
+  margin-inline: auto;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.faq-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 18px 24px;
+  text-align: left;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition);
+}
+.faq-trigger:hover {
+  background: var(--bg-main);
+  color: var(--gold);
+}
+.faq-icon-chevron {
+  transition: transform 0.3s ease;
+  font-size: 12px;
+  color: var(--gold);
+}
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background: var(--bg-white);
+}
+.faq-panel-inner {
+  padding: 0 24px 20px;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.faq-item.active .faq-icon-chevron {
+  transform: rotate(180deg);
+}
+.faq-item.active .faq-panel {
+  max-height: 200px; /* adjusted dynamically via JS */
+}
+
+/* ===== Form Inline Errors ===== */
+.field-error {
+  display: block;
+  font-size: 11px;
+  color: #E24B4A;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* ===== Route Intelligence Refinement ===== */
+.routes-disclaimer {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 12px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ===== Industries Grid Refinement ===== */
+.industries-grid-rc {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+.industry-card-rc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.industry-card-rc:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.industry-card-rc i {
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: block;
+}
+.industry-card-rc h3 {
+  font-size: 15px;
+  color: var(--navy);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.industry-card-rc p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+@media (max-width: 991px) {
+  .industries-grid-rc {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  .industries-grid-rc {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Last Updated Note ===== */
+.footer-last-updated {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.2);
+  margin-top: 8px;
 }
