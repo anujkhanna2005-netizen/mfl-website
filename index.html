@@ -298,35 +298,35 @@
     </header>
 
     <!-- Stats Bar -->
-    <section class="stats-section-bar">
-        <div class="container">
-            <!-- OWNER: Replace "Since 2003" stat with a real client count
-                 (e.g. "500+ Clients Served") if you have verified data to support it. -->
-            <div class="metrics-grid">
-                <div class="metric-card reveal">
-                    <div class="metric-val" id="statSince">Since 2003</div>
-                    <div class="metric-lbl">Legacy of B2B Service</div>
-                </div>
-                <div class="metric-card reveal">
-                    <div class="metric-val">
-                        <span id="statRoutes" data-count="20">0</span>
-                        <span id="statRoutesPlus" class="plus-sign">+</span>
-                    </div>
-                    <div class="metric-lbl">Active Routes &amp; Lanes</div>
-                </div>
-                <div class="metric-card reveal">
-                    <div class="metric-val" id="statIndustries" data-count="6">0</div>
-                    <div class="metric-lbl">Key Industries Served</div>
-                </div>
-                <div class="metric-card reveal">
-                    <div class="metric-val" style="font-size: 1.1rem; letter-spacing: 0.5px; font-weight: 800; color: var(--gold); text-transform: uppercase; padding: 4px 0;">FTL &middot; PTL &middot; Express</div>
-                    <div class="metric-lbl">Specialised Operations</div>
-                </div>
+    <div class="container">
+        <!-- OWNER: Replace "Since 2003" stat with a real client count
+             (e.g. "500+ Clients Served") if you have verified data to support it.
+             Replace "20+" with your actual route count if different. -->
+        <div class="metrics-grid">
+            <div class="metric-card reveal">
+                <div class="metric-icon"><i class="fas fa-calendar-alt"></i></div>
+                <h3 style="font-size: 26px; padding-top: 4px;">Since 2003</h3>
+                <p>Trusted Operations</p>
+            </div>
+            <div class="metric-card reveal">
+                <div class="metric-icon"><i class="fas fa-route"></i></div>
+                <h3>
+                    <span id="statRoutes" class="stat-fade" data-count="20" data-suffix="+">0</span>
+                </h3>
+                <p>Active Routes</p>
+            </div>
+            <div class="metric-card reveal">
+                <div class="metric-icon"><i class="fas fa-industry"></i></div>
+                <h3 id="statIndustries" class="stat-fade" data-count="6" data-suffix="">0</h3>
+                <p>Industries Served</p>
+            </div>
+            <div class="metric-card reveal">
+                <div class="metric-icon"><i class="fas fa-truck"></i></div>
+                <h3 style="font-size: 17px; line-height: 1.35; padding-top: 4px;">FTL &middot; PTL<br>Express</h3>
+                <p>Services Offered</p>
             </div>
         </div>
-    </section>
 
-    <div class="container">
         <div style="background: rgba(15,28,46,0.05); border: 1px solid rgba(15,28,46,0.1); border-radius: var(--radius); padding: 22px; margin-top: 48px; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px;">
             <span style="color: var(--navy); font-weight: 700; font-size: 14px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i>Family-Led Since 2003</span>
             <span style="color: var(--navy); font-weight: 700; font-size: 14px;"><i class="fas fa-check" style="color: var(--gold); margin-right: 8px;"></i>Trusted Across Major Freight Corridors</span>

@@ -2525,34 +2525,11 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
 }
 
-/* Stats Section Bar Styles */
-.stats-section-bar {
-  background: #0F1C2E;
-  border-top: 2px solid #C8902A;
-  padding: 32px 0;
-}
-.stats-section-bar .metrics-grid {
-  margin-top: 0;
-}
-.stats-section-bar .metric-card {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  color: var(--white);
-  padding: 12px 16px;
-}
-.stats-section-bar .metric-val {
-  color: var(--gold) !important;
-  font-size: 34px;
-  font-weight: 800;
-}
-.stats-section-bar .metric-lbl {
-  color: rgba(255, 255, 255, 0.7);
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-top: 4px;
+/* Media query override to prevent metrics grid overlap on smaller devices */
+@media (max-width: 992px) {
+  .metrics-grid {
+    margin-top: 24px !important;
+  }
 }
 
 /* Map pin touch targets expansion (44x44) */
