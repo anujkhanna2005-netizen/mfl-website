@@ -183,79 +183,48 @@ function initSmoothScroll() {
 // Stat 4 "FTL·PTL·Express" → static, no animation
 // =========================================================
 function initStatCounters() {
-    // Count-up helper
-    function animateCount(el, target, duration, onComplete) {
-        if (!el) return;
-        var hasRun = false;
+  function animateCounter(el, target, duration) {
+    var start = 0;
+    var step = target / (duration / 16);
+    var timer = setInterval(function() {
+      start += step;
+      if (start >= target) {
+        start = target;
+        clearInterval(timer);
+      }
+      el.textContent = Math.floor(start) + (el.dataset.suffix || '');
+    }, 16);
+  }
 
-        function runAnimation() {
-            if (hasRun) return;
-            hasRun = true;
-            el.classList.add('is-visible');
+  function runCounters() {
+    var counters = document.querySelectorAll('[data-count]');
+    counters.forEach(function(el) {
+      var target = parseInt(el.dataset.count, 10);
+      animateCounter(el, target, 1500);
+    });
+  }
 
-            var startTime = null;
-            function step(timestamp) {
-                if (!startTime) startTime = timestamp;
-                var progress = Math.min((timestamp - startTime) / duration, 1);
-                var eased    = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-                el.textContent = Math.floor(eased * target);
-                if (progress < 1) {
-                    requestAnimationFrame(step);
-                } else {
-                    el.textContent = target;
-                    if (onComplete) onComplete();
-                }
-            }
-            requestAnimationFrame(step);
+  // Try IntersectionObserver first
+  var statsSection = document.querySelector('.stats-bar, .stats-section, .stat-counter-section, .metrics-grid');
+  if (statsSection && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          runCounters();
+          observer.disconnect();
         }
-
-        var obs = new IntersectionObserver(function (entries, observer) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting && !hasRun) {
-                    observer.unobserve(entry.target);
-                    runAnimation();
-                }
-            });
-        }, { threshold: 0.1 });
-        obs.observe(el);
-
-        // Fallback: If element is already in viewport, trigger after short delay
-        setTimeout(function() {
-            if (!hasRun) {
-                var rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    runAnimation();
-                }
-            }
-        }, 300);
-    }
-
-    // Active Routes: 0 → 20, then reveal "+"
-    var routesEl   = document.getElementById('statRoutes');
-    var routesPlus = document.getElementById('statRoutesPlus');
-    animateCount(routesEl, 20, 1500, function () {
-        if (routesPlus) routesPlus.style.opacity = '1';
-    });
-
-    // Industries Served: 0 → 6
-    var industEl = document.getElementById('statIndustries');
-    animateCount(industEl, 6, 900, null);
-
-    // Fade-in for any remaining .stat-fade elements (used on other sections)
-    var fadeObs = new IntersectionObserver(function (entries, obs) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                obs.unobserve(entry.target);
-            }
-        });
+      });
     }, { threshold: 0.1 });
-
-    document.querySelectorAll('.stat-fade').forEach(function (el) {
-        // Skip stat counter elements already handled above
-        if (el.id === 'statRoutes' || el.id === 'statIndustries') return;
-        fadeObs.observe(el);
-    });
+    observer.observe(statsSection);
+    // Fallback if already in viewport on load
+    var rect = statsSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      runCounters();
+    }
+  } else {
+    // No observer support — run immediately
+    runCounters();
+  }
 }
 
 
