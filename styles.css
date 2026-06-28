@@ -2508,3 +2508,108 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #ffffff;
   color: #0f1c2e;
 }
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 8px 16px;
+  font-weight: 700;
+  z-index: 10000;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Stats Section Bar Styles */
+.stats-section-bar {
+  background: #0F1C2E;
+  border-top: 2px solid #C8902A;
+  padding: 32px 0;
+}
+.stats-section-bar .metrics-grid {
+  margin-top: 0;
+}
+.stats-section-bar .metric-card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: var(--white);
+  padding: 12px 16px;
+}
+.stats-section-bar .metric-val {
+  color: var(--gold) !important;
+  font-size: 34px;
+  font-weight: 800;
+}
+.stats-section-bar .metric-lbl {
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* Map pin touch targets expansion (44x44) */
+.map-pin::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  background: transparent;
+}
+.map-pin:hover .map-tooltip,
+.map-pin:focus .map-tooltip,
+.map-pin:focus-within .map-tooltip,
+.map-pin.is-active .map-tooltip {
+  display: block;
+}
+
+/* Progressive Form Styles */
+.qform-step-indicator {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+}
+.qform-next-btn {
+  width: 100%;
+  padding: 13px;
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 10px;
+}
+.qform-next-btn:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+.qform-back-btn {
+  width: 35%;
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.4);
+  font-weight: 600;
+}
+.qform-back-btn:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,0.07);
+}

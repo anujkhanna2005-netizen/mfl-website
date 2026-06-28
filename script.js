@@ -250,11 +250,70 @@ function initQuoteForm() {
     var contactForm = document.getElementById('contactPageForm');
 
     if (modalForm) {
+        setupProgressiveForm(modalForm);
         attachFormHandler(modalForm, 'submitBtn', 'quoteFormWrap', 'quoteSuccess');
     }
     if (contactForm) {
         attachFormHandler(contactForm, 'contactSubmitBtn', 'contactFormWrap', 'contactFormSuccess');
     }
+}
+
+function setupProgressiveForm(form) {
+    var step1 = form.querySelector('#qFormStep1');
+    var step2 = form.querySelector('#qFormStep2');
+    var nextBtn = form.querySelector('#qFormNextBtn');
+    var backBtn = form.querySelector('#qFormBackBtn');
+    var indicator = form.querySelector('#qFormStepIndicator');
+
+    if (!step1 || !step2 || !nextBtn || !backBtn || !indicator) return;
+
+    nextBtn.addEventListener('click', function () {
+        if (validateStep1(form)) {
+            step1.style.display = 'none';
+            step2.style.display = 'block';
+            indicator.textContent = 'Step 2 of 2 — Shipment Details';
+            var wrap = document.getElementById('quoteFormWrap');
+            if (wrap) wrap.scrollTop = 0;
+        }
+    });
+
+    backBtn.addEventListener('click', function () {
+        step2.style.display = 'none';
+        step1.style.display = 'block';
+        indicator.textContent = 'Step 1 of 2 — Contact Details';
+    });
+
+    form.addEventListener('reset', function () {
+        step2.style.display = 'none';
+        step1.style.display = 'block';
+        indicator.textContent = 'Step 1 of 2 — Contact Details';
+    });
+}
+
+function validateStep1(form) {
+    form.querySelectorAll('.field-error').forEach(function (el) { el.remove(); });
+    form.querySelectorAll('input, select, textarea').forEach(function (el) {
+        el.style.borderColor = '';
+    });
+
+    var valid = true;
+    var phoneRegex = /^[6-9][0-9]{9}$/;
+
+    var fullName  = form.querySelector('[name="full_name"]');
+    var company   = form.querySelector('[name="company_name"]');
+    var phone     = form.querySelector('[name="phone"]');
+    var service   = form.querySelector('[name="required_service"]');
+    var origin    = form.querySelector('[name="pickup_city"]');
+    var dest      = form.querySelector('[name="delivery_city"]');
+
+    if (!fullName || !fullName.value.trim())                         { showFieldError(fullName,  'Full name is required'); valid = false; }
+    if (!company  || !company.value.trim())                          { showFieldError(company,   'Company name is required'); valid = false; }
+    if (!phone    || !phoneRegex.test(phone.value.trim()))           { showFieldError(phone,     'Enter a valid 10-digit mobile number starting with 6–9'); valid = false; }
+    if (!origin   || !origin.value.trim())                           { showFieldError(origin,    'Pickup city is required'); valid = false; }
+    if (!dest     || !dest.value.trim())                             { showFieldError(dest,      'Delivery city is required'); valid = false; }
+    if (!service  || !service.value)                                 { showFieldError(service,   'Please select a required service'); valid = false; }
+
+    return valid;
 }
 
 function attachFormHandler(form, submitBtnId, wrapId, successId) {
@@ -279,18 +338,34 @@ function attachFormHandler(form, submitBtnId, wrapId, successId) {
         var weight    = form.querySelector('[name="estimated_weight"]');
         var cargo     = form.querySelector('[name="cargo_type"]');
         var volume    = form.querySelector('[name="monthly_volume"]');
+        var date      = form.querySelector('[name="pickup_date"]');
 
         if (!fullName || !fullName.value.trim())                         { showFieldError(fullName,  'Full name is required'); valid = false; }
         if (!company  || !company.value.trim())                          { showFieldError(company,   'Company name is required'); valid = false; }
         if (!phone    || !phoneRegex.test(phone.value.trim()))           { showFieldError(phone,     'Enter a valid 10-digit mobile number starting with 6–9'); valid = false; }
-        if (!service  || !service.value)                                 { showFieldError(service,   'Please select a required service'); valid = false; }
         if (!origin   || !origin.value.trim())                           { showFieldError(origin,    'Pickup city is required'); valid = false; }
         if (!dest     || !dest.value.trim())                             { showFieldError(dest,      'Delivery city is required'); valid = false; }
-        if (!weight   || !weight.value)                                  { showFieldError(weight,    'Please select an estimated weight'); valid = false; }
+        if (!service  || !service.value)                                 { showFieldError(service,   'Please select a required service'); valid = false; }
         if (!cargo    || !cargo.value)                                   { showFieldError(cargo,     'Please select a cargo type'); valid = false; }
+        if (!weight   || !weight.value)                                  { showFieldError(weight,    'Please select an estimated weight'); valid = false; }
+        if (date      && !date.value)                                    { showFieldError(date,      'Please select a pickup date'); valid = false; }
         if (!volume   || !volume.value)                                  { showFieldError(volume,    'Please select an approximate monthly shipment volume'); valid = false; }
 
-        if (!valid) return;
+        if (!valid) {
+            var firstInvalid = form.querySelector('.field-error');
+            if (firstInvalid) {
+                var isStep1 = firstInvalid.parentNode.closest('#qFormStep1');
+                if (isStep1) {
+                    var s1 = form.querySelector('#qFormStep1');
+                    var s2 = form.querySelector('#qFormStep2');
+                    var ind = form.querySelector('#qFormStepIndicator');
+                    if (s1) s1.style.display = 'block';
+                    if (s2) s2.style.display = 'none';
+                    if (ind) ind.textContent = 'Step 1 of 2 — Contact Details';
+                }
+            }
+            return;
+        }
 
         // Structured payload object for future backend/CRM integration
         var payload = {
@@ -304,7 +379,7 @@ function attachFormHandler(form, submitBtnId, wrapId, successId) {
             estimatedWeight: weight.value,
             cargoType: cargo.value,
             monthlyVolume: volume.value,
-            pickupDate: form.querySelector('[name="pickup_date"]') ? form.querySelector('[name="pickup_date"]').value : '',
+            pickupDate: date ? date.value : '',
             additionalNotes: form.querySelector('[name="additional_notes"]') ? form.querySelector('[name="additional_notes"]').value.trim() : ''
         };
         console.log("MFL Enquiry Submitted Payload:", payload);
@@ -472,9 +547,6 @@ function initDateInputs() {
 }
 
 
-// =========================================================
-// Map pin tooltips
-// =========================================================
 function initMapPins() {
     document.querySelectorAll('.map-pin').forEach(function (pin) {
         if (!pin.dataset.city) return;
@@ -482,6 +554,30 @@ function initMapPins() {
         tip.className = 'map-tooltip';
         tip.innerHTML = '<strong>' + pin.dataset.city + '</strong><br>' + (pin.dataset.info || '');
         pin.appendChild(tip);
+
+        // Toggle active class on click / touch
+        pin.addEventListener('click', function (e) {
+            e.stopPropagation();
+            document.querySelectorAll('.map-pin').forEach(function (p) {
+                if (p !== pin) p.classList.remove('is-active');
+            });
+            pin.classList.toggle('is-active');
+        });
+
+        // Keydown keyboard handler
+        pin.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                pin.click();
+            }
+        });
+    });
+
+    // Dismiss tooltip on clicking elsewhere
+    document.addEventListener('click', function () {
+        document.querySelectorAll('.map-pin').forEach(function (pin) {
+            pin.classList.remove('is-active');
+        });
     });
 }
 

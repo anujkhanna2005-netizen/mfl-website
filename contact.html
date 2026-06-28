@@ -60,9 +60,9 @@
         }
       ]
     }
-    </script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Toast notification -->
     <div id="toastSnackbar" class="toast-snackbar" role="alert" aria-live="polite"></div>
@@ -101,103 +101,115 @@
 
             <div class="quote-form active" id="quoteFormOuter">
                 <div id="quoteFormWrap">
-                                        <form id="quoteForm" novalidate>
+                    <form id="quoteForm" novalidate>
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_subject" value="New Freight Quote — MFL Logistics">
                         
-                        <div class="form-group">
-                            <label for="qFullName">Full Name *</label>
-                            <input type="text" id="qFullName" name="full_name" placeholder="Your full name" required>
-                        </div>
+                        <div class="qform-step-indicator" id="qFormStepIndicator">Step 1 of 2 — Contact Details</div>
                         
-                        <div class="form-group">
-                            <label for="qCompany">Company Name *</label>
-                            <input type="text" id="qCompany" name="company_name" placeholder="Your company or business name" required>
-                        </div>
-                        
-                        <div class="form-row">
+                        <!-- Step 1: Contact Details -->
+                        <div class="qform-step" id="qFormStep1">
+                            <div class="form-group">
+                                <label for="qFullName">Full Name *</label>
+                                <input type="text" id="qFullName" name="full_name" placeholder="Your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="qCompany">Company Name *</label>
+                                <input type="text" id="qCompany" name="company_name" placeholder="Your company or business name" required>
+                            </div>
+                            
                             <div class="form-group">
                                 <label for="qPhone">Phone Number *</label>
                                 <input type="tel" id="qPhone" name="phone" placeholder="10-digit mobile number" inputmode="numeric" maxlength="10" required>
                             </div>
-                            <div class="form-group">
-                                <label for="qEmail">Email Address (Optional)</label>
-                                <input type="email" id="qEmail" name="email" placeholder="e.g. name@company.com">
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="qPickupCity">Pickup City *</label>
+                                    <input type="text" id="qPickupCity" name="pickup_city" placeholder="e.g. Indore" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="qDeliveryCity">Delivery City *</label>
+                                    <input type="text" id="qDeliveryCity" name="delivery_city" placeholder="e.g. Delhi" required>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="qPickupCity">Pickup City *</label>
-                                <input type="text" id="qPickupCity" name="pickup_city" placeholder="e.g. Indore" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="qDeliveryCity">Delivery City *</label>
-                                <input type="text" id="qDeliveryCity" name="delivery_city" placeholder="e.g. Delhi" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="qCargo">Cargo Type *</label>
-                                <select id="qCargo" name="cargo_type" required>
-                                    <option value="">Select cargo type</option>
-                                    <option value="FMCG">FMCG</option>
-                                    <option value="Textile">Textile</option>
-                                    <option value="Industrial Machinery">Industrial Machinery</option>
-                                    <option value="Construction Material">Construction Material</option>
-                                    <option value="Consumer Goods">Consumer Goods</option>
-                                    <option value="Electronics">Electronics</option>
-                                    <option value="Non-Hazardous Chemicals">Non-Hazardous Chemicals</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="qWeight">Estimated Weight *</label>
-                                <select id="qWeight" name="estimated_weight" required>
-                                    <option value="">Select weight range</option>
-                                    <option value="Under 500 kg">Under 500 kg</option>
-                                    <option value="500 kg – 2 tonne">500 kg – 2 tonne</option>
-                                    <option value="2 – 5 tonne">2 – 5 tonne</option>
-                                    <option value="5 – 10 tonne">5 – 10 tonne</option>
-                                    <option value="10+ tonne">10+ tonne</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="qPickupDate">Preferred Pickup Date *</label>
-                                <input type="date" id="qPickupDate" name="pickup_date" required>
-                            </div>
+                            
                             <div class="form-group">
                                 <label for="qService">Required Service *</label>
                                 <select id="qService" name="required_service" required>
                                     <option value="">Select service type</option>
-                                    <option value="Full Truck Load (FTL)" >Full Truck Load (FTL)</option>
-                                    <option value="Part Truck Load (PTL)" >Part Truck Load (PTL)</option>
-                                    <option value="Express Freight" >Express Freight</option>
+                                    <option value="Full Truck Load (FTL)">Full Truck Load (FTL)</option>
+                                    <option value="Part Truck Load (PTL)">Part Truck Load (PTL)</option>
+                                    <option value="Express Freight">Express Freight</option>
                                 </select>
                             </div>
+                            
+                            <button type="button" class="qform-next-btn" id="qFormNextBtn">Next: Shipment Details &rarr;</button>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="qVolume">Approximate Monthly Shipment Volume *</label>
-                            <select id="qVolume" name="monthly_volume" required>
-                                <option value="">Select volume frequency</option>
-                                <option value="Occasional">Occasional</option>
-                                <option value="Weekly">Weekly</option>
-                                <option value="Monthly">Monthly</option>
-                                <option value="Regular Business Requirement">Regular Business Requirement</option>
-                            </select>
+                        <!-- Step 2: Shipment Details -->
+                        <div class="qform-step" id="qFormStep2" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="qCargo">Cargo Type *</label>
+                                    <select id="qCargo" name="cargo_type" required>
+                                        <option value="">Select cargo type</option>
+                                        <option value="FMCG">FMCG</option>
+                                        <option value="Textile">Textile</option>
+                                        <option value="Industrial Machinery">Industrial Machinery</option>
+                                        <option value="Construction Material">Construction Material</option>
+                                        <option value="Consumer Goods">Consumer Goods</option>
+                                        <option value="Electronics">Electronics</option>
+                                        <option value="Non-Hazardous Chemicals">Non-Hazardous Chemicals</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="qWeight">Estimated Weight *</label>
+                                    <select id="qWeight" name="estimated_weight" required>
+                                        <option value="">Select weight range</option>
+                                        <option value="Under 500 kg">Under 500 kg</option>
+                                        <option value="500 kg – 2 tonne">500 kg – 2 tonne</option>
+                                        <option value="2 – 5 tonne">2 – 5 tonne</option>
+                                        <option value="5 – 10 tonne">5 – 10 tonne</option>
+                                        <option value="10+ tonne">10+ tonne</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="qPickupDate">Preferred Pickup Date *</label>
+                                    <input type="date" id="qPickupDate" name="pickup_date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="qEmail">Email Address (Optional)</label>
+                                    <input type="email" id="qEmail" name="email" placeholder="e.g. name@company.com">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="qVolume">Approximate Monthly Shipment Volume *</label>
+                                <select id="qVolume" name="monthly_volume" required>
+                                    <option value="">Select volume frequency</option>
+                                    <option value="Occasional">Occasional</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Regular Business Requirement">Regular Business Requirement</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="qInstructions">Additional Notes (Optional)</label>
+                                <textarea id="qInstructions" name="additional_notes" placeholder="Cargo dimensions, ODC requests, fragile cargo, specific route notes..."></textarea>
+                            </div>
+                            
+                            <div style="display: flex; gap: 12px; margin-top: 20px;">
+                                <button type="button" id="qFormBackBtn" class="btn qform-back-btn" style="width: 35%; padding: 13px; border-radius: 6px; cursor: pointer; transition: all 0.2s;">&larr; Back</button>
+                                <button type="submit" id="submitBtn" class="form-submit-btn" style="width: 65%; margin-top: 0;">Submit Request</button>
+                            </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="qInstructions">Additional Notes (Optional)</label>
-                            <textarea id="qInstructions" name="additional_notes" placeholder="Cargo dimensions, ODC requests, fragile cargo, specific route notes..."></textarea>
-                        </div>
-                        
-                        <button type="submit" id="submitBtn" class="form-submit-btn">Submit Request</button>
                     </form>
                 </div>
 
@@ -276,7 +288,7 @@
     </nav>
 
     <!-- Hero -->
-    <header class="service-hero" style="background-image: url('images/al-hero.png');">
+    <header class="service-hero" id="main-content" style="background-image: url('images/al-hero.png');">
         <div class="container">
             <div class="service-hero-content">
                 <span class="eyebrow">Get In Touch</span>
@@ -512,14 +524,16 @@
                 <div class="compliance-item">
                     <span class="compliance-icon">🛡️</span>
                     <div class="compliance-text">
-                        <span class="compliance-label">Cargo Insurance Available</span>
+                        <span class="compliance-label">Cargo Insurance</span>
+                        <span class="compliance-value">Available</span>
                     </div>
                 </div>
                 <div class="compliance-divider"></div>
                 <div class="compliance-item">
                     <span class="compliance-icon">📅</span>
                     <div class="compliance-text">
-                        <span class="compliance-label">Operational Since 2003</span>
+                        <span class="compliance-label">Operational</span>
+                        <span class="compliance-value">Since 2003</span>
                     </div>
                 </div>
             </div>
