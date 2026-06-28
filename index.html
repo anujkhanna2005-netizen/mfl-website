@@ -807,7 +807,7 @@
                     <path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12a11.9 11.9 0 0 0 1.64 6.07L0 24l6.14-1.61A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zm-8.52 18.4a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.74.98.99-3.65-.23-.37A9.87 9.87 0 0 1 2.1 12c0-5.46 4.44-9.9 9.9-9.9 2.65 0 5.13 1.03 7 2.9a9.86 9.86 0 0 1 2.9 7c0 5.46-4.44 9.88-9.9 9.88zm5.42-7.42c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.66-1.6-.91-2.19-.24-.57-.48-.5-.66-.5-.17 0-.37-.02-.57-.02s-.52.07-.8.37c-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.09 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.12-.27-.2-.57-.35z"/>
                 </svg>
             </div>
-            <span class="mfl-wa-trigger-label">Logistics Assistant</span>
+            <span class="mfl-wa-trigger-label">Get a Quote</span>
         </a>
 
         <!-- Tooltip (desktop only) -->
@@ -827,11 +827,6 @@
             <button id="mfl-wa-close" class="mfl-wa-close" aria-label="Close Logistics Assistant">
                 <i class="fas fa-times"></i>
             </button>
-
-            <!-- Offline Warning Alert -->
-            <div id="mfl-wa-offline-alert" class="mfl-wa-offline-alert" style="display: none;">
-                <i class="fas fa-exclamation-triangle"></i> Internet connection unavailable. WhatsApp cannot be opened.
-            </div>
 
             <!-- Offline Warning Alert -->
             <div id="mfl-wa-offline-alert" class="mfl-wa-offline-alert" style="display: none;">
@@ -925,11 +920,21 @@
                         <div class="mfl-wa-form-row">
                             <div class="mfl-wa-form-group">
                                 <label for="wa-q-pickup">Pickup City *</label>
-                                <input type="text" id="wa-q-pickup" required aria-required="true" placeholder="e.g. Indore">
+                                <div class="mfl-wa-select-wrap">
+                                    <select id="wa-q-pickup" required aria-required="true">
+                                        <option value="" disabled selected>Select Pickup City</option>
+                                    </select>
+                                    <span class="mfl-wa-select-arrow"><i class="fas fa-chevron-down"></i></span>
+                                </div>
                             </div>
                             <div class="mfl-wa-form-group">
                                 <label for="wa-q-delivery">Delivery City *</label>
-                                <input type="text" id="wa-q-delivery" required aria-required="true" placeholder="e.g. Kanpur">
+                                <div class="mfl-wa-select-wrap">
+                                    <select id="wa-q-delivery" required aria-required="true">
+                                        <option value="" disabled selected>Select Delivery City</option>
+                                    </select>
+                                    <span class="mfl-wa-select-arrow"><i class="fas fa-chevron-down"></i></span>
+                                </div>
                             </div>
                         </div>
                         <div class="mfl-wa-form-group">

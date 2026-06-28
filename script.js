@@ -784,6 +784,25 @@ var MflLogisticsAssistant = {
             "10–20 Tons",
             "20+ Tons"
         ],
+        cities: [
+            "Indore",
+            "Kanpur",
+            "Mumbai",
+            "Delhi (NCR)",
+            "Ahmedabad",
+            "Pune",
+            "Jaipur",
+            "Lucknow",
+            "Agra",
+            "Nagpur",
+            "Surat",
+            "Bhopal",
+            "Vadodara",
+            "Kolkata",
+            "Hyderabad",
+            "Chennai",
+            "Other"
+        ],
         locations: [
             {
                 name: "INDORE HQ (Head Office)",
@@ -891,7 +910,7 @@ var MflLogisticsAssistant = {
         this.cache.overlay = document.getElementById('mfl-wa-overlay');
         this.cache.closeBtn = document.getElementById('mfl-wa-close');
         this.cache.footer = document.querySelector('.mfl-wa-footer');
-        this.cache.offlineAlerts = document.querySelectorAll('[id^="mfl-wa-offline-alert"]');
+        this.cache.offlineAlerts = document.querySelectorAll('#mfl-wa-offline-alert');
         
         this.cache.views = {
             main: document.getElementById('mfl-wa-view-main'),
@@ -1269,6 +1288,30 @@ var MflLogisticsAssistant = {
         populateDropdowns: function() {
             var self = MflLogisticsAssistant;
             
+            var pk = self.cache.inputs.pickup;
+            if (pk) {
+                pk.innerHTML = '<option value="" disabled selected>Select Pickup City</option>';
+                self.CONFIG.cities.forEach(function(city) {
+                    var opt = document.createElement('option');
+                    opt.value = city;
+                    opt.textContent = city;
+                    pk.appendChild(opt);
+                });
+                self.Forms.updateSelectColor(pk);
+            }
+            
+            var dl = self.cache.inputs.delivery;
+            if (dl) {
+                dl.innerHTML = '<option value="" disabled selected>Select Delivery City</option>';
+                self.CONFIG.cities.forEach(function(city) {
+                    var opt = document.createElement('option');
+                    opt.value = city;
+                    opt.textContent = city;
+                    dl.appendChild(opt);
+                });
+                self.Forms.updateSelectColor(dl);
+            }
+            
             var ft = self.cache.inputs.freightType;
             if (ft) {
                 ft.innerHTML = '<option value="" disabled selected>Select Freight Type</option>';
@@ -1398,8 +1441,14 @@ var MflLogisticsAssistant = {
 
         applyDraft: function(draft) {
             var self = MflLogisticsAssistant;
-            if (draft.pickup && self.cache.inputs.pickup) self.cache.inputs.pickup.value = draft.pickup;
-            if (draft.delivery && self.cache.inputs.delivery) self.cache.inputs.delivery.value = draft.delivery;
+            if (draft.pickup && self.cache.inputs.pickup) {
+                self.cache.inputs.pickup.value = draft.pickup;
+                self.Forms.updateSelectColor(self.cache.inputs.pickup);
+            }
+            if (draft.delivery && self.cache.inputs.delivery) {
+                self.cache.inputs.delivery.value = draft.delivery;
+                self.Forms.updateSelectColor(self.cache.inputs.delivery);
+            }
             if (draft.freightType && self.cache.inputs.freightType) {
                 self.cache.inputs.freightType.value = draft.freightType;
                 self.Forms.updateSelectColor(self.cache.inputs.freightType);
@@ -1420,6 +1469,8 @@ var MflLogisticsAssistant = {
                 self.cache.inputs.form.reset();
             }
             
+            if (self.cache.inputs.pickup) self.Forms.updateSelectColor(self.cache.inputs.pickup);
+            if (self.cache.inputs.delivery) self.Forms.updateSelectColor(self.cache.inputs.delivery);
             if (self.cache.inputs.freightType) self.Forms.updateSelectColor(self.cache.inputs.freightType);
             if (self.cache.inputs.cargo) self.Forms.updateSelectColor(self.cache.inputs.cargo);
             if (self.cache.inputs.weight) self.Forms.updateSelectColor(self.cache.inputs.weight);
@@ -1757,7 +1808,15 @@ var MflLogisticsAssistant = {
             }
             
             var statusBadge = document.getElementById('mfl-wa-status-badge');
-            var statVal = document.querySelector('.mfl-wa-stat-strip .stat-val');
+            var statVals = document.querySelectorAll('.mfl-wa-stat-strip .stat-val');
+            
+            var responseText = isOpen 
+                ? "Usually within 30 minutes" 
+                : "Usually within 2–4 hours (next business day)";
+            
+            statVals.forEach(function(el) {
+                el.textContent = responseText;
+            });
             
             if (statusBadge) {
                 var text = statusBadge.querySelector('.status-text');
@@ -1765,11 +1824,9 @@ var MflLogisticsAssistant = {
                 if (isOpen) {
                     statusBadge.className = 'mfl-wa-status-badge status-open';
                     if (text) text.textContent = 'Currently Available | Replies in 15–30 mins';
-                    if (statVal) statVal.textContent = '🟢 Online (Replies in 15 mins)';
                 } else {
                     statusBadge.className = 'mfl-wa-status-badge status-closed';
                     if (text) text.textContent = 'Outside Business Hours | Send WhatsApp message';
-                    if (statVal) statVal.textContent = '🔴 Offline (Replies tomorrow)';
                 }
             }
             
