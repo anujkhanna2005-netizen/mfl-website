@@ -10,11 +10,11 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MFL | Premium Logistics &amp; Freight">
     <meta name="twitter:description" content="Trusted freight forwarding since 2003. FTL, PTL and Express services across India.">
-    <meta name="twitter:image" content="https://mfl-website-theta.vercel.app/images/logo-new.png">
+     <meta name="twitter:image" content="https://mfl-website-theta.vercel.app/images/hero-truck-branded.png">
     <meta name="description" content="Mamta Forwarding Logistics (MFL) — FTL, PTL and Express freight services connecting Indore, Kanpur and 20+ cities across India. Trusted since 2003.">
     <meta property="og:title" content="MFL | Premium Logistics &amp; Freight">
     <meta property="og:description" content="Trusted freight forwarding since 2003. FTL, PTL and Express services across India.">
-    <meta property="og:image" content="/images/hero-truck-branded.png">
+    <meta property="og:image" content="https://mfl-website-theta.vercel.app/images/hero-truck-branded.png">
     <meta property="og:url" content="https://mfl-website-theta.vercel.app/">
     <meta property="og:type" content="website">
 
@@ -22,12 +22,13 @@
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
     <!-- Preload hero image -->
-    <link rel="preload" as="image" href="/images/al-hero.png">
+    <link rel="preload" as="image" href="images/al-hero.png" fetchpriority="high">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -35,9 +36,9 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "FreightForwarder",
       "name": "Mamta Forwarding Logistics",
-      "url": "https://mfl-website-theta.vercel.app",
+      "url": "https://mfl-website-theta.vercel.app/",
       "telephone": "+918707812390",
       "email": "anujkhanna1029@gmail.com",
       "foundingDate": "2003",
@@ -220,8 +221,8 @@
                 </div>
             </div>
 
-            <a href="mailto:anujkhanna1029@gmail.com" class="contact-action-btn" style="margin-top: 12px;" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-envelope"></i> anujkhanna1029@gmail.com
+            <a href="#" class="email-link contact-action-btn" data-user="anujkhanna1029" data-domain="gmail.com" style="margin-top: 12px;" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-envelope"></i> [loading...]
             </a>
 
             <div class="office-info">
@@ -251,7 +252,7 @@
                 <a href="tel:+919302115585"><i class="fas fa-phone-alt"></i> Indore: +91 93021 15585</a>
                 <a href="tel:+918707812390"><i class="fas fa-phone-alt"></i> Kanpur: +91 87078 12390</a>
                 <a href="https://wa.me/918707812390" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="mailto:anujkhanna1029@gmail.com"><i class="fas fa-envelope"></i> anujkhanna1029@gmail.com</a>
+                <a href="#" class="email-link" data-user="anujkhanna1029" data-domain="gmail.com"><i class="fas fa-envelope"></i> [loading...]</a>
             </div>
         </div>
     </div>
@@ -374,7 +375,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="images/manual-loading.png" alt="MFL freight loading operations" loading="lazy" width="600" height="450" style="width: 100%; border-radius: 8px; box-shadow: var(--shadow-xl); border: 3px solid var(--border-gold);">
+                    <img src="images/manual-loading.png" alt="Freight loading operations at MFL depot" loading="lazy" decoding="async" width="600" height="450" style="width: 100%; border-radius: 8px; box-shadow: var(--shadow-xl); border: 3px solid var(--border-gold);">
                 </div>
             </div>
         </div>
@@ -388,7 +389,7 @@
 
             <div class="services-grid">
                 <div class="service-card reveal">
-                    <img src="images/al-ftl.png" alt="Full Truck Load freight service" class="service-img" loading="lazy" width="400" height="200">
+                    <img src="images/al-ftl.png" alt="Full truck load freight operation" class="service-img" loading="lazy" decoding="async" width="400" height="200">
                     <div class="service-content">
                         <h3>Full Truck Load (FTL)</h3>
                         <p class="service-benefit">Dedicated truck · Direct route · Maximum cargo security</p>
@@ -397,7 +398,7 @@
                     </div>
                 </div>
                 <div class="service-card reveal">
-                    <img src="images/al-ptl.png" alt="Part Truck Load freight service" class="service-img" loading="lazy" width="400" height="200">
+                    <img src="images/al-ptl.png" alt="Part truck load consolidated cargo" class="service-img" loading="lazy" decoding="async" width="400" height="200">
                     <div class="service-content">
                         <h3>Part Truck Load (PTL)</h3>
                         <p class="service-benefit">Consolidated freight · Reduce costs · Reliable schedules</p>
@@ -406,7 +407,7 @@
                     </div>
                 </div>
                 <div class="service-card reveal">
-                    <img src="images/al-express.png" alt="Express freight service" class="service-img" loading="lazy" width="400" height="200">
+                    <img src="images/al-express.png" alt="Express freight dispatch — priority handling" class="service-img" loading="lazy" decoding="async" width="400" height="200">
                     <div class="service-content">
                         <h3>Express Freight</h3>
                         <p class="service-benefit">Priority handling · 24–48hr delivery · Time-critical</p>
@@ -451,7 +452,7 @@
             </div>
             <div class="network-map">
                 <div class="map-container">
-                    <img src="images/india-map-new.png" alt="MFL India logistics network map" loading="lazy" width="500" height="600" style="width:100%; display:block;">
+                    <img src="images/india-map-new.png" alt="MFL logistics network map — India freight routes" loading="lazy" decoding="async" width="500" height="600" style="width:100%; display:block;">
 
                     <!-- Pin: Indore HQ -->
                     <div class="map-pin pin-gold" style="left:38%; top:52%;"
@@ -586,22 +587,22 @@
 
             <div class="fleet-gallery-grid">
                 <div class="fleet-gallery-item">
-                    <img src="images/al-hero.png" alt="MFL Ashok Leyland truck on highway" loading="lazy" width="400" height="220">
+                    <img src="images/al-hero.png" alt="MFL Ashok Leyland truck on national highway" loading="lazy" decoding="async" width="400" height="220">
                 </div>
                 <div class="fleet-gallery-item">
-                    <img src="images/al-fleet.png" alt="MFL fleet at depot" loading="lazy" width="400" height="220">
+                    <img src="images/al-fleet.png" alt="MFL truck fleet at Indore depot" loading="lazy" decoding="async" width="400" height="220">
                 </div>
                 <div class="fleet-gallery-item">
-                    <img src="images/al-ftl.png" alt="MFL full truck load operation" loading="lazy" width="400" height="220">
+                    <img src="images/al-ftl.png" alt="Full truck load freight operation" loading="lazy" decoding="async" width="400" height="220">
                 </div>
                 <div class="fleet-gallery-item">
-                    <img src="images/al-ptl.png" alt="MFL loading and cargo operations" loading="lazy" width="400" height="220">
+                    <img src="images/al-ptl.png" alt="Part truck load consolidated cargo" loading="lazy" decoding="async" width="400" height="220">
                 </div>
                 <div class="fleet-gallery-item">
-                    <img src="images/al-express.png" alt="MFL express freight dispatch" loading="lazy" width="400" height="220">
+                    <img src="images/al-express.png" alt="Express freight dispatch — priority handling" loading="lazy" decoding="async" width="400" height="220">
                 </div>
                 <div class="fleet-gallery-item">
-                    <img src="images/al-warehouse.png" alt="MFL warehouse and logistics operations" loading="lazy" width="400" height="220">
+                    <img src="images/al-warehouse.png" alt="MFL warehouse and logistics operations" loading="lazy" decoding="async" width="400" height="220">
                 </div>
             </div>
         </div>
@@ -771,7 +772,7 @@
                         </li>
                         <li style="margin-bottom: 8px;">
                             <strong style="color: var(--white); display: block; font-size: 13px;">General Enquiries</strong>
-                            Email: <a href="mailto:anujkhanna1029@gmail.com" style="color: var(--gold);">anujkhanna1029@gmail.com</a>
+                            Email: <a href="#" class="email-link" data-user="anujkhanna1029" data-domain="gmail.com" style="color: var(--gold);">[loading...]</a>
                         </li>
                     </ul>
                 </div>

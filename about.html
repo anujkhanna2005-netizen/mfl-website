@@ -14,17 +14,21 @@
     <meta name="description" content="The story of Mamta Forwarding Logistics — a family-led freight company founded in 2003, serving 20+ routes across India from Indore and Kanpur.">
     <meta property="og:title" content="Our Heritage | MFL Logistics">
     <meta property="og:description" content="A family-led logistics enterprise since 2003. Meet the Khanna family and the milestones that built MFL into a pan-India freight network.">
-    <meta property="og:image" content="/images/logo-new.png">
+    <meta property="og:image" content="https://mfl-website-theta.vercel.app/images/logo-new.png">
     <meta property="og:url" content="https://mfl-website-theta.vercel.app/about.html">
     <meta property="og:type" content="website">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
+    <!-- Preload hero image -->
+    <link rel="preload" as="image" href="images/al-hero.png" fetchpriority="high">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="canonical" href="https://mfl-website-theta.vercel.app/about.html">
@@ -191,8 +195,8 @@
                 </div>
             </div>
 
-            <a href="mailto:anujkhanna1029@gmail.com" class="contact-action-btn" style="margin-top: 12px;" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-envelope"></i> anujkhanna1029@gmail.com
+            <a href="#" class="email-link contact-action-btn" data-user="anujkhanna1029" data-domain="gmail.com" style="margin-top: 12px;" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-envelope"></i> [loading...]
             </a>
 
             <div class="office-info">
@@ -224,7 +228,7 @@
                 <a href="tel:+919302115585"><i class="fas fa-phone-alt"></i> Indore: +91 93021 15585</a>
                 <a href="tel:+918707812390"><i class="fas fa-phone-alt"></i> Kanpur: +91 87078 12390</a>
                 <a href="https://wa.me/918707812390" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="mailto:anujkhanna1029@gmail.com"><i class="fas fa-envelope"></i> anujkhanna1029@gmail.com</a>
+                <a href="#" class="email-link" data-user="anujkhanna1029" data-domain="gmail.com"><i class="fas fa-envelope"></i> [loading...]</a>
             </div>
         </div>
     </div>
@@ -289,14 +293,13 @@
 
                 <!-- Founder 1 — Arun Kumar Khanna -->
                 <div class="leader-card">
-                    <!-- OWNER: Place the founder's photo at images/founder-arun.jpg and it
-                         will display automatically. Current fallback shows initials until
-                         a real photo is added. -->
                     <img src="images/founder-arun.jpg"
                          alt="Mr. Arun Kumar Khanna, Founder, MFL Logistics"
                          class="founder-photo"
                          width="130"
                          height="130"
+                         loading="lazy"
+                         decoding="async"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="founder-initials" aria-hidden="true">AK</div>
                     <h3>Mr. Arun Kumar Khanna</h3>
@@ -307,14 +310,13 @@
 
                 <!-- Founder 2 — Anoop Khanna -->
                 <div class="leader-card">
-                    <!-- OWNER: Place the founder's photo at images/founder-anoop.jpg and it
-                         will display automatically. Current fallback shows initials until
-                         a real photo is added. -->
                     <img src="images/founder-anoop.jpg"
                          alt="Mr. Anoop Khanna, Co-Founder, MFL Logistics"
                          class="founder-photo"
                          width="130"
                          height="130"
+                         loading="lazy"
+                         decoding="async"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="founder-initials" aria-hidden="true">AK</div>
                     <h3>Mr. Anoop Khanna</h3>
@@ -325,14 +327,13 @@
 
                 <!-- Founder 3 — Ashish Khanna -->
                 <div class="leader-card">
-                    <!-- OWNER: Place the founder's photo at images/founder-ashish.jpg and it
-                         will display automatically. Current fallback shows initials until
-                         a real photo is added. -->
                     <img src="images/founder-ashish.jpg"
                          alt="Mr. Ashish Khanna, Co-Founder, MFL Logistics"
                          class="founder-photo"
                          width="130"
                          height="130"
+                         loading="lazy"
+                         decoding="async"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="founder-initials" aria-hidden="true">AK</div>
                     <h3>Mr. Ashish Khanna</h3>
@@ -526,7 +527,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="images/logo-new.png" alt="Mamta Forwarding Logistics Logo" loading="lazy" width="160" height="60" style="height:auto; max-width:100%;">
+                    <img src="images/logo-new.png" alt="Mamta Forwarding Logistics Logo" loading="lazy" decoding="async" width="160" height="60" style="height:auto; max-width:100%;">
                     <h3 style="color: var(--white); margin-bottom: 8px; font-size: 18px;">Mamta Forwarding Logistics</h3>
                     <p style="color: var(--gold); font-weight: 600; margin-bottom: 12px; font-size: 13px;">Trusted Freight Operations Since 2003</p>
                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Providing reliable B2B commercial freight solutions across India, combining decades of trusted family heritage with structured operational planning.</p>
@@ -575,7 +576,7 @@
                         </li>
                         <li style="margin-bottom: 8px;">
                             <strong style="color: var(--white); display: block; font-size: 13px;">General Enquiries</strong>
-                            Email: <a href="mailto:anujkhanna1029@gmail.com" style="color: var(--gold);">anujkhanna1029@gmail.com</a>
+                            Email: <a href="#" class="email-link" data-user="anujkhanna1029" data-domain="gmail.com" style="color: var(--gold);">[loading...]</a>
                         </li>
                     </ul>
                 </div>

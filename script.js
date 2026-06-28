@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initDateInputs();
     initFaqAccordion();
     initWaFloat(); // Bootstrapped for lazy-loading
+    initEmailObfuscation();
 });
 
 
@@ -1938,5 +1939,27 @@ function initFaqAccordion() {
                 panel.style.maxHeight = panel.scrollHeight + 'px';
             }
         });
+    });
+}
+
+// =========================================================
+// Email Obfuscation Decoder
+// =========================================================
+function initEmailObfuscation() {
+    document.querySelectorAll('.email-link').forEach(function(link) {
+        var user = link.dataset.user;
+        var domain = link.dataset.domain;
+        if (!user || !domain) return;
+        var email = user + '@' + domain;
+        link.href = 'mailto:' + email;
+        
+        var icon = link.querySelector('i');
+        if (icon) {
+            link.innerHTML = '';
+            link.appendChild(icon);
+            link.appendChild(document.createTextNode(' ' + email));
+        } else {
+            link.textContent = email;
+        }
     });
 }

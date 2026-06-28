@@ -10,21 +10,25 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MFL | Premium Logistics &amp; Freight">
     <meta name="twitter:description" content="Trusted freight forwarding since 2003. FTL, PTL and Express services across India.">
-    <meta name="twitter:image" content="https://mfl-website-theta.vercel.app/images/logo-new.png">
+    <meta name="twitter:image" content="https://mfl-website-theta.vercel.app/images/al-ptl.png">
     <meta name="description" content="MFL Part Truck Load (PTL) freight — pay only for the space you use. Consolidated cargo across 20+ routes from Indore and Kanpur. Cost-effective, reliable schedules.">
     <meta property="og:title" content="Part Truck Load (PTL) | MFL Logistics">
     <meta property="og:description" content="Share truck capacity with other shippers and pay only for the space you use. PTL from Indore and Kanpur across India.">
-    <meta property="og:image" content="/images/al-ptl.png">
+    <meta property="og:image" content="https://mfl-website-theta.vercel.app/images/al-ptl.png">
     <meta property="og:url" content="https://mfl-website-theta.vercel.app/ptl.html">
     <meta property="og:type" content="website">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
+    <!-- Preload hero image -->
+    <link rel="preload" as="image" href="images/al-ptl.png" fetchpriority="high">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="canonical" href="https://mfl-website-theta.vercel.app/ptl.html">
@@ -34,7 +38,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mfl-website-theta.vercel.app/"},
-        {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://mfl-website-theta.vercel.app/ptl.html"},
+        {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://mfl-website-theta.vercel.app/#services"},
         {"@type": "ListItem", "position": 3, "name": "Part Truck Load", "item": "https://mfl-website-theta.vercel.app/ptl.html"}
       ]
     }
@@ -46,9 +50,10 @@
       "serviceType": "Part Truck Load Freight",
       "provider": {"@type": "Organization", "name": "Mamta Forwarding Logistics"},
       "areaServed": {"@type": "Country", "name": "India"},
-      "description": "Consolidated part truck load freight for cost-effective shipping of smaller consignments across India."
+      "description": "Consolidated part truck load freight for cost-effective shipping of smaller consignments across India.",
+      "url": "https://mfl-website-theta.vercel.app/ptl.html"
     }
-</script>
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -202,8 +207,8 @@
                 </div>
             </div>
 
-            <a href="mailto:anujkhanna1029@gmail.com" class="contact-action-btn" style="margin-top: 12px;" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-envelope"></i> anujkhanna1029@gmail.com
+            <a href="#" class="email-link contact-action-btn" data-user="anujkhanna1029" data-domain="gmail.com" style="margin-top: 12px;" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-envelope"></i> [loading...]
             </a>
 
             <div class="office-info">
@@ -233,7 +238,7 @@
                 <a href="tel:+919302115585"><i class="fas fa-phone-alt"></i> Indore: +91 93021 15585</a>
                 <a href="tel:+918707812390"><i class="fas fa-phone-alt"></i> Kanpur: +91 87078 12390</a>
                 <a href="https://wa.me/918707812390" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="mailto:anujkhanna1029@gmail.com"><i class="fas fa-envelope"></i> anujkhanna1029@gmail.com</a>
+                <a href="#" class="email-link" data-user="anujkhanna1029" data-domain="gmail.com"><i class="fas fa-envelope"></i> [loading...]</a>
             </div>
         </div>
     </div>
@@ -316,7 +321,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="images/al-ptl.png" alt="MFL Part Truck Load freight consolidation" loading="lazy" width="600" height="400" style="width:100%; border-radius: 8px; box-shadow: var(--shadow-xl); border: 3px solid var(--border-gold);">
+                    <img src="images/al-ptl.png" alt="Part truck load consolidated cargo" loading="lazy" decoding="async" width="600" height="400" style="width:100%; border-radius: 8px; box-shadow: var(--shadow-xl); border: 3px solid var(--border-gold);">
                 </div>
             </div>
         </div>
@@ -460,7 +465,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="images/logo-new.png" alt="Mamta Forwarding Logistics Logo" loading="lazy" width="160" height="60" style="height:auto; max-width:100%;">
+                    <img src="images/logo-new.png" alt="Mamta Forwarding Logistics Logo" loading="lazy" decoding="async" width="160" height="60" style="height:auto; max-width:100%;">
                     <h3 style="color: var(--white); margin-bottom: 8px; font-size: 18px;">Mamta Forwarding Logistics</h3>
                     <p style="color: var(--gold); font-weight: 600; margin-bottom: 12px; font-size: 13px;">Trusted Freight Operations Since 2003</p>
                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Providing reliable B2B commercial freight solutions across India, combining decades of trusted family heritage with structured operational planning.</p>
@@ -509,7 +514,7 @@
                         </li>
                         <li style="margin-bottom: 8px;">
                             <strong style="color: var(--white); display: block; font-size: 13px;">General Enquiries</strong>
-                            Email: <a href="mailto:anujkhanna1029@gmail.com" style="color: var(--gold);">anujkhanna1029@gmail.com</a>
+                            Email: <a href="#" class="email-link" data-user="anujkhanna1029" data-domain="gmail.com" style="color: var(--gold);">[loading...]</a>
                         </li>
                     </ul>
                 </div>
