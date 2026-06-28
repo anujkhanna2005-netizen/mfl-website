@@ -56,6 +56,8 @@ function initMobileMenu() {
         var isOpen = navLinks.classList.toggle('open');
         var icon   = toggle.querySelector('i');
         if (icon) icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        toggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
         if (!isOpen) closeServicesDropdown();
     });
 
@@ -65,6 +67,8 @@ function initMobileMenu() {
             navLinks.classList.remove('open');
             var icon = toggle.querySelector('i');
             if (icon) icon.className = 'fas fa-bars';
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Open navigation menu');
             closeServicesDropdown();
         });
     });
@@ -130,6 +134,8 @@ function initServicesDropdown() {
                 if (toggle) {
                     var icon = toggle.querySelector('i');
                     if (icon) icon.className = 'fas fa-bars';
+                    toggle.setAttribute('aria-expanded', 'false');
+                    toggle.setAttribute('aria-label', 'Open navigation menu');
                 }
             }, 150);
         });
@@ -188,6 +194,10 @@ function initStatCounters() {
   var fallbackTimer = null;
 
   function animateCounter(el, target, duration) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.textContent = target + (el.dataset.suffix || '');
+      return;
+    }
     var start = 0;
     var step = target / (duration / 16);
     var timer = setInterval(function() {
@@ -273,6 +283,7 @@ function setupProgressiveForm(form) {
             step1.style.display = 'none';
             step2.style.display = 'block';
             indicator.textContent = 'Step 2 of 2 — Shipment Details';
+            indicator.setAttribute('aria-label', 'Form progress: Step 2 of 2');
             var wrap = document.getElementById('quoteFormWrap');
             if (wrap) wrap.scrollTop = 0;
         }
@@ -282,12 +293,14 @@ function setupProgressiveForm(form) {
         step2.style.display = 'none';
         step1.style.display = 'block';
         indicator.textContent = 'Step 1 of 2 — Contact Details';
+        indicator.setAttribute('aria-label', 'Form progress: Step 1 of 2');
     });
 
     form.addEventListener('reset', function () {
         step2.style.display = 'none';
         step1.style.display = 'block';
         indicator.textContent = 'Step 1 of 2 — Contact Details';
+        indicator.setAttribute('aria-label', 'Form progress: Step 1 of 2');
     });
 }
 
@@ -295,6 +308,7 @@ function validateStep1(form) {
     form.querySelectorAll('.field-error').forEach(function (el) { el.remove(); });
     form.querySelectorAll('input, select, textarea').forEach(function (el) {
         el.style.borderColor = '';
+        el.removeAttribute('aria-describedby');
     });
 
     var valid = true;
@@ -325,6 +339,7 @@ function attachFormHandler(form, submitBtnId, wrapId, successId) {
         form.querySelectorAll('.field-error').forEach(function (el) { el.remove(); });
         form.querySelectorAll('input, select, textarea').forEach(function (el) {
             el.style.borderColor = '';
+            el.removeAttribute('aria-describedby');
         });
 
         var valid = true;
@@ -362,7 +377,10 @@ function attachFormHandler(form, submitBtnId, wrapId, successId) {
                     var ind = form.querySelector('#qFormStepIndicator');
                     if (s1) s1.style.display = 'block';
                     if (s2) s2.style.display = 'none';
-                    if (ind) ind.textContent = 'Step 1 of 2 — Contact Details';
+                    if (ind) {
+                        ind.textContent = 'Step 1 of 2 — Contact Details';
+                        ind.setAttribute('aria-label', 'Form progress: Step 1 of 2');
+                    }
                 }
             }
             return;
@@ -425,10 +443,15 @@ function showFieldError(field, message) {
     var existing = field.parentNode.querySelector('.field-error');
     if (existing) existing.remove();
 
+    var errorId = field.id + '-error';
     var err = document.createElement('span');
     err.className   = 'field-error';
+    err.id          = errorId;
+    err.setAttribute('role', 'alert');
     err.textContent = message;
     field.parentNode.appendChild(err);
+    field.setAttribute('aria-describedby', errorId);
+
     if (!document.querySelector('.field-error:first-of-type') || field === document.querySelector('[style*="E24B4A"]')) {
         field.focus();
     }
@@ -462,6 +485,7 @@ function resetQuoteModal() {
     document.querySelectorAll('#quoteForm .field-error').forEach(function (el) { el.remove(); });
     document.querySelectorAll('#quoteForm input, #quoteForm select, #quoteForm textarea').forEach(function (el) {
         el.style.borderColor = '';
+        el.removeAttribute('aria-describedby');
     });
 }
 

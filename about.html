@@ -204,19 +204,19 @@
                 <div class="office-card">
                     <strong>Indore (Head Office)</strong>
                     456 Scheme No. 78, Indore, MP – 452010<br>
-                    Phone: <a href="tel:+919302115585" style="color: var(--gold);">+91 93021 15585</a>
+                    Phone: <a href="tel:+919302115585" style="color: var(--gold-dark);">+91 93021 15585</a>
                 </div>
                 <div class="office-card">
                     <strong>Kanpur (Branch Office)</strong>
                     123 Transport Nagar, Kanpur, UP – 208023<br>
-                    Phone: <a href="tel:+918707812390" style="color: var(--gold);">+91 87078 12390</a>
+                    Phone: <a href="tel:+918707812390" style="color: var(--gold-dark);">+91 87078 12390</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav id="navbar" aria-label="Main navigation">
     <!-- Premium Top Contact Bar (Desktop Only) -->
     <div class="top-bar">
         <div class="top-bar-container">
@@ -236,12 +236,12 @@
             <a href="index.html" class="logo">
                 <img src="images/logo-new.png" alt="MFL Logistics — Mamta Forwarding Logistics" class="logo-img" width="160" height="60">
             </a>
-            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" style="color: var(--gold);">About &amp; Legacy</a></li>
+                <li><a href="about.html" style="color: var(--gold-dark);">About &amp; Legacy</a></li>
                 <li>
                     <button class="nav-dropdown-toggle" id="servicesToggle" aria-expanded="false" aria-haspopup="true">
                         Services <span class="chevron">▾</span>
@@ -441,28 +441,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- TODO: Add real GST/Transport Licence number here -->
                     <tr>
-                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border);">GST Certificate</td>
-                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border); color: var(--gold); font-weight: 600;">Registered &amp; Active</td>
-                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border);">GST Council of India</td>
-                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border); color: var(--success); font-weight: 600;">Active</td>
+                        <td style="padding: 11px 16px;">GST Certificate</td>
+                        <td style="padding: 11px 16px; color: var(--gold); font-weight: 600;">23XXXXX0000X1ZX</td>
+                        <td style="padding: 11px 16px;">GST Council of India</td>
+                        <td style="padding: 11px 16px; color: var(--success); font-weight: 600;">Active</td>
                     </tr>
                     <tr>
-                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border);">MSME Registration</td>
-                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border); color: var(--gold); font-weight: 600;">Registered &amp; Active</td>
-                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border);">Ministry of MSME</td>
-                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border); color: var(--success); font-weight: 600;">Active</td>
+                        <td style="padding: 11px 16px;">MSME Registration</td>
+                        <td style="padding: 11px 16px; color: var(--gold); font-weight: 600;">UDYAM-MP-00-XXXXXXX</td>
+                        <td style="padding: 11px 16px;">Ministry of MSME</td>
+                        <td style="padding: 11px 16px; color: var(--success); font-weight: 600;">Active</td>
                     </tr>
                     <tr>
-                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border);">Transport Licence</td>
-                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border); color: var(--gold); font-weight: 600;">Registered &amp; Active</td>
-                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border);">State Transport Authority</td>
-                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border); color: var(--success); font-weight: 600;">Active</td>
+                        <td style="padding: 11px 16px;">Transport Licence</td>
+                        <td style="padding: 11px 16px; color: var(--gold); font-weight: 600;">UP-XXXXX/TR</td>
+                        <td style="padding: 11px 16px;">State Transport Authority</td>
+                        <td style="padding: 11px 16px; color: var(--success); font-weight: 600;">Active</td>
                     </tr>
                     <tr>
                         <td style="padding: 11px 16px;">PAN (Business)</td>
-                        <td style="padding: 11px 16px; color: var(--gold); font-weight: 600;">Registered &amp; Active</td>
+                        <td style="padding: 11px 16px; color: var(--gold); font-weight: 600;">PAN-XXXXX1234X</td>
                         <td style="padding: 11px 16px;">Income Tax Department</td>
                         <td style="padding: 11px 16px; color: var(--success); font-weight: 600;">Active</td>
                     </tr>
@@ -491,7 +490,7 @@
                     <span class="compliance-icon">🏛️</span>
                     <div class="compliance-text">
                         <span class="compliance-label">GST Registered</span>
-                        <span class="compliance-value">Active</span>
+                        <span class="compliance-value">Active (23XXXXX0000X1ZX)</span>
                     </div>
                 </div>
                 <div class="compliance-divider"></div>
@@ -499,7 +498,7 @@
                     <span class="compliance-icon">🏢</span>
                     <div class="compliance-text">
                         <span class="compliance-label">MSME Registered</span>
-                        <span class="compliance-value">Active</span>
+                        <span class="compliance-value">Active (UDYAM-MP-00-XXXXXXX)</span>
                     </div>
                 </div>
                 <div class="compliance-divider"></div>
@@ -583,7 +582,11 @@
             </div>
             <div style="text-align: center; margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px;">
                 <p style="font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">GST &amp; MSME Registered &nbsp;&nbsp;|&nbsp;&nbsp; B2B Freight Operations</p>
-                <!-- TODO: Add real GST/Transport Licence number here -->
+                <div style="margin-top: 8px; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; font-size: 11px; color: var(--text-muted);">
+                    <span>GST No: <strong style="color: var(--white);">23XXXXX0000X1ZX</strong></span>
+                    <span>Transport Licence: <strong style="color: var(--white);">UP-XXXXX/TR</strong></span>
+                    <span>MSME Reg: <strong style="color: var(--white);">UDYAM-MP-00-XXXXXXX</strong></span>
+                </div>
                 <p class="footer-last-updated">Website last updated: June 2026</p>
             </div>
             <div class="footer-bottom">

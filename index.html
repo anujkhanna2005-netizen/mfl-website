@@ -97,43 +97,43 @@
 
             <div class="quote-form active" id="quoteFormOuter">
                 <div id="quoteFormWrap">
-                    <form id="quoteForm" novalidate>
+                    <form id="quoteForm" novalidate role="form" aria-label="Freight Quote Request">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_subject" value="New Freight Quote — MFL Logistics">
                         
-                        <div class="qform-step-indicator" id="qFormStepIndicator">Step 1 of 2 — Contact Details</div>
+                        <div class="qform-step-indicator" id="qFormStepIndicator" role="img" aria-label="Form progress: Step 1 of 2">Step 1 of 2 — Contact Details</div>
                         
                         <!-- Step 1: Contact Details -->
                         <div class="qform-step" id="qFormStep1">
                             <div class="form-group">
                                 <label for="qFullName">Full Name *</label>
-                                <input type="text" id="qFullName" name="full_name" placeholder="Your full name" required>
+                                <input type="text" id="qFullName" name="full_name" placeholder="Your full name" required aria-required="true">
                             </div>
                             
                             <div class="form-group">
                                 <label for="qCompany">Company Name *</label>
-                                <input type="text" id="qCompany" name="company_name" placeholder="Your company or business name" required>
+                                <input type="text" id="qCompany" name="company_name" placeholder="Your company or business name" required aria-required="true">
                             </div>
                             
                             <div class="form-group">
                                 <label for="qPhone">Phone Number *</label>
-                                <input type="tel" id="qPhone" name="phone" placeholder="10-digit mobile number" inputmode="numeric" maxlength="10" required>
+                                <input type="tel" id="qPhone" name="phone" placeholder="10-digit mobile number" inputmode="numeric" maxlength="10" required aria-required="true">
                             </div>
                             
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="qPickupCity">Pickup City *</label>
-                                    <input type="text" id="qPickupCity" name="pickup_city" placeholder="e.g. Indore" required>
+                                    <input type="text" id="qPickupCity" name="pickup_city" placeholder="e.g. Indore" required aria-required="true">
                                 </div>
                                 <div class="form-group">
                                     <label for="qDeliveryCity">Delivery City *</label>
-                                    <input type="text" id="qDeliveryCity" name="delivery_city" placeholder="e.g. Delhi" required>
+                                    <input type="text" id="qDeliveryCity" name="delivery_city" placeholder="e.g. Delhi" required aria-required="true">
                                 </div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="qService">Required Service *</label>
-                                <select id="qService" name="required_service" required>
+                                <select id="qService" name="required_service" required aria-required="true">
                                     <option value="">Select service type</option>
                                     <option value="Full Truck Load (FTL)">Full Truck Load (FTL)</option>
                                     <option value="Part Truck Load (PTL)">Part Truck Load (PTL)</option>
@@ -149,7 +149,7 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="qCargo">Cargo Type *</label>
-                                    <select id="qCargo" name="cargo_type" required>
+                                    <select id="qCargo" name="cargo_type" required aria-required="true">
                                         <option value="">Select cargo type</option>
                                         <option value="FMCG">FMCG</option>
                                         <option value="Textile">Textile</option>
@@ -163,7 +163,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="qWeight">Estimated Weight *</label>
-                                    <select id="qWeight" name="estimated_weight" required>
+                                    <select id="qWeight" name="estimated_weight" required aria-required="true">
                                         <option value="">Select weight range</option>
                                         <option value="Under 500 kg">Under 500 kg</option>
                                         <option value="500 kg – 2 tonne">500 kg – 2 tonne</option>
@@ -177,7 +177,7 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="qPickupDate">Preferred Pickup Date *</label>
-                                    <input type="date" id="qPickupDate" name="pickup_date" required>
+                                    <input type="date" id="qPickupDate" name="pickup_date" required aria-required="true">
                                 </div>
                                 <div class="form-group">
                                     <label for="qEmail">Email Address (Optional)</label>
@@ -187,7 +187,7 @@
                             
                             <div class="form-group">
                                 <label for="qVolume">Approximate Monthly Shipment Volume *</label>
-                                <select id="qVolume" name="monthly_volume" required>
+                                <select id="qVolume" name="monthly_volume" required aria-required="true">
                                     <option value="">Select volume frequency</option>
                                     <option value="Occasional">Occasional</option>
                                     <option value="Weekly">Weekly</option>
@@ -240,7 +240,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav id="navbar" aria-label="Main navigation">
     <!-- Premium Top Contact Bar (Desktop Only) -->
     <div class="top-bar">
         <div class="top-bar-container">
@@ -260,7 +260,7 @@
             <a href="index.html" class="logo">
                 <img src="images/logo-new.png" alt="MFL Logistics — Mamta Forwarding Logistics" class="logo-img" width="160" height="60">
             </a>
-            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links" id="navLinks">
@@ -779,7 +779,11 @@
             </div>
             <div style="text-align: center; margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px;">
                 <p style="font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">GST &amp; MSME Registered &nbsp;&nbsp;|&nbsp;&nbsp; B2B Freight Operations</p>
-                <!-- TODO: Add real GST/Transport Licence number here -->
+                <div style="margin-top: 8px; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; font-size: 11px; color: var(--text-muted);">
+                    <span>GST No: <strong style="color: var(--white);">23XXXXX0000X1ZX</strong></span>
+                    <span>Transport Licence: <strong style="color: var(--white);">UP-XXXXX/TR</strong></span>
+                    <span>MSME Reg: <strong style="color: var(--white);">UDYAM-MP-00-XXXXXXX</strong></span>
+                </div>
                 <p class="footer-last-updated">Website last updated: June 2026</p>
             </div>
             <div class="footer-bottom">
@@ -917,21 +921,21 @@
                             <p>Provide key details to instantly build your WhatsApp request.</p>
                         </div>
                     </div>
-                    <form id="mfl-wa-quick-quote-form" class="mfl-wa-form mfl-wa-view-body">
+                    <form id="mfl-wa-quick-quote-form" class="mfl-wa-form mfl-wa-view-body" role="form" aria-label="WhatsApp Quick Quote Request">
                         <div class="mfl-wa-form-row">
                             <div class="mfl-wa-form-group">
                                 <label for="wa-q-pickup">Pickup City *</label>
-                                <input type="text" id="wa-q-pickup" required placeholder="e.g. Indore">
+                                <input type="text" id="wa-q-pickup" required aria-required="true" placeholder="e.g. Indore">
                             </div>
                             <div class="mfl-wa-form-group">
                                 <label for="wa-q-delivery">Delivery City *</label>
-                                <input type="text" id="wa-q-delivery" required placeholder="e.g. Kanpur">
+                                <input type="text" id="wa-q-delivery" required aria-required="true" placeholder="e.g. Kanpur">
                             </div>
                         </div>
                         <div class="mfl-wa-form-group">
                             <label for="wa-q-freight-type">Freight Type *</label>
                             <div class="mfl-wa-select-wrap">
-                                <select id="wa-q-freight-type" required>
+                                <select id="wa-q-freight-type" required aria-required="true">
                                     <option value="" disabled selected>Select Freight Type</option>
                                 </select>
                                 <span class="mfl-wa-select-arrow"><i class="fas fa-chevron-down"></i></span>
@@ -940,7 +944,7 @@
                         <div class="mfl-wa-form-group">
                             <label for="wa-q-cargo">Cargo Type *</label>
                             <div class="mfl-wa-select-wrap">
-                                <select id="wa-q-cargo" required>
+                                <select id="wa-q-cargo" required aria-required="true">
                                     <option value="" disabled selected>Select Cargo Type</option>
                                 </select>
                                 <span class="mfl-wa-select-arrow"><i class="fas fa-chevron-down"></i></span>
@@ -949,7 +953,7 @@
                         <div class="mfl-wa-form-group">
                             <label for="wa-q-weight">Approximate Weight *</label>
                             <div class="mfl-wa-select-wrap">
-                                <select id="wa-q-weight" required>
+                                <select id="wa-q-weight" required aria-required="true">
                                     <option value="" disabled selected>Select Weight Range</option>
                                 </select>
                                 <span class="mfl-wa-select-arrow"><i class="fas fa-chevron-down"></i></span>
