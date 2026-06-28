@@ -401,7 +401,7 @@ function attachFormHandler(form, submitBtnId, wrapId, successId) {
             pickupDate: date ? date.value : '',
             additionalNotes: form.querySelector('[name="additional_notes"]') ? form.querySelector('[name="additional_notes"]').value.trim() : ''
         };
-        console.log("MFL Enquiry Submitted Payload:", payload);
+        // console.log("MFL Enquiry Submitted Payload:", payload);
 
         var btn = document.getElementById(submitBtnId);
         if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
@@ -865,7 +865,7 @@ var MflLogisticsAssistant = {
 
     // Hook point for future integration
     beforeSend: function(payload) {
-        console.log("[MFL CRM Hook] beforeSend triggered with payload:", payload);
+        // console.log("[MFL CRM Hook] beforeSend triggered with payload:", payload);
     },
 
     init: function() {
@@ -1671,7 +1671,7 @@ var MflLogisticsAssistant = {
             });
             
             window.dispatchEvent(event);
-            console.log("[MFL Analytics Event dispatched]", eventName, event.detail);
+            // console.log("[MFL Analytics Event dispatched]", eventName, event.detail);
         }
     },
 
@@ -1963,7 +1963,7 @@ var MflLogisticsAssistant = {
         window.removeEventListener('offline', this.Utilities.updateNetworkStatusBound);
         document.removeEventListener('visibilitychange', this.Utilities.visibilityChangeBound);
 
-        console.log("[MFL Logistics Assistant] destroy() cleaned up successfully.");
+        // console.log("[MFL Logistics Assistant] destroy() cleaned up successfully.");
     }
 };
 function openCallbackModal()  { openContactModal(); }

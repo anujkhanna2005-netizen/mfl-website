@@ -422,15 +422,16 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-bottom-bar {
   display: none; position: fixed; bottom: 0; left: 0; width: 100%;
   background: var(--bg-white); box-shadow: 0 -4px 12px rgba(0,0,0,0.08); z-index: 999;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 .mobile-bar-inner { display: flex; justify-content: space-between; align-items: center; }
 .mobile-bar-btn {
-  flex: 1; padding: 10px 4px; text-align: center; font-family: var(--font-heading);
+  flex: 1; padding: 12px 4px; text-align: center; font-family: var(--font-heading);
   font-size: 12px; font-weight: 700; color: var(--text-main);
-  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
   border-right: 1px solid var(--border); background: none; border-top: none;
   border-bottom: none; border-left: none; cursor: pointer;
-  text-decoration: none;
+  text-decoration: none; min-height: 48px; box-sizing: border-box;
 }
 .mobile-bar-btn:last-child { border-right: none; }
 .mobile-bar-btn i, .mobile-bar-icon { font-size: 16px; display: inline-block; }
@@ -1031,6 +1032,7 @@ h1, h2, h3, h4, h5, h6 {
   .nav-dropdown-menu a { padding: 10px 40px; font-size: 14px; }
 
   .mobile-bottom-bar { display: block; }
+  body { padding-bottom: calc(58px + env(safe-area-inset-bottom)) !important; }
 
   .compliance-inner  { gap: 14px 20px; }
   .compliance-divider { display: none; }
@@ -2602,5 +2604,34 @@ h1, h2, h3, h4, h5, h6 {
     scroll-behavior: auto !important;
     transition-duration: 0s !important;
     transition-delay: 0s !important;
+  }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+  .mobile-bottom-bar,
+  .whatsapp-assistant-widget,
+  nav,
+  .scroll-to-top,
+  .skip-link,
+  #scrollTopBtn,
+  .mfl-wa-container,
+  .top-bar {
+    display: none !important;
+  }
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+    padding-bottom: 0 !important;
+  }
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+  }
+  /* Show phone numbers prominently */
+  .footer-contact a {
+    color: #000;
+    text-decoration: none;
   }
 }
