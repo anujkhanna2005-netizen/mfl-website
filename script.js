@@ -183,6 +183,8 @@ function initSmoothScroll() {
 // Stat 4 "FTL·PTL·Express" → static, no animation
 // =========================================================
 function initStatCounters() {
+  var hasRun = false;
+
   function animateCounter(el, target, duration) {
     var start = 0;
     var step = target / (duration / 16);
@@ -197,8 +199,11 @@ function initStatCounters() {
   }
 
   function runCounters() {
+    if (hasRun) return;
+    hasRun = true;
     var counters = document.querySelectorAll('[data-count]');
     counters.forEach(function(el) {
+      el.classList.add('is-visible');
       var target = parseInt(el.dataset.count, 10);
       animateCounter(el, target, 1500);
     });
