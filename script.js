@@ -190,64 +190,27 @@ function initSmoothScroll() {
 // Stat 4 "FTL·PTL·Express" → static, no animation
 // =========================================================
 function initStatCounters() {
-  var hasRun = false;
-  var fallbackTimer = null;
+    var routesEl = document.getElementById('statRoutes');
+    var routesPlus = document.getElementById('statRoutesPlus');
+    var industriesEl = document.getElementById('statIndustries');
 
-  function animateCounter(el, target, duration) {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      el.textContent = target + (el.dataset.suffix || '');
-      return;
+    if (routesEl) {
+        routesEl.textContent = '20';
     }
-    var start = 0;
-    var step = target / (duration / 16);
-    var timer = setInterval(function() {
-      start += step;
-      if (start >= target) {
-        start = target;
-        clearInterval(timer);
-      }
-      el.textContent = Math.floor(start) + (el.dataset.suffix || '');
-    }, 16);
-  }
+    if (routesPlus) {
+        routesPlus.style.opacity = '1';
+    }
+    if (industriesEl) {
+        industriesEl.textContent = '6';
+    }
 
-  function runCounters() {
-    if (hasRun) return;
-    hasRun = true;
-    if (fallbackTimer) clearTimeout(fallbackTimer);
-    var counters = document.querySelectorAll('[data-count]');
-    counters.forEach(function(el) {
-      el.classList.add('is-visible');
-      var target = parseInt(el.dataset.count, 10);
-      animateCounter(el, target, 1500);
+    // Also handle any other element with data-count
+    document.querySelectorAll('[data-count]').forEach(function(el) {
+        var target = el.dataset.count;
+        var suffix = el.dataset.suffix || '';
+        el.textContent = target + suffix;
+        el.classList.add('is-visible');
     });
-  }
-
-  // Fallback: run animation after 2 seconds if IntersectionObserver hasn't fired
-  fallbackTimer = setTimeout(function() {
-    runCounters();
-  }, 2000);
-
-  // Try IntersectionObserver first
-  var statsSection = document.querySelector('.stats-bar, .stats-section, .stat-counter-section, .metrics-grid');
-  if (statsSection && 'IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          runCounters();
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0.1 });
-    observer.observe(statsSection);
-    // Fallback if already in viewport on load
-    var rect = statsSection.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      runCounters();
-    }
-  } else {
-    // No observer support — run immediately
-    runCounters();
-  }
 }
 
 
