@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://anujkhanna2005-netizen.github.io/mfl-website/index.html</loc>
-        <changefreq>weekly</changefreq>
+        <loc>https://mfl-website-theta.vercel.app/</loc>
+        <lastmod>2026-06-28</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://anujkhanna2005-netizen.github.io/mfl-website/kanpur-to-indore-transport.html</loc>
+        <loc>https://mfl-website-theta.vercel.app/ftl.html</loc>
+        <lastmod>2026-06-28</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://anujkhanna2005-netizen.github.io/mfl-website/up-to-mp-logistics.html</loc>
+        <loc>https://mfl-website-theta.vercel.app/ptl.html</loc>
+        <lastmod>2026-06-28</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://anujkhanna2005-netizen.github.io/mfl-website/mp-to-maharashtra-freight.html</loc>
+        <loc>https://mfl-website-theta.vercel.app/express.html</loc>
+        <lastmod>2026-06-28</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://anujkhanna2005-netizen.github.io/mfl-website/kanpur-to-mumbai-cargo.html</loc>
+        <loc>https://mfl-website-theta.vercel.app/about.html</loc>
+        <lastmod>2026-06-28</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://mfl-website-theta.vercel.app/contact.html</loc>
+        <lastmod>2026-06-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
 </urlset>

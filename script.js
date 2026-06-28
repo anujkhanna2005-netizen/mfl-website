@@ -184,6 +184,7 @@ function initSmoothScroll() {
 // =========================================================
 function initStatCounters() {
   var hasRun = false;
+  var fallbackTimer = null;
 
   function animateCounter(el, target, duration) {
     var start = 0;
@@ -201,6 +202,7 @@ function initStatCounters() {
   function runCounters() {
     if (hasRun) return;
     hasRun = true;
+    if (fallbackTimer) clearTimeout(fallbackTimer);
     var counters = document.querySelectorAll('[data-count]');
     counters.forEach(function(el) {
       el.classList.add('is-visible');
@@ -208,6 +210,11 @@ function initStatCounters() {
       animateCounter(el, target, 1500);
     });
   }
+
+  // Fallback: run animation after 2 seconds if IntersectionObserver hasn't fired
+  fallbackTimer = setTimeout(function() {
+    runCounters();
+  }, 2000);
 
   // Try IntersectionObserver first
   var statsSection = document.querySelector('.stats-bar, .stats-section, .stat-counter-section, .metrics-grid');
@@ -223,7 +230,7 @@ function initStatCounters() {
     observer.observe(statsSection);
     // Fallback if already in viewport on load
     var rect = statsSection.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
       runCounters();
     }
   } else {
