@@ -21,9 +21,34 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="canonical" href="https://mfl-website-theta.vercel.app/ftl.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mfl-website-theta.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://mfl-website-theta.vercel.app/ftl.html"},
+        {"@type": "ListItem", "position": 3, "name": "Full Truck Load", "item": "https://mfl-website-theta.vercel.app/ftl.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Full Truck Load Freight",
+      "provider": {"@type": "Organization", "name": "Mamta Forwarding Logistics"},
+      "areaServed": {"@type": "Country", "name": "India"},
+      "description": "Dedicated full truck load freight service with direct routing and no co-loading, serving Central and North India."
+    }
+    </script>
 </head>
 <body>
 
@@ -269,19 +294,25 @@
                     <!-- OWNER: Update these specs with your exact fleet and capacity details -->
                     <div class="spec-grid" style="margin-top: 28px;">
                         <span class="spec-term">Minimum Load</span>
-                        <span class="spec-def"><!-- OWNER: ADD MINIMUM WEIGHT (e.g. 1 tonne or as per truck type) --> On request</span>
+                        <span class="spec-def">1 tonne</span>
 
                         <span class="spec-term">Maximum Capacity</span>
-                        <span class="spec-def"><!-- OWNER: ADD MAX CAPACITY (e.g. 25 tonne for a 40ft trailer) --> On request</span>
+                        <span class="spec-def">Up to 25 tonne</span>
 
                         <span class="spec-term">Truck Types</span>
-                        <span class="spec-def">Tata, Ashok Leyland, Eicher — 20ft, 32ft, 40ft</span>
+                        <span class="spec-def">Mini Truck (Tata Ace), Single Axle, Multi Axle (Ashok Leyland) — 20ft, 32ft, 40ft</span>
+
+                        <span class="spec-term">Transit Time</span>
+                        <span class="spec-def">Based on route (see route table on homepage)</span>
 
                         <span class="spec-term">Co-loading</span>
                         <span class="spec-def">None. Your cargo exclusively.</span>
 
                         <span class="spec-term">Route</span>
                         <span class="spec-def">Direct origin to destination</span>
+
+                        <span class="spec-term">Pricing</span>
+                        <span class="spec-def">On request (quote provided per shipment)</span>
 
                         <span class="spec-term">Insurance</span>
                         <span class="spec-def">Cargo insurance covered on all FTL movements</span>
@@ -435,14 +466,8 @@
                     <p style="color: var(--gold); font-weight: 600; margin-bottom: 12px; font-size: 13px;">Trusted Freight Operations Since 2003</p>
                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Providing reliable B2B commercial freight solutions across India, combining decades of trusted family heritage with structured operational planning.</p>
                     <div class="footer-social">
-                        <a href="https://wa.me/918707812390" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer" style="color: var(--wa-green);">
+                        <a href="https://wa.me/918707812390" target="_blank" rel="noopener noreferrer" aria-label="Chat with MFL on WhatsApp" style="color: var(--wa-green);">
                             <i class="fab fa-whatsapp" style="font-size: 18px;"></i>
-                        </a>
-                        <a href="#" aria-label="MFL on LinkedIn" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-linkedin" style="font-size: 18px;"></i>
-                        </a>
-                        <a href="#" aria-label="MFL on Facebook" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-facebook" style="font-size: 18px;"></i>
                         </a>
                     </div>
                 </div>
@@ -491,8 +516,13 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px;">
-                <p style="font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">GST &amp; MSME Registered B2B Freight Operations</p>
-                <p class="footer-last-updated">Website last updated: July 2026</p>
+                <p style="font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">GST &amp; MSME Registered | B2B Freight Operations</p>
+                <div style="margin-top: 6px; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; font-size: 11px; color: var(--text-muted-dark);">
+                    <span>GST No: <em><!-- REPLACE: GST Number, format 23XXXXX0000X1ZX for MP or 09XXXXX0000X1ZX for UP -->[To Be Filled]</em></span>
+                    <span>Transport Licence: <em><!-- REPLACE: Transport Licence Number -->[To Be Filled]</em></span>
+                    <span>MSME Reg: <em><!-- REPLACE: MSME Registration Number -->[To Be Filled]</em></span>
+                </div>
+                <p class="footer-last-updated">Website last updated: June 2026</p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Mamta Forwarding Logistics. All rights reserved.</p>
@@ -541,8 +571,8 @@
                 <i class="fas fa-exclamation-triangle"></i> Internet connection unavailable. WhatsApp cannot be opened.
             </div>
 
-            <!-- Offline Warning Alert -->
-            <div id="mfl-wa-offline-alert" class="mfl-wa-offline-alert" style="display: none;">
+            <!-- Offline Warning Alert (2) -->
+            <div id="mfl-wa-offline-alert-2" class="mfl-wa-offline-alert" style="display: none;">
                 <i class="fas fa-exclamation-triangle"></i> Internet connection unavailable. WhatsApp cannot be opened.
             </div>
 

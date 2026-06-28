@@ -21,9 +21,46 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="canonical" href="https://mfl-website-theta.vercel.app/contact.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mfl-website-theta.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Contact", "item": "https://mfl-website-theta.vercel.app/contact.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I get a freight quote from MFL?",
+          "acceptedAnswer": {"@type": "Answer", "text": "You can request a quote via our contact form, by calling our Indore head office at +91 93021 15585, or by messaging us on WhatsApp at +91 87078 12390."}
+        },
+        {
+          "@type": "Question",
+          "name": "What cities does MFL service?",
+          "acceptedAnswer": {"@type": "Answer", "text": "MFL operates across 20+ cities including Indore, Kanpur, Delhi, Mumbai, Ahmedabad, Pune, Jaipur, Lucknow, Nagpur, and Agra."}
+        },
+        {
+          "@type": "Question",
+          "name": "Does MFL offer both FTL and PTL services?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes. MFL provides Full Truck Load (FTL), Part Truck Load (PTL), and Express Freight services for businesses across India."}
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
@@ -499,14 +536,8 @@
                     <p style="color: var(--gold); font-weight: 600; margin-bottom: 12px; font-size: 13px;">Trusted Freight Operations Since 2003</p>
                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Providing reliable B2B commercial freight solutions across India, combining decades of trusted family heritage with structured operational planning.</p>
                     <div class="footer-social">
-                        <a href="https://wa.me/918707812390" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer" style="color: var(--wa-green);">
+                        <a href="https://wa.me/918707812390" target="_blank" rel="noopener noreferrer" aria-label="Chat with MFL on WhatsApp" style="color: var(--wa-green);">
                             <i class="fab fa-whatsapp" style="font-size: 18px;"></i>
-                        </a>
-                        <a href="#" aria-label="MFL on LinkedIn" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-linkedin" style="font-size: 18px;"></i>
-                        </a>
-                        <a href="#" aria-label="MFL on Facebook" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-facebook" style="font-size: 18px;"></i>
                         </a>
                     </div>
                 </div>
@@ -555,8 +586,13 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px;">
-                <p style="font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">GST &amp; MSME Registered B2B Freight Operations</p>
-                <p class="footer-last-updated">Website last updated: July 2026</p>
+                <p style="font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">GST &amp; MSME Registered | B2B Freight Operations</p>
+                <div style="margin-top: 6px; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; font-size: 11px; color: var(--text-muted-dark);">
+                    <span>GST No: <em><!-- REPLACE: GST Number, format 23XXXXX0000X1ZX for MP or 09XXXXX0000X1ZX for UP -->[To Be Filled]</em></span>
+                    <span>Transport Licence: <em><!-- REPLACE: Transport Licence Number -->[To Be Filled]</em></span>
+                    <span>MSME Reg: <em><!-- REPLACE: MSME Registration Number -->[To Be Filled]</em></span>
+                </div>
+                <p class="footer-last-updated">Website last updated: June 2026</p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Mamta Forwarding Logistics. All rights reserved.</p>
@@ -605,8 +641,8 @@
                 <i class="fas fa-exclamation-triangle"></i> Internet connection unavailable. WhatsApp cannot be opened.
             </div>
 
-            <!-- Offline Warning Alert -->
-            <div id="mfl-wa-offline-alert" class="mfl-wa-offline-alert" style="display: none;">
+            <!-- Offline Warning Alert (2) -->
+            <div id="mfl-wa-offline-alert-2" class="mfl-wa-offline-alert" style="display: none;">
                 <i class="fas fa-exclamation-triangle"></i> Internet connection unavailable. WhatsApp cannot be opened.
             </div>
 

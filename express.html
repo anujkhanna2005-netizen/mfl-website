@@ -21,9 +21,34 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="canonical" href="https://mfl-website-theta.vercel.app/express.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mfl-website-theta.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://mfl-website-theta.vercel.app/express.html"},
+        {"@type": "ListItem", "position": 3, "name": "Express Freight", "item": "https://mfl-website-theta.vercel.app/express.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Express Freight",
+      "provider": {"@type": "Organization", "name": "Mamta Forwarding Logistics"},
+      "areaServed": {"@type": "Country", "name": "India"},
+      "description": "Priority express freight service with 24–48 hour delivery commitment for time-critical shipments."
+    }
+    </script>
 </head>
 <body>
 
@@ -274,22 +299,25 @@
                         Ideal for production-line emergencies, trade fair deadlines, urgent procurement, or any situation where standard transit windows aren't an option. Express freight is available as both dedicated (FTL) and consolidated (PTL) movements.
                     </p>
 
-                    <!-- OWNER: Update these specs with your actual express delivery windows and coverage -->
+                    <!-- OWNER: Update these specs with your exact express delivery windows and coverage -->
                     <div class="spec-grid" style="margin-top: 28px;">
-                        <span class="spec-term">Typical Transit</span>
-                        <span class="spec-def">24–48 hours on key routes (varies by distance)</span>
+                        <span class="spec-term">Coverage</span>
+                        <span class="spec-def">Indore–Kanpur corridor and 10+ connected cities</span>
+
+                        <span class="spec-term">Delivery Commitment</span>
+                        <span class="spec-def">24–48 hours for distances under 800 km</span>
+
+                        <span class="spec-term">Priority Handling</span>
+                        <span class="spec-def">Dedicated vehicle, no consolidation</span>
+
+                        <span class="spec-term">Surcharge</span>
+                        <span class="spec-def">Applied over standard rates (quote on request)</span>
 
                         <span class="spec-term">Dispatch Priority</span>
                         <span class="spec-def">First loading priority on all active vehicles</span>
 
-                        <span class="spec-term">Service Type</span>
-                        <span class="spec-def">Available as dedicated (FTL) or consolidated (PTL)</span>
-
                         <span class="spec-term">Booking</span>
                         <span class="spec-def">Same-day booking accepted (subject to vehicle availability)</span>
-
-                        <span class="spec-term">Coverage</span>
-                        <span class="spec-def">20+ cities — call to confirm your route</span>
 
                         <span class="spec-term">Insurance</span>
                         <span class="spec-def">Cargo insurance covered on all express movements</span>
@@ -443,14 +471,8 @@
                     <p style="color: var(--gold); font-weight: 600; margin-bottom: 12px; font-size: 13px;">Trusted Freight Operations Since 2003</p>
                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Providing reliable B2B commercial freight solutions across India, combining decades of trusted family heritage with structured operational planning.</p>
                     <div class="footer-social">
-                        <a href="https://wa.me/918707812390" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer" style="color: var(--wa-green);">
+                        <a href="https://wa.me/918707812390" target="_blank" rel="noopener noreferrer" aria-label="Chat with MFL on WhatsApp" style="color: var(--wa-green);">
                             <i class="fab fa-whatsapp" style="font-size: 18px;"></i>
-                        </a>
-                        <a href="#" aria-label="MFL on LinkedIn" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-linkedin" style="font-size: 18px;"></i>
-                        </a>
-                        <a href="#" aria-label="MFL on Facebook" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-facebook" style="font-size: 18px;"></i>
                         </a>
                     </div>
                 </div>
@@ -499,8 +521,13 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px;">
-                <p style="font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">GST &amp; MSME Registered B2B Freight Operations</p>
-                <p class="footer-last-updated">Website last updated: July 2026</p>
+                <p style="font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">GST &amp; MSME Registered | B2B Freight Operations</p>
+                <div style="margin-top: 6px; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; font-size: 11px; color: var(--text-muted-dark);">
+                    <span>GST No: <em><!-- REPLACE: GST Number, format 23XXXXX0000X1ZX for MP or 09XXXXX0000X1ZX for UP -->[To Be Filled]</em></span>
+                    <span>Transport Licence: <em><!-- REPLACE: Transport Licence Number -->[To Be Filled]</em></span>
+                    <span>MSME Reg: <em><!-- REPLACE: MSME Registration Number -->[To Be Filled]</em></span>
+                </div>
+                <p class="footer-last-updated">Website last updated: June 2026</p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Mamta Forwarding Logistics. All rights reserved.</p>
@@ -549,8 +576,8 @@
                 <i class="fas fa-exclamation-triangle"></i> Internet connection unavailable. WhatsApp cannot be opened.
             </div>
 
-            <!-- Offline Warning Alert -->
-            <div id="mfl-wa-offline-alert" class="mfl-wa-offline-alert" style="display: none;">
+            <!-- Offline Warning Alert (2) -->
+            <div id="mfl-wa-offline-alert-2" class="mfl-wa-offline-alert" style="display: none;">
                 <i class="fas fa-exclamation-triangle"></i> Internet connection unavailable. WhatsApp cannot be opened.
             </div>
 

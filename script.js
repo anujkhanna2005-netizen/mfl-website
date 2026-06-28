@@ -187,31 +187,47 @@ function initStatCounters() {
     function animateCount(el, target, duration, onComplete) {
         if (!el) return;
         var hasRun = false;
+
+        function runAnimation() {
+            if (hasRun) return;
+            hasRun = true;
+            el.classList.add('is-visible');
+
+            var startTime = null;
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var progress = Math.min((timestamp - startTime) / duration, 1);
+                var eased    = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+                el.textContent = Math.floor(eased * target);
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    el.textContent = target;
+                    if (onComplete) onComplete();
+                }
+            }
+            requestAnimationFrame(step);
+        }
+
         var obs = new IntersectionObserver(function (entries, observer) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting && !hasRun) {
-                    hasRun = true;
                     observer.unobserve(entry.target);
-                    el.classList.add('is-visible');
-
-                    var startTime = null;
-                    function step(timestamp) {
-                        if (!startTime) startTime = timestamp;
-                        var progress = Math.min((timestamp - startTime) / duration, 1);
-                        var eased    = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-                        el.textContent = Math.floor(eased * target);
-                        if (progress < 1) {
-                            requestAnimationFrame(step);
-                        } else {
-                            el.textContent = target;
-                            if (onComplete) onComplete();
-                        }
-                    }
-                    requestAnimationFrame(step);
+                    runAnimation();
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.1 });
         obs.observe(el);
+
+        // Fallback: If element is already in viewport, trigger after short delay
+        setTimeout(function() {
+            if (!hasRun) {
+                var rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    runAnimation();
+                }
+            }
+        }, 300);
     }
 
     // Active Routes: 0 → 20, then reveal "+"
@@ -233,7 +249,7 @@ function initStatCounters() {
                 obs.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.stat-fade').forEach(function (el) {
         // Skip stat counter elements already handled above
@@ -773,7 +789,7 @@ var MflLogisticsAssistant = {
         this.cache.overlay = document.getElementById('mfl-wa-overlay');
         this.cache.closeBtn = document.getElementById('mfl-wa-close');
         this.cache.footer = document.querySelector('.mfl-wa-footer');
-        this.cache.offlineAlert = document.getElementById('mfl-wa-offline-alert');
+        this.cache.offlineAlerts = document.querySelectorAll('[id^="mfl-wa-offline-alert"]');
         
         this.cache.views = {
             main: document.getElementById('mfl-wa-view-main'),
@@ -1588,9 +1604,11 @@ var MflLogisticsAssistant = {
             var self = MflLogisticsAssistant;
             var isOnline = navigator.onLine;
             
-            var alertEl = self.cache.offlineAlert;
-            if (alertEl) {
-                alertEl.style.display = isOnline ? 'none' : 'flex';
+            var alertEls = self.cache.offlineAlerts;
+            if (alertEls && alertEls.length) {
+                alertEls.forEach(function(alertEl) {
+                    alertEl.style.display = isOnline ? 'none' : 'flex';
+                });
             }
 
             var btnsToToggle = document.querySelectorAll(

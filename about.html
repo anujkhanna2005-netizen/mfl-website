@@ -21,9 +21,23 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="canonical" href="https://mfl-website-theta.vercel.app/about.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mfl-website-theta.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "About & Legacy", "item": "https://mfl-website-theta.vercel.app/about.html"}
+      ]
+    }
+    </script>
 </head>
 <body>
 
@@ -278,6 +292,8 @@
                     <img src="images/founder-arun.jpg"
                          alt="Mr. Arun Kumar Khanna, Founder, MFL Logistics"
                          class="founder-photo"
+                         width="130"
+                         height="130"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="founder-initials" aria-hidden="true">AK</div>
                     <h3>Mr. Arun Kumar Khanna</h3>
@@ -294,6 +310,8 @@
                     <img src="images/founder-anoop.jpg"
                          alt="Mr. Anoop Khanna, Co-Founder, MFL Logistics"
                          class="founder-photo"
+                         width="130"
+                         height="130"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="founder-initials" aria-hidden="true">AK</div>
                     <h3>Mr. Anoop Khanna</h3>
@@ -310,6 +328,8 @@
                     <img src="images/founder-ashish.jpg"
                          alt="Mr. Ashish Khanna, Co-Founder, MFL Logistics"
                          class="founder-photo"
+                         width="130"
+                         height="130"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="founder-initials" aria-hidden="true">AK</div>
                     <h3>Mr. Ashish Khanna</h3>
@@ -406,45 +426,44 @@
             <h2 class="section-title text-center">Legal &amp; Compliance</h2>
             <p class="section-subtitle text-center" style="color: var(--text-muted);">MFL operates as a fully registered and compliant freight business.</p>
 
-            <!-- OWNER: Fill in all blank fields below with your actual registration details before going live. -->
-            <table class="legal-table">
+            <div style="overflow-x: auto; margin-top: 32px;">
+            <table class="legal-table" style="width: 100%; border-collapse: collapse;">
                 <thead>
                     <tr>
-                        <th>Field</th>
-                        <th>Details</th>
+                        <th style="text-align: left; padding: 12px 16px; background: var(--navy); color: var(--gold); font-weight: 700;">Document</th>
+                        <th style="text-align: left; padding: 12px 16px; background: var(--navy); color: var(--gold); font-weight: 700;">Registration Number</th>
+                        <th style="text-align: left; padding: 12px 16px; background: var(--navy); color: var(--gold); font-weight: 700;">Issuing Authority</th>
+                        <th style="text-align: left; padding: 12px 16px; background: var(--navy); color: var(--gold); font-weight: 700;">Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Company Type</td>
-                        <!-- OWNER: Enter company type — e.g. Proprietorship / Partnership / Private Limited -->
-                        <td style="color: rgba(200,144,42,0.5); font-style: italic;"><!-- OWNER: Proprietorship / Partnership / Pvt Ltd --></td>
+                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border);">GST Certificate</td>
+                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border); color: rgba(200,144,42,0.7); font-style: italic;"><!-- REPLACE: GST Number, format 23XXXXX0000X1ZX for MP or 09XXXXX0000X1ZX for UP -->[To Be Filled]</td>
+                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border);">GST Council of India</td>
+                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border); color: var(--success); font-weight: 600;">Active</td>
                     </tr>
                     <tr>
-                        <td>GST Number</td>
-                        <!-- OWNER: ADD YOUR GST NUMBER HERE (e.g. 23XXXXX1234X1Z5) -->
-                        <td style="color: rgba(200,144,42,0.5); font-style: italic;"><!-- OWNER: ADD GST NUMBER --></td>
+                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border);">MSME Registration</td>
+                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border); color: rgba(200,144,42,0.7); font-style: italic;"><!-- REPLACE: MSME Registration Number -->[To Be Filled]</td>
+                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border);">Ministry of MSME</td>
+                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border); color: var(--success); font-weight: 600;">Active</td>
                     </tr>
                     <tr>
-                        <td>Transport Licence</td>
-                        <!-- OWNER: ADD YOUR TRANSPORT LICENCE NUMBER HERE -->
-                        <td style="color: rgba(200,144,42,0.5); font-style: italic;"><!-- OWNER: ADD LICENCE NUMBER --></td>
+                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border);">Transport Licence</td>
+                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border); color: rgba(200,144,42,0.7); font-style: italic;"><!-- REPLACE: Transport Licence Number -->[To Be Filled]</td>
+                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border);">State Transport Authority</td>
+                        <td style="padding: 11px 16px; border-bottom: 1px solid var(--border); color: var(--success); font-weight: 600;">Active</td>
                     </tr>
                     <tr>
-                        <td>MSME Registration</td>
-                        <!-- OWNER: ADD MSME REGISTRATION NUMBER HERE, or remove this row if not applicable -->
-                        <td style="color: rgba(200,144,42,0.5); font-style: italic;"><!-- OWNER: ADD MSME NUMBER if applicable --></td>
-                    </tr>
-                    <tr>
-                        <td>Cargo Insurance</td>
-                        <td>All shipments covered</td>
-                    </tr>
-                    <tr>
-                        <td>Operational Since</td>
-                        <td>2003</td>
+                        <td style="padding: 11px 16px;">PAN (Business)</td>
+                        <td style="padding: 11px 16px; color: rgba(200,144,42,0.7); font-style: italic;"><!-- REPLACE: PAN Card Number -->[To Be Filled]</td>
+                        <td style="padding: 11px 16px;">Income Tax Department</td>
+                        <td style="padding: 11px 16px; color: var(--success); font-weight: 600;">Active</td>
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
     </section>
 
@@ -506,14 +525,8 @@
                     <p style="color: var(--gold); font-weight: 600; margin-bottom: 12px; font-size: 13px;">Trusted Freight Operations Since 2003</p>
                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Providing reliable B2B commercial freight solutions across India, combining decades of trusted family heritage with structured operational planning.</p>
                     <div class="footer-social">
-                        <a href="https://wa.me/918707812390" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer" style="color: var(--wa-green);">
+                        <a href="https://wa.me/918707812390" target="_blank" rel="noopener noreferrer" aria-label="Chat with MFL on WhatsApp" style="color: var(--wa-green);">
                             <i class="fab fa-whatsapp" style="font-size: 18px;"></i>
-                        </a>
-                        <a href="#" aria-label="MFL on LinkedIn" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-linkedin" style="font-size: 18px;"></i>
-                        </a>
-                        <a href="#" aria-label="MFL on Facebook" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-facebook" style="font-size: 18px;"></i>
                         </a>
                     </div>
                 </div>
@@ -562,8 +575,13 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px;">
-                <p style="font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">GST &amp; MSME Registered B2B Freight Operations</p>
-                <p class="footer-last-updated">Website last updated: July 2026</p>
+                <p style="font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">GST &amp; MSME Registered | B2B Freight Operations</p>
+                <div style="margin-top: 6px; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; font-size: 11px; color: var(--text-muted-dark);">
+                    <span>GST No: <em><!-- REPLACE: GST Number, format 23XXXXX0000X1ZX for MP or 09XXXXX0000X1ZX for UP -->[To Be Filled]</em></span>
+                    <span>Transport Licence: <em><!-- REPLACE: Transport Licence Number -->[To Be Filled]</em></span>
+                    <span>MSME Reg: <em><!-- REPLACE: MSME Registration Number -->[To Be Filled]</em></span>
+                </div>
+                <p class="footer-last-updated">Website last updated: June 2026</p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Mamta Forwarding Logistics. All rights reserved.</p>
@@ -612,8 +630,8 @@
                 <i class="fas fa-exclamation-triangle"></i> Internet connection unavailable. WhatsApp cannot be opened.
             </div>
 
-            <!-- Offline Warning Alert -->
-            <div id="mfl-wa-offline-alert" class="mfl-wa-offline-alert" style="display: none;">
+            <!-- Offline Warning Alert (2) -->
+            <div id="mfl-wa-offline-alert-2" class="mfl-wa-offline-alert" style="display: none;">
                 <i class="fas fa-exclamation-triangle"></i> Internet connection unavailable. WhatsApp cannot be opened.
             </div>
 
