@@ -311,10 +311,10 @@ function attachFormHandler(form, submitBtnId, wrapId, successId) {
         var fullName  = form.querySelector('[name="full_name"]');
         var company   = form.querySelector('[name="company_name"]');
         var phone     = form.querySelector('[name="phone"]');
-        var service   = form.querySelector('[name="required_service"]');
-        var origin    = form.querySelector('[name="pickup_city"]');
-        var dest      = form.querySelector('[name="delivery_city"]');
-        var weight    = form.querySelector('[name="estimated_weight"]');
+        var service   = form.querySelector('[name="required_service"]') || form.querySelector('[name="service_type"]');
+        var origin    = form.querySelector('[name="pickup_city"]') || form.querySelector('[name="origin_city"]');
+        var dest      = form.querySelector('[name="delivery_city"]') || form.querySelector('[name="destination_city"]');
+        var weight    = form.querySelector('[name="estimated_weight"]') || form.querySelector('[name="approx_weight"]');
         var cargo     = form.querySelector('[name="cargo_type"]');
         var volume    = form.querySelector('[name="monthly_volume"]');
         var date      = form.querySelector('[name="pickup_date"]');
@@ -328,7 +328,7 @@ function attachFormHandler(form, submitBtnId, wrapId, successId) {
         if (!cargo    || !cargo.value)                                   { showFieldError(cargo,     'Please select a cargo type'); valid = false; }
         if (!weight   || !weight.value)                                  { showFieldError(weight,    'Please select an estimated weight'); valid = false; }
         if (date      && !date.value)                                    { showFieldError(date,      'Please select a pickup date'); valid = false; }
-        if (!volume   || !volume.value)                                  { showFieldError(volume,    'Please select an approximate monthly shipment volume'); valid = false; }
+        if (volume    && !volume.value)                                  { showFieldError(volume,    'Please select an approximate monthly shipment volume'); valid = false; }
 
         if (!valid) {
             var firstInvalid = form.querySelector('.field-error');
@@ -351,18 +351,18 @@ function attachFormHandler(form, submitBtnId, wrapId, successId) {
 
         // Structured payload object for future backend/CRM integration
         var payload = {
-            fullName: fullName.value.trim(),
-            companyName: company.value.trim(),
-            phone: phone.value.trim(),
+            fullName: fullName ? fullName.value.trim() : '',
+            companyName: company ? company.value.trim() : '',
+            phone: phone ? phone.value.trim() : '',
             email: form.querySelector('[name="email"]') ? form.querySelector('[name="email"]').value.trim() : '',
-            requiredService: service.value,
-            pickupCity: origin.value.trim(),
-            deliveryCity: dest.value.trim(),
-            estimatedWeight: weight.value,
-            cargoType: cargo.value,
-            monthlyVolume: volume.value,
+            requiredService: service ? service.value : '',
+            pickupCity: origin ? origin.value.trim() : '',
+            deliveryCity: dest ? dest.value.trim() : '',
+            estimatedWeight: weight ? weight.value : '',
+            cargoType: cargo ? cargo.value : '',
+            monthlyVolume: volume ? volume.value : '',
             pickupDate: date ? date.value : '',
-            additionalNotes: form.querySelector('[name="additional_notes"]') ? form.querySelector('[name="additional_notes"]').value.trim() : ''
+            additionalNotes: (form.querySelector('[name="additional_notes"]') || form.querySelector('[name="special_instructions"]')) ? (form.querySelector('[name="additional_notes"]') || form.querySelector('[name="special_instructions"]')).value.trim() : ''
         };
         // console.log("MFL Enquiry Submitted Payload:", payload);
 
