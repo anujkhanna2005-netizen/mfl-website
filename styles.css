@@ -243,6 +243,14 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   animation: dropdownFadeIn 0.2s ease;
 }
+@media (min-width: 769px) {
+  .nav-links > li:hover .nav-dropdown-menu {
+    display: block !important;
+  }
+  .nav-links > li:hover .nav-dropdown-toggle .chevron {
+    transform: rotate(180deg) !important;
+  }
+}
 
 .nav-dropdown-menu a {
   display: block;
