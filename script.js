@@ -371,7 +371,7 @@ function attachFormHandler(form, submitBtnId, wrapId, successId) {
 
         // OWNER: Form submits via FormSubmit AJAX to anujkhanna1029@gmail.com.
         // To change the recipient email, update the URL in the fetch() call below.
-        fetch('https://formsubmit.co/ajax/anujkhanna1029@gmail.com', {
+        fetch('https://formsubmit.co/ajax/Mamtaforwardinglogistic@gmail.com', {
             method:  'POST',
             body:    new FormData(form),
             headers: { 'Accept': 'application/json' }
@@ -1756,13 +1756,13 @@ var MflLogisticsAssistant = {
                 }
             }
             
-            var greeting = "Good Day 👋 How can we help with today's shipment?";
+            var greeting = "Good Day — How can we help with today's shipment?";
             if (hour >= 5 && hour < 12) {
-                greeting = "Good Morning 👋 How can we help with today's shipment?";
+                greeting = "Good Morning — How can we help with today's shipment?";
             } else if (hour >= 12 && hour < 17) {
-                greeting = "Good Afternoon 👋 How can we help with today's shipment?";
+                greeting = "Good Afternoon — How can we help with today's shipment?";
             } else if (hour >= 17 || hour < 5) {
-                greeting = "Good Evening 👋 How can we help with today's shipment?";
+                greeting = "Good Evening — How can we help with today's shipment?";
             }
             
             var subtitle = document.getElementById('mfl-wa-subtitle');
